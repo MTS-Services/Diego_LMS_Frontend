@@ -9,7 +9,6 @@ function App() {
   return (
     <>
       <div>
-        http://go88ok80s48cooowowo8oc8g.147.93.107.217.sslip.io,https://diegofrontend.mtscorporate.com
         <a href='https://vite.dev' target='_blank'>
           <img src={viteLogo} className='logo' alt='Vite logo' />
         </a>
