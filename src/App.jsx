@@ -2,9 +2,26 @@ import { useState } from 'react';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
+import { useEffect } from 'react';
 
 function App() {
   const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    fetch('http://localhost:8000/api/v1/docs') // example API
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+      });
+  }, []);
 
   return (
     <>
@@ -16,7 +33,7 @@ function App() {
           <img src={reactLogo} className='logo react' alt='React logo' />
         </a>
       </div>
-      <h1 class='text-3xl font-bold underline'>Hello world!</h1>
+      <h1 className='text-3xl font-bold underline'>Hello world!</h1>
       <h1>Vite + React</h1>
       <div className='card'>
         <button onClick={() => setCount((count) => count + 1)}>
