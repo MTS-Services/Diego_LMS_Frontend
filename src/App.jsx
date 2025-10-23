@@ -1,14 +1,12 @@
 import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
-import './App.css';
 import { useEffect } from 'react';
+import './App.css';
 
 function App() {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    fetch('http://localhost:8000/api/v1/docs') // example API
+    fetch('http://localhost:3001/api/v1/docs') // example API
       .then((response) => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -25,14 +23,7 @@ function App() {
 
   return (
     <>
-      <div>
-        <a href='https://vite.dev' target='_blank'>
-          <img src={viteLogo} className='logo' alt='Vite logo' />
-        </a>
-        <a href='https://react.dev' target='_blank'>
-          <img src={reactLogo} className='logo react' alt='React logo' />
-        </a>
-      </div>
+      <div></div>
       <h1 className='text-3xl font-bold underline'>Hello world!</h1>
       <h1>Vite + React</h1>
       <div className='card'>
