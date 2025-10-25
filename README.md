@@ -14,5 +14,81 @@ The React Compiler is not enabled on this template because of its impact on dev 
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# Diego_LMS_MERN
-# Diego_LMS_Frontend
+
+# Project Structure
+
+```js
+
+└── 📁 src/
+├──  App.jsx
+├──  index.css
+├──  main.jsx
+├── 📁 router/
+│ ├── router.jsx
+│ ├── 📁 guards/
+│ │ ├── AuthGuard.jsx
+│ │ ├── PublicGuard.jsx
+│ │ └── RoleGuard.jsx
+│ └── 📁 layout/
+│ ├── 📁 teacher/
+│ │ └── TeacherLayout.jsx
+│ ├── 📁 students/
+│ │ └── StudentLayout.jsx
+│ ├── 📁 public/
+│ │ └── MainLayout.jsx
+│ ├── 📁 auth/
+│ │ └── AuthLayout.jsx
+│ └── 📁 admin/
+│ └── AdminLayout.jsx
+├── 📁 config/
+│ ├── api.js
+│ ├── appConfig.js
+│ ├── constants.js
+│ ├── permissions.js
+│ ├── roles.js
+│ ├── routes.js
+│ └── 📁 language/
+│ ├── 📁 locales/
+│ │ ├── index.js
+│ │ ├── 📁 zh/
+│ │ │ └── translation.json
+│ │ ├── 📁 it/
+│ │ │ └── translation.json
+│ │ ├── 📁 en/
+│ │ │ └── translation.json
+│ │ └── 📁 ar/
+│ │ └── translation.json
+│ └── 📁 i18n/
+│ ├── index.js
+│ ├── rtl.js
+│ └── settings.js
+├── 📁 components/
+│ └── LanguageSwitcher.jsx
+├── 📁 api/
+│ ├── axiosInstance.js
+│ ├── endpoints.js
+│ └── httpMethods.js
+├── 📁 pages/
+│ ├── 📁 teacher/
+│ │ ├── CoursesView.jsx
+│ │ ├── TeacherView.jsx
+│ │ └── VideosView.jsx
+│ ├── 📁 students/
+│ │ ├── DocsView.jsx
+│ │ └── StudentView.jsx
+│ ├── 📁 home/
+│ │ ├── ContactView.jsx
+│ │ └── HomeView.jsx
+│ ├── 📁 err/
+│ │ └── ErrorView.jsx
+│ ├── 📁 auth/
+│ │ └── LoginView.jsx
+│ └── 📁 admin/
+│ ├── AdminView.jsx
+│ └── UsersView.jsx
+└── 📁 features/
+└── 📁 store/
+├── rootReducer.js
+└── store.js
+
+```

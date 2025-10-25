@@ -1,4 +1,3 @@
-// src/01-config/permissions.js
 import { ROLES } from './roles';
 import { ROUTES } from './routes';
 

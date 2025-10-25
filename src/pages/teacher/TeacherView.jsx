@@ -1,7 +1,9 @@
-import React from 'react';
-
 const TeacherView = () => {
-  return <div>[TEACHER] Teacher View</div>;
+  return (
+    <div>
+      <h1>[TEACHER] Teacher View</h1>
+    </div>
+  );
 };
 
 export default TeacherView;

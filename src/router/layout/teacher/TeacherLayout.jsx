@@ -1,13 +1,7 @@
 import { Outlet, Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+import LanguageSwitcher from '../../../components/common/LanguageSwitcher';
 
 const TeacherLayout = () => {
-  const { i18n } = useTranslation();
-
-  const changeLanguage = (lang) => {
-    i18n.changeLanguage(lang);
-  };
-
   return (
     <div>
       <nav>
@@ -19,10 +13,7 @@ const TeacherLayout = () => {
         <Outlet />
       </main>
       <footer className="space-x-2">
-        <button onClick={() => changeLanguage('en')}>🇬🇧 English</button>
-        <button onClick={() => changeLanguage('zh')}>🇨🇳 中文</button>
-        <button onClick={() => changeLanguage('ar')}>🇦🇪 العربية</button>
-        <button onClick={() => changeLanguage('it')}>🇮🇹 Italiano</button>
+        <LanguageSwitcher />
       </footer>
     </div>
   );
