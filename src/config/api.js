@@ -1,7 +1,6 @@
 // e.g., in your auth context or Redux store
-const user = {
+export const user = {
   id: '123',
-  role: 'student', // or 'admin', 'instructor', etc.
+  role: 'student', // 'admin' | 'teacher' | 'student'
   isAuthenticated: true,
 };
-export default user;

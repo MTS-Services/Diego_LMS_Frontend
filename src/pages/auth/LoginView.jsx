@@ -1,7 +1,7 @@
 import React from 'react';
 
 const LoginView = () => {
-  return <div>LoginView</div>;
+  return <div>[AUTH] Login View</div>;
 };
 
 export default LoginView;

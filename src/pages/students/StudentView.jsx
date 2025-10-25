@@ -1,7 +1,7 @@
 import React from 'react';
 
 const StudentView = () => {
-  return <div>StudentView</div>;
+  return <div>[STUDENT] Student View</div>;
 };
 
 export default StudentView;
