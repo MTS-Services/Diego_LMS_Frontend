@@ -4,9 +4,9 @@ const AdminLayout = () => {
   return (
     <div>
       <nav>
-        <Link to='/admin'>Dashboard</Link> |{' '}
-        <Link to='/admin/user-management'>Users</Link> |{' '}
-        <Link to='/admin/settings'>Settings</Link>
+        <Link to="/super-admin">Dashboard</Link> |{' '}
+        <Link to="/admin/user-management">Users</Link> |{' '}
+        <Link to="/admin/settings">Settings</Link>
       </nav>
       <main>
         <Outlet />

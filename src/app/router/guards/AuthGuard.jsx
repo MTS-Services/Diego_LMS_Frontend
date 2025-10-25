@@ -2,11 +2,14 @@ import { Navigate, Outlet } from 'react-router-dom';
 import { user } from '../../config/api';
 
 const AuthGuard = () => {
-  return user && user.isAuthenticated ? (
-    <Outlet />
-  ) : (
-    <Navigate to='/auth/login' replace />
-  );
+  const result =
+    user && user.isAuthenticated ? (
+      <Outlet />
+    ) : (
+      <Navigate to="/auth/login" replace />
+    );
+
+  return result;
 };
 
 export default AuthGuard;
