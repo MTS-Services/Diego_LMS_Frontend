@@ -1,20 +1,16 @@
 import { Outlet, Link } from 'react-router-dom';
-import LanguageSwitcher from '../../../components/common/LanguageSwitcher';
+import DashboardNavbar from '../admin/DashboardNavbar';
+import { user } from '../../../config/api';
 
 const TeacherLayout = () => {
   return (
     <div>
       <nav>
-        <Link to="/dashboard/teacher">Dashboard</Link> |{' '}
-        <Link to="/dashboard/courses">Courses</Link> |{' '}
-        <Link to="/dashboard/videos">Videos</Link>
+        <DashboardNavbar user={user} />
       </nav>
       <main>
         <Outlet />
       </main>
-      <footer className="space-x-2">
-        <LanguageSwitcher />
-      </footer>
     </div>
   );
 };
