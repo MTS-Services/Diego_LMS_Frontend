@@ -1,5 +1,5 @@
 import { Navigate, Outlet } from 'react-router-dom';
-import { user } from '../../../config/api';
+import { user } from '../../config/api';
 
 const RoleGuard = ({ allowedRoles }) => {
   if (!user || !user.isAuthenticated) {

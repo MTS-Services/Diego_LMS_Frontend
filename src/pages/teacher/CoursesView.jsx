@@ -1,7 +1,14 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 const CoursesView = () => {
-  return <div>[TEACHER] Courses View</div>;
+  const { t } = useTranslation();
+  return (
+    <div>
+      <p>[TEACHER] Courses View</p>
+      <p className="text-xl">{t('welcome')}</p>
+    </div>
+  );
 };
 
 export default CoursesView;

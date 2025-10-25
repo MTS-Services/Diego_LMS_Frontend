@@ -1,6 +1,5 @@
-// src/02-api/axiosInstance.js
 import axios from 'axios';
-import { APP_CONFIG } from '../01-config/appConfig';
+import APP_CONFIG from '../config/appConfig';
 
 const api = axios.create({
   baseURL: APP_CONFIG.apiBaseUrl, // centralized API base URL

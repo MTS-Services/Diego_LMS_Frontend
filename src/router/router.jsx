@@ -7,28 +7,28 @@ import {
 } from 'react-router-dom';
 
 // Layouts
-import MainLayout from '../../layout/public/MainLayout.jsx';
-import AuthLayout from '../../layout/auth/AuthLayout.jsx';
-import AdminLayout from '../../layout/admin/AdminLayout.jsx';
-import TeacherLayout from '../../layout/teacher/TeacherLayout.jsx';
-import StudentLayout from '../../layout/students/StudentLayout.jsx';
+import MainLayout from './layout/public/MainLayout.jsx';
+import AuthLayout from './layout/auth/AuthLayout.jsx';
+import AdminLayout from './layout/admin/AdminLayout.jsx';
+import TeacherLayout from './layout/teacher/TeacherLayout.jsx';
+import StudentLayout from './layout/students/StudentLayout.jsx';
 
 // Views
-import HomeView from '../../pages/home/HomeView.jsx';
-import LoginView from '../../pages/auth/LoginView.jsx';
-import AdminView from '../../pages/admin/AdminView.jsx';
-import UsersView from '../../pages/admin/UsersView.jsx';
-import TeacherView from '../../pages/teacher/TeacherView.jsx';
-import VideosView from '../../pages/teacher/VideosView.jsx';
-import StudentView from '../../pages/students/StudentView.jsx';
-import DocsView from '../../pages/students/DocsView.jsx';
+import HomeView from '../pages/home/HomeView.jsx';
+import LoginView from '../pages/auth/LoginView.jsx';
+import AdminView from '../pages/admin/AdminView.jsx';
+import UsersView from '../pages/admin/UsersView.jsx';
+import TeacherView from '../pages/teacher/TeacherView.jsx';
+import VideosView from '../pages/teacher/VideosView.jsx';
+import StudentView from '../pages/students/StudentView.jsx';
+import DocsView from '../pages/students/DocsView.jsx';
 
 // Guards
-import PublicGuard from './guards/PublicGuard';
+import PublicGuard from './guards/PublicGuard.jsx';
 import RoleGuard from './guards/RoleGuard.jsx';
-import ErrorView from '../../pages/err/ErrorView.jsx';
-import ContactView from '../../pages/home/ContactView.jsx';
-import CoursesView from '../../pages/teacher/CoursesView.jsx';
+import ErrorView from '../pages/err/ErrorView.jsx';
+import ContactView from '../pages/home/ContactView.jsx';
+import CoursesView from '../pages/teacher/CoursesView.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(

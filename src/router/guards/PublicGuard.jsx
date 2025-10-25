@@ -1,6 +1,6 @@
 // src/router/guards/PublicGuard.jsx
 import { Navigate, Outlet } from 'react-router-dom';
-import { user } from '../../../config/api';
+import { user } from '../../config/api';
 
 const PublicGuard = () => {
   if (user && user.isAuthenticated) {

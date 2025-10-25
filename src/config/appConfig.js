@@ -1,4 +1,3 @@
-// src/config/appConfig.js
 const APP_CONFIG = {
   name: 'LMS Pro',
   version: '1.0.0',
