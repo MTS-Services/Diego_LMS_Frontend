@@ -1,11 +1,11 @@
 import React from 'react';
 
-const UsersView = () => {
+const SettingsView = () => {
   return (
     <div className="flex grid-cols-2 bg-amber-300 text-3xl">
-      [ADMIN] Users View
+      [ADMIN] Settings View
     </div>
   );
 };
 
-export default UsersView;
+export default SettingsView;

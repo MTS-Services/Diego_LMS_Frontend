@@ -4,9 +4,9 @@ import { user } from '../../config/api';
 const AuthGuard = () => {
   const result =
     user && user.isAuthenticated ? (
-      <Outlet />
-    ) : (
       <Navigate to="/auth/login" replace />
+    ) : (
+      <Outlet />
     );
 
   return result;

@@ -4,7 +4,6 @@ const InputField = ({
   id,
   name,
   type = 'text',
-  label,
   value,
   onChange,
   placeholder = '',
@@ -15,15 +14,6 @@ const InputField = ({
 }) => {
   return (
     <div className={className}>
-      {label && (
-        <label
-          htmlFor={id}
-          className="mb-1 block text-sm font-medium text-gray-700"
-        >
-          {label}
-          {required && <span className="ml-1 text-red-500">*</span>}
-        </label>
-      )}
       <input
         type={type}
         id={id}

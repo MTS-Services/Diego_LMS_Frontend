@@ -1,23 +1,22 @@
-// src/router/guards/PublicGuard.jsx
 import { Navigate, Outlet } from 'react-router-dom';
 import { user } from '../../config/api';
 
 const PublicGuard = () => {
+  // If user is logged in, redirect immediately based on their role
   if (user && user.isAuthenticated) {
-    // Redirect based on role
     switch (user.role) {
       case 'admin':
-        return <Navigate to="/super-admin" replace />;
+        return <Navigate to="/dash/super-admin" replace />;
       case 'teacher':
-        return <Navigate to="/dashboard/teacher" replace />;
+        return <Navigate to="/dash/teacher" replace />;
       case 'student':
-        return <Navigate to="/dashboard/student" replace />;
+        return <Navigate to="/dash/student" replace />;
       default:
         return <Navigate to="/" replace />;
     }
   }
 
-  // Not authenticated → allow public routes
+  // If not logged in, show public/auth routes
   return <Outlet />;
 };
 

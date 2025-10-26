@@ -1,6 +1,6 @@
 export const user = {
   id: '123',
-  role: 'teacher', // 'admin' | 'teacher' | 'student'
+  role: 'admin', // 'admin' | 'teacher' | 'student'
   isAuthenticated: true,
 };
 

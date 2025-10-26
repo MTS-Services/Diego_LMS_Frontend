@@ -8,8 +8,7 @@ export { default as ScrollToTop } from './Utilities/ScrollToTop';
 export { default as Skeleton } from './Utilities/Skeleton';
 
 export { default as Heading } from './typography/Heading';
-export { default as Label } from './typography/Label';
-export { default as Text } from './typography/Text';
+export { default as Paragraph } from './typography/Paragraph';
 
 export { default as DataTable } from './tables/DataTable';
 export { default as TableHeader } from './tables/TableHeader';
@@ -34,6 +33,7 @@ export { default as Row } from './layouts/Row';
 export { default as Column } from './layouts/Column';
 export { default as Card } from './layouts/Card';
 
+export { default as Label } from './forms/Label';
 export { default as Checkbox } from './forms/Checkbox';
 export { default as FormWrapper } from './forms/FormWrapper';
 export { default as InputField } from './forms/InputField';

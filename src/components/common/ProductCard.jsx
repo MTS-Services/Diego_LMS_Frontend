@@ -1,4 +1,4 @@
-import { Button, Heading, Image, Text } from '../ui';
+import { Button, Heading, Image, Paragraph } from '../ui';
 
 const ProductCard = ({
   image,
@@ -30,14 +30,14 @@ const ProductCard = ({
         <Heading level={3} className="mb-1 font-semibold">
           {title}
         </Heading>
-        <Text variant="small" className="mb-3 line-clamp-2 text-gray-500">
+        <Paragraph variant="small" className="mb-3 line-clamp-2 text-gray-500">
           {description}
-        </Text>
+        </Paragraph>
 
         {/* Rating + Price */}
         <div className="mb-3 flex items-center justify-between">
           ⭐⭐⭐⭐⭐
-          <Text className="text-lg font-bold">${price}</Text>
+          <Paragraph className="text-lg font-bold">${price}</Paragraph>
         </div>
 
         {/* Button */}

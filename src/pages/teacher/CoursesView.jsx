@@ -6,8 +6,8 @@ import {
   Grid,
   Heading,
   Image,
+  Paragraph,
   Row,
-  Text,
 } from '../../components/ui';
 // Demo data — you can replace this later with fetched data
 const courses = [
@@ -88,12 +88,12 @@ const CoursesView = () => {
                 >
                   {course.title}
                 </Heading>
-                <Text
+                <Paragraph
                   variant="small"
                   className="mb-3 line-clamp-2 text-gray-600"
                 >
                   {course.desc}
-                </Text>
+                </Paragraph>
 
                 {/* Footer Section */}
                 <Row
@@ -101,9 +101,9 @@ const CoursesView = () => {
                   align="center"
                   className="mt-auto border-t border-gray-100 pt-3"
                 >
-                  <Text className="text-sm text-gray-500">
+                  <Paragraph className="text-sm text-gray-500">
                     👩‍🎓 {course.students} students
-                  </Text>
+                  </Paragraph>
                   <Button
                     size="sm"
                     variant="secondary"

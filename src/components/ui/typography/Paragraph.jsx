@@ -1,6 +1,11 @@
 import React from 'react';
 
-const Text = ({ children, variant = 'body', className = '', ...props }) => {
+const Paragraph = ({
+  children,
+  variant = 'body',
+  className = '',
+  ...props
+}) => {
   const variants = {
     body: 'text-base text-gray-700',
     small: 'text-sm text-gray-600',
@@ -17,4 +22,4 @@ const Text = ({ children, variant = 'body', className = '', ...props }) => {
   );
 };
 
-export default Text;
+export default Paragraph;
