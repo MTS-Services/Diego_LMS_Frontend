@@ -1,8 +1,10 @@
+import Container from '../../components/common/Container';
+
 const HomeView = () => {
   return (
-    <div>
+    <Container>
       <h1>🏠 Welcome to LMS</h1>
-    </div>
+    </Container>
   );
 };
 

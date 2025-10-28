@@ -1,5 +1,7 @@
+import Container from '../../components/common/Container';
+
 const ServicesView = () => {
-  return <div>ServicesView</div>;
+  return <Container>ServicesView</Container>;
 };
 
 export default ServicesView;

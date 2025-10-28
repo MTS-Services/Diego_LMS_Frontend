@@ -1,5 +1,7 @@
+import Container from '../../components/common/Container';
+
 const WorkWithUsView = () => {
-  return <div>WorkWithUsView</div>;
+  return <Container>WorkWithUsView</Container>;
 };
 
 export default WorkWithUsView;

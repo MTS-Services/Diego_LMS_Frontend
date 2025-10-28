@@ -1,5 +1,7 @@
+import Container from '../../components/common/Container';
+
 const TrainingView = () => {
-  return <div>TrainingView</div>;
+  return <Container>TrainingView</Container>;
 };
 
 export default TrainingView;

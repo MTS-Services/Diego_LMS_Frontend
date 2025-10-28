@@ -9,14 +9,14 @@ const navItems = [
   { label: 'Home', path: '/' },
   {
     label: 'Services',
-    path: '/services-view',
+    path: '/services',
     dropdown: [
       {
         label: 'Seveso',
         dropdown: [
           {
             label: 'Corsi SEVESO',
-            path: '/services-view/sev/sev-courses',
+            path: '/services/sev/sev-courses',
           },
         ],
       },
@@ -25,52 +25,52 @@ const navItems = [
         dropdown: [
           {
             label: 'Servizio ASPP e RSPP',
-            path: '/services-view/security/asp-service',
+            path: '/services/security/asp-service',
           },
           {
             label: 'Redazione DVR',
-            path: '/services-view/sicurezza/redazione-dvr',
+            path: '/services/sicurezza/redazione-dvr',
           },
           {
             label: 'Piani di emergenza',
-            path: '/services-view/sicurezza/piani-di-emergenza',
+            path: '/services/sicurezza/piani-di-emergenza',
           },
           {
             label: 'Fulminazione',
-            path: '/services-view/sicurezza/fulminazione',
+            path: '/services/sicurezza/fulminazione',
           },
           {
             label: 'Legionella',
-            path: '/services-view/sicurezza/legionella',
+            path: '/services/sicurezza/legionella',
           },
           {
             label: 'Potabilità acqua',
-            path: '/services-view/sicurezza/potabilità-acqua',
+            path: '/services/sicurezza/potabilità-acqua',
           },
           {
             label: 'Radon',
-            path: '/services-view/sicurezza/radon',
+            path: '/services/sicurezza/radon',
           },
           {
             label: 'Analisi di laboratorio',
-            path: '/services-view/sicurezza/analisi-di-laboratorio',
+            path: '/services/sicurezza/analisi-di-laboratorio',
           },
           {
             label: 'Building management',
-            path: '/services-view/sicurezza/building-management',
+            path: '/services/sicurezza/building-management',
           },
         ],
       },
       {
         label: 'Ambiente',
-        dropdown: [{ label: 'RENTRI', path: '/services-view/ambiente/rentri' }],
+        dropdown: [{ label: 'RENTRI', path: '/services/ambiente/rentri' }],
       },
       {
         label: 'Videosorveglianza',
         dropdown: [
           {
             label: 'Gestione autorizzazione impianti',
-            path: '/services-view/Videosorveglianza/gestione-autorizzazione',
+            path: '/services/Videosorveglianza/gestione-autorizzazione',
           },
         ],
       },
@@ -79,15 +79,15 @@ const navItems = [
         dropdown: [
           {
             label: 'Incarichi medico competente',
-            path: '/services-view/medicina-del/incarichi',
+            path: '/services/medicina-del/incarichi',
           },
           {
             label: 'Gestione visite mediche',
-            path: '/services-view/medicina-del/gestione',
+            path: '/services/medicina-del/gestione',
           },
           {
             label: 'Analisi laboratorio',
-            path: '/services-view/medicina-del/analisi',
+            path: '/services/medicina-del/analisi',
           },
         ],
       },
@@ -96,7 +96,7 @@ const navItems = [
         dropdown: [
           {
             label: 'Gestione immobiliare',
-            path: '/services-view/condominio/gestione',
+            path: '/services/condominio/gestione',
           },
         ],
       },
@@ -129,10 +129,11 @@ const navItems = [
       },
     ],
   },
-  { label: 'Chi siamo', path: '/who-are-you' },
-  { label: 'Collabora con noi', path: '/collaborate-with-us' },
-  { label: 'Contattaci', path: '/contact-us' },
+  { label: 'Chi siamo', path: '/who_we_are' },
+  { label: 'Collabora con noi', path: '/work_with_us' },
+  { label: 'Contattaci', path: '/contact_us' },
 ];
+
 const MainNavbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);

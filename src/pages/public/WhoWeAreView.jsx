@@ -1,5 +1,7 @@
+import Container from '../../components/common/Container';
+
 const WhoWeAreView = () => {
-  return <div>WhoWeAreView</div>;
+  return <Container>WhoWeAreView</Container>;
 };
 
 export default WhoWeAreView;

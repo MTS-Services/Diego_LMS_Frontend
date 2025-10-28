@@ -29,18 +29,22 @@ import WorkWithUsView from '../pages/public/WorkWithUsView.jsx';
 
 // Auth
 import LoginView from '../pages/auth/LoginView.jsx';
+
 // Admin View
 import SettingsView from '../pages/admin/SettingsView.jsx';
 import AdminView from '../pages/admin/AdminView.jsx';
 import UsersView from '../pages/admin/UsersView.jsx';
+
 // Teacher
 import TeacherView from '../pages/teacher/TeacherView.jsx';
 import CoursesView from '../pages/teacher/CoursesView.jsx';
 import VideosView from '../pages/teacher/VideosView.jsx';
+
 // Student
 import StudentView from '../pages/students/StudentView.jsx';
 import DocsView from '../pages/students/DocsView.jsx';
 
+// ErrorView
 import ErrorView from '../pages/err/ErrorView.jsx';
 
 const router = createBrowserRouter(

@@ -1,5 +1,7 @@
+import Container from '../../components/common/Container';
+
 const ContactUsView = () => {
-  return <div>ContactUsView</div>;
+  return <Container>ContactUsView</Container>;
 };
 
 export default ContactUsView;
