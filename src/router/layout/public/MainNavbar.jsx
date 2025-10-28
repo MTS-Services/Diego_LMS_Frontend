@@ -29,35 +29,35 @@ const navItems = [
           },
           {
             label: 'Redazione DVR',
-            path: '/services/sicurezza/redazione-dvr',
+            path: '/services/security/dvr-editorial',
           },
           {
             label: 'Piani di emergenza',
-            path: '/services/sicurezza/piani-di-emergenza',
+            path: '/services/security/emergency-plans',
           },
           {
             label: 'Fulminazione',
-            path: '/services/sicurezza/fulminazione',
+            path: '/services/security/lightning',
           },
           {
             label: 'Legionella',
-            path: '/services/sicurezza/legionella',
+            path: '/services/security/legion',
           },
           {
             label: 'Potabilità acqua',
-            path: '/services/sicurezza/potabilità-acqua',
+            path: '/services/safety/drinking-water',
           },
           {
             label: 'Radon',
-            path: '/services/sicurezza/radon',
+            path: '/services/security/radon',
           },
           {
             label: 'Analisi di laboratorio',
-            path: '/services/sicurezza/analisi-di-laboratorio',
+            path: '/services/security/laboratory-analysis',
           },
           {
             label: 'Building management',
-            path: '/services/sicurezza/building-management',
+            path: '/services/security/building-management',
           },
         ],
       },

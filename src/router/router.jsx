@@ -26,6 +26,9 @@ import ContactUsView from '../pages/public/ContactUsView.jsx';
 import WorkWithUsView from '../pages/public/WorkWithUsView.jsx';
 
 // Nested Page
+import SevCoursesView from '../pages/public/nested_pages/SevCoursesView.jsx';
+import SafetyServiceView from '../pages/public/nested_pages/SafetyServiceView.jsx';
+import SafetyEditorial from '../pages/public/nested_pages/SafetyEditorial.jsx';
 
 // Auth
 import LoginView from '../pages/auth/LoginView.jsx';
@@ -46,6 +49,13 @@ import DocsView from '../pages/students/DocsView.jsx';
 
 // ErrorView
 import ErrorView from '../pages/err/ErrorView.jsx';
+import SafetyEmergencyView from '../pages/public/nested_pages/SafetyEmergencyView.jsx';
+import SafetyLightningView from '../pages/public/nested_pages/SafetyLightningView.jsx';
+import SafetyLegionView from '../pages/public/nested_pages/SafetyLegionView.jsx';
+import SafetyDrinkingWater from '../pages/public/nested_pages/SafetyDrinkingWater.jsx';
+import SafetyRadonView from '../pages/public/nested_pages/SafetyRadonView.jsx';
+import SafetyLaboratoryView from '../pages/public/nested_pages/SafetyLaboratoryView.jsx';
+import SafetyBuildingView from '../pages/public/nested_pages/SafetyBuildingView.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -58,6 +68,42 @@ const router = createBrowserRouter(
         <Route path="who_we_are" element={<WhoWeAreView />} />
         <Route path="work_with_us" element={<WorkWithUsView />} />
         <Route path="contact_us" element={<ContactUsView />} />
+
+        {/* Nested View */}
+        <Route path="services/sev/sev-courses" element={<SevCoursesView />} />
+        <Route
+          path="/services/security/asp-service"
+          element={<SafetyServiceView />}
+        />
+        <Route
+          path="/services/security/dvr-editorial"
+          element={<SafetyEditorial />}
+        />
+        <Route
+          path="/services/security/emergency-plans"
+          element={<SafetyEmergencyView />}
+        />
+        <Route
+          path="/services/security/lightning"
+          element={<SafetyLightningView />}
+        />
+        <Route
+          path="/services/security/legion"
+          element={<SafetyLegionView />}
+        />
+        <Route
+          path="/services/safety/drinking-water"
+          element={<SafetyDrinkingWater />}
+        />
+        <Route path="/services/security/radon" element={<SafetyRadonView />} />
+        <Route
+          path="/services/security/laboratory-analysis"
+          element={<SafetyLaboratoryView />}
+        />
+        <Route
+          path="/services/security/building-management"
+          element={<SafetyBuildingView />}
+        />
       </Route>
 
       {/* Auth */}
@@ -65,7 +111,6 @@ const router = createBrowserRouter(
         <Route index element={<Navigate to="login" />} />
         <Route path="login" element={<LoginView />} />
       </Route>
-
       <Route path="/dash" element={<DashboardLayout />}>
         {/* Admin */}
         <Route element={<RoleGuard allowedRoles={['admin']} />}>
@@ -89,7 +134,6 @@ const router = createBrowserRouter(
           <Route path="st-settings" element={<SettingsView />} />
         </Route>
       </Route>
-
       <Route path="*" element={<ErrorView />} />
     </>,
   ),
