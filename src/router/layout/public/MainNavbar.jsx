@@ -5,141 +5,138 @@ import { IoMenu } from 'react-icons/io5';
 import { Link, useLocation } from 'react-router-dom';
 import Container from '../../../components/common/Container';
 
+const navItems = [
+  { label: 'Home', path: '/' },
+  {
+    label: 'Services',
+    path: '/services-view',
+    dropdown: [
+      {
+        label: 'Seveso',
+        dropdown: [
+          {
+            label: 'Corsi SEVESO',
+            path: '/services-view/sev/sev-courses',
+          },
+        ],
+      },
+      {
+        label: 'Sicurezza',
+        dropdown: [
+          {
+            label: 'Servizio ASPP e RSPP',
+            path: '/services-view/security/asp-service',
+          },
+          {
+            label: 'Redazione DVR',
+            path: '/services-view/sicurezza/redazione-dvr',
+          },
+          {
+            label: 'Piani di emergenza',
+            path: '/services-view/sicurezza/piani-di-emergenza',
+          },
+          {
+            label: 'Fulminazione',
+            path: '/services-view/sicurezza/fulminazione',
+          },
+          {
+            label: 'Legionella',
+            path: '/services-view/sicurezza/legionella',
+          },
+          {
+            label: 'Potabilità acqua',
+            path: '/services-view/sicurezza/potabilità-acqua',
+          },
+          {
+            label: 'Radon',
+            path: '/services-view/sicurezza/radon',
+          },
+          {
+            label: 'Analisi di laboratorio',
+            path: '/services-view/sicurezza/analisi-di-laboratorio',
+          },
+          {
+            label: 'Building management',
+            path: '/services-view/sicurezza/building-management',
+          },
+        ],
+      },
+      {
+        label: 'Ambiente',
+        dropdown: [{ label: 'RENTRI', path: '/services-view/ambiente/rentri' }],
+      },
+      {
+        label: 'Videosorveglianza',
+        dropdown: [
+          {
+            label: 'Gestione autorizzazione impianti',
+            path: '/services-view/Videosorveglianza/gestione-autorizzazione',
+          },
+        ],
+      },
+      {
+        label: 'Medicina del lavoro',
+        dropdown: [
+          {
+            label: 'Incarichi medico competente',
+            path: '/services-view/medicina-del/incarichi',
+          },
+          {
+            label: 'Gestione visite mediche',
+            path: '/services-view/medicina-del/gestione',
+          },
+          {
+            label: 'Analisi laboratorio',
+            path: '/services-view/medicina-del/analisi',
+          },
+        ],
+      },
+      {
+        label: 'Condominio',
+        dropdown: [
+          {
+            label: 'Gestione immobiliare',
+            path: '/services-view/condominio/gestione',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    label: 'Formazione',
+    path: '/training',
+    dropdown: [
+      {
+        label: 'La nostra piattaforma',
+        dropdown: [{ label: 'Come funziona', path: '/training/courses/our' }],
+      },
+      {
+        label: 'Corsi',
+        dropdown: [
+          {
+            label: 'Corsi SEVESO',
+            path: '/training/courses/how-it-works',
+          },
+          {
+            label: 'Corsi obbligatori',
+            path: '/training/courses/mandatory-courses',
+          },
+          {
+            label: 'Catalogo',
+            path: '/training/courses/catalog',
+          },
+        ],
+      },
+    ],
+  },
+  { label: 'Chi siamo', path: '/who-are-you' },
+  { label: 'Collabora con noi', path: '/collaborate-with-us' },
+  { label: 'Contattaci', path: '/contact-us' },
+];
 const MainNavbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
   const location = useLocation();
-
-  const navItems = [
-    { label: 'Home', path: '/' },
-    {
-      label: 'Services',
-      path: '/services-view',
-      dropdown: [
-        {
-          label: 'Seveso',
-          dropdown: [
-            {
-              label: 'Corsi SEVESO',
-              path: '/services-view/sev/sev-courses',
-            },
-          ],
-        },
-        {
-          label: 'Sicurezza',
-          dropdown: [
-            {
-              label: 'Servizio ASPP e RSPP',
-              path: '/services-view/security/asp-service',
-            },
-            {
-              label: 'Redazione DVR',
-              path: '/services-view/sicurezza/redazione-dvr',
-            },
-            {
-              label: 'Piani di emergenza',
-              path: '/services-view/sicurezza/piani-di-emergenza',
-            },
-            {
-              label: 'Fulminazione',
-              path: '/services-view/sicurezza/fulminazione',
-            },
-            {
-              label: 'Legionella',
-              path: '/services-view/sicurezza/legionella',
-            },
-            {
-              label: 'Potabilità acqua',
-              path: '/services-view/sicurezza/potabilità-acqua',
-            },
-            {
-              label: 'Radon',
-              path: '/services-view/sicurezza/radon',
-            },
-            {
-              label: 'Analisi di laboratorio',
-              path: '/services-view/sicurezza/analisi-di-laboratorio',
-            },
-            {
-              label: 'Building management',
-              path: '/services-view/sicurezza/building-management',
-            },
-          ],
-        },
-        {
-          label: 'Ambiente',
-          dropdown: [
-            { label: 'RENTRI', path: '/services-view/ambiente/rentri' },
-          ],
-        },
-        {
-          label: 'Videosorveglianza',
-          dropdown: [
-            {
-              label: 'Gestione autorizzazione impianti',
-              path: '/services-view/Videosorveglianza/gestione-autorizzazione',
-            },
-          ],
-        },
-        {
-          label: 'Medicina del lavoro',
-          dropdown: [
-            {
-              label: 'Incarichi medico competente',
-              path: '/services-view/medicina-del/incarichi',
-            },
-            {
-              label: 'Gestione visite mediche',
-              path: '/services-view/medicina-del/gestione',
-            },
-            {
-              label: 'Analisi laboratorio',
-              path: '/services-view/medicina-del/analisi',
-            },
-          ],
-        },
-        {
-          label: 'Condominio',
-          dropdown: [
-            {
-              label: 'Gestione immobiliare',
-              path: '/services-view/condominio/gestione',
-            },
-          ],
-        },
-      ],
-    },
-    {
-      label: 'Formazione',
-      path: '/training',
-      dropdown: [
-        {
-          label: 'La nostra piattaforma',
-          dropdown: [{ label: 'Come funziona', path: '/training/courses/our' }],
-        },
-        {
-          label: 'Corsi',
-          dropdown: [
-            {
-              label: 'Corsi SEVESO',
-              path: '/training/courses/how-it-works',
-            },
-            {
-              label: 'Corsi obbligatori',
-              path: '/training/courses/mandatory-courses',
-            },
-            {
-              label: 'Catalogo',
-              path: '/training/courses/catalog',
-            },
-          ],
-        },
-      ],
-    },
-    { label: 'Chi siamo', path: '/who-are-you' },
-    { label: 'Collabora con noi', path: '/collaborate-with-us' },
-    { label: 'Contattaci', path: '/contact-us' },
-  ];
 
   const isActive = (item) => {
     if (item.path === location.pathname) return true;

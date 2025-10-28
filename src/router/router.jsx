@@ -16,20 +16,24 @@ import PublicGuard from './guards/PublicGuard.jsx';
 import AuthGuard from './guards/AuthGuard.jsx';
 import RoleGuard from './guards/RoleGuard.jsx';
 
-// Views
+// Public Views
+// Main Page
 import ContactView from '../pages/public/ContactView.jsx';
 import HomeView from '../pages/public/HomeView.jsx';
 
-import LoginView from '../pages/auth/LoginView.jsx';
+// Nested Page
 
+// Auth
+import LoginView from '../pages/auth/LoginView.jsx';
+// Admin View
 import SettingsView from '../pages/admin/SettingsView.jsx';
 import AdminView from '../pages/admin/AdminView.jsx';
 import UsersView from '../pages/admin/UsersView.jsx';
-
+// Teacher
 import TeacherView from '../pages/teacher/TeacherView.jsx';
 import CoursesView from '../pages/teacher/CoursesView.jsx';
 import VideosView from '../pages/teacher/VideosView.jsx';
-
+// Student
 import StudentView from '../pages/students/StudentView.jsx';
 import DocsView from '../pages/students/DocsView.jsx';
 
