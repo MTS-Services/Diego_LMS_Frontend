@@ -165,7 +165,7 @@ const MainNavbar = () => {
                 <div className="h-[50px] w-[40px]">
                   <img
                     className="h-full w-full bg-cover object-cover text-[#46BB9D]"
-                    src="/image/icon/singleIcon.jpg"
+                    src="/image/icons/singleIcon.jpg"
                     alt="Home"
                   />
                 </div>
