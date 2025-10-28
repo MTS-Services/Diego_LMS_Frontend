@@ -51,9 +51,8 @@ import TrainingCoursesCatalogView from '../pages/public/nested_pages/TrainingCou
 import LoginView from '../pages/auth/LoginView.jsx';
 
 // Admin View
-import SettingsView from '../pages/admin/SettingsView.jsx';
-import AdminView from '../pages/admin/AdminView.jsx';
-import UsersView from '../pages/admin/UsersView.jsx';
+import SuperAdminView from '../pages/admin/superAdmin/SuperAdminView.jsx';
+import FreelancerAdminView from '../pages/admin/freelancerAdmin/FreelancerAdminView.jsx';
 
 // Teacher
 import TeacherView from '../pages/teacher/TeacherView.jsx';
@@ -66,6 +65,8 @@ import DocsView from '../pages/students/DocsView.jsx';
 
 // ErrorView
 import ErrorView from '../pages/err/ErrorView.jsx';
+import CompanyAdminView from '../pages/admin/CompanyAdmin/CompanyAdminView.jsx';
+import StudentAdminSidebar from '../pages/admin/studentAdmin/components/StudentAdminSidebar.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -169,9 +170,10 @@ const router = createBrowserRouter(
       <Route path="/dash" element={<DashboardLayout />}>
         {/* Admin */}
         <Route element={<RoleGuard allowedRoles={['admin']} />}>
-          <Route path="super-admin" element={<AdminView />} />
-          <Route path="users" element={<UsersView />} />
-          <Route path="ad-settings" element={<SettingsView />} />
+          <Route path="super-admin" element={<SuperAdminView />} />
+          <Route path="freelancer-admin" element={<FreelancerAdminView />} />
+          <Route path="company-admin" element={<CompanyAdminView />} />
+          <Route path="student-admin" element={<StudentAdminSidebar />} />
         </Route>
 
         {/* Teacher */}
@@ -179,14 +181,14 @@ const router = createBrowserRouter(
           <Route path="teacher" element={<TeacherView />} />
           <Route path="courses" element={<CoursesView />} />
           <Route path="videos" element={<VideosView />} />
-          <Route path="te-settings" element={<SettingsView />} />
+          {/* <Route path="te-settings" element={<SettingsView />} /> */}
         </Route>
 
         {/* Student */}
         <Route element={<RoleGuard allowedRoles={['student']} />}>
           <Route path="student" element={<StudentView />} />
           <Route path="docs" element={<DocsView />} />
-          <Route path="st-settings" element={<SettingsView />} />
+          {/* <Route path="st-settings" element={<SettingsView />} /> */}
         </Route>
       </Route>
       <Route path="*" element={<ErrorView />} />
