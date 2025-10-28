@@ -17,8 +17,8 @@ import AuthGuard from './guards/AuthGuard.jsx';
 import RoleGuard from './guards/RoleGuard.jsx';
 
 // Views
-import ContactView from '../pages/home/ContactView.jsx';
-import HomeView from '../pages/home/HomeView.jsx';
+import ContactView from '../pages/public/ContactView.jsx';
+import HomeView from '../pages/public/HomeView.jsx';
 
 import LoginView from '../pages/auth/LoginView.jsx';
 

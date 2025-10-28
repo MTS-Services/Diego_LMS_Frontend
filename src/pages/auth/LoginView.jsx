@@ -24,7 +24,7 @@ const LoginView = () => {
     <section className="pt-20">
       <FormWrapper
         onSubmit={handleSubmit}
-        className="mx-auto flex w-full max-w-md flex-col gap-4 space-y-4 rounded-2xl border border-gray-200 bg-white p-8 shadow-md"
+        className="mx-auto flex w-full max-w-md flex-col gap-4 rounded-2xl border border-gray-200 bg-white p-8 shadow-md"
       >
         <Heading
           level={2}
@@ -36,33 +36,47 @@ const LoginView = () => {
           Please log in to continue
         </Paragraph>
         <div>
-          <Label>Email</Label>
+          <Label required="true" htmlFor="email">
+            Email
+          </Label>
           <InputField
             id="email"
-            type="email"
             name="email"
+            type="email"
+            autoComplete="email"
+            placeholder="Enter your email"
             value={form.email}
             onChange={handleChange}
-            placeholder="Enter your email"
           />
         </div>
-        <InputField
-          id="password"
-          type="password"
-          name="password"
-          value={form.password}
-          onChange={handleChange}
-          placeholder="Enter your password"
+        <div>
+          <Label required="true" htmlFor="email">
+            Password
+          </Label>
+          <InputField
+            id="password"
+            name="password"
+            type="password"
+            autoComplete="current-password"
+            placeholder="Enter your password"
+            value={form.password}
+            onChange={handleChange}
+          />
+        </div>
+
+        <Button
+          type="submit"
+          label="Login"
+          variant="primary"
+          className="rounded-md"
         />
 
-        <Button type="submit" label="Login" variant="primary" />
-
-        <p className="mt-3 text-center text-sm text-gray-500">
+        <Paragraph className="mt-3 text-center text-sm text-gray-500">
           Don’t have an account?{' '}
           <a href="/dash/super-admin" className="text-blue-600 hover:underline">
             Register
           </a>
-        </p>
+        </Paragraph>
       </FormWrapper>
     </section>
   );
