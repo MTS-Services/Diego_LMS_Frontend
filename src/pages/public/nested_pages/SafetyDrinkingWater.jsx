@@ -1,5 +1,7 @@
+import Container from '../../../components/common/Container';
+
 const SafetyDrinkingWater = () => {
-  return <div>SafetyDrinkingWater</div>;
+  return <Container>SafetyDrinkingWater</Container>;
 };
 
 export default SafetyDrinkingWater;

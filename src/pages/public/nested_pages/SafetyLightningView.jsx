@@ -1,5 +1,7 @@
+import Container from '../../../components/common/Container';
+
 const SafetyLightningView = () => {
-  return <div>SafetyLightningView</div>;
+  return <Container>SafetyLightningView</Container>;
 };
 
 export default SafetyLightningView;

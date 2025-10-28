@@ -63,14 +63,14 @@ const navItems = [
       },
       {
         label: 'Ambiente',
-        dropdown: [{ label: 'RENTRI', path: '/services/ambiente/rentri' }],
+        dropdown: [{ label: 'RENTRI', path: '/services/environment/rent' }],
       },
       {
         label: 'Videosorveglianza',
         dropdown: [
           {
             label: 'Gestione autorizzazione impianti',
-            path: '/services/Videosorveglianza/gestione-autorizzazione',
+            path: '/services/video/authorization',
           },
         ],
       },
@@ -79,15 +79,15 @@ const navItems = [
         dropdown: [
           {
             label: 'Incarichi medico competente',
-            path: '/services/medicina-del/incarichi',
+            path: '/services/medicine/assignments',
           },
           {
             label: 'Gestione visite mediche',
-            path: '/services/medicina-del/gestione',
+            path: '/services/medicine-del/assignments',
           },
           {
             label: 'Analisi laboratorio',
-            path: '/services/medicina-del/analisi',
+            path: '/services/medicine-del/analysis',
           },
         ],
       },
@@ -96,7 +96,7 @@ const navItems = [
         dropdown: [
           {
             label: 'Gestione immobiliare',
-            path: '/services/condominio/gestione',
+            path: '/services/condominium/management',
           },
         ],
       },

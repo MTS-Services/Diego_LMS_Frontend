@@ -1,5 +1,7 @@
+import Container from '../../../components/common/Container';
+
 const SafetyEditorial = () => {
-  return <div>SafetyEditorial</div>;
+  return <Container>SafetyEditorial</Container>;
 };
 
 export default SafetyEditorial;

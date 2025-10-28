@@ -26,9 +26,26 @@ import ContactUsView from '../pages/public/ContactUsView.jsx';
 import WorkWithUsView from '../pages/public/WorkWithUsView.jsx';
 
 // Nested Page
-import SevCoursesView from '../pages/public/nested_pages/SevCoursesView.jsx';
+import SafetySevCoursesView from '../pages/public/nested_pages/SafetySevCoursesView.jsx';
 import SafetyServiceView from '../pages/public/nested_pages/SafetyServiceView.jsx';
 import SafetyEditorial from '../pages/public/nested_pages/SafetyEditorial.jsx';
+import SafetyEmergencyView from '../pages/public/nested_pages/SafetyEmergencyView.jsx';
+import SafetyLightningView from '../pages/public/nested_pages/SafetyLightningView.jsx';
+import SafetyLegionView from '../pages/public/nested_pages/SafetyLegionView.jsx';
+import SafetyDrinkingWater from '../pages/public/nested_pages/SafetyDrinkingWater.jsx';
+import SafetyRadonView from '../pages/public/nested_pages/SafetyRadonView.jsx';
+import SafetyLaboratoryView from '../pages/public/nested_pages/SafetyLaboratoryView.jsx';
+import SafetyBuildingView from '../pages/public/nested_pages/SafetyBuildingView.jsx';
+import AmbientRentView from '../pages/public/nested_pages/AmbientRentView.jsx';
+import VideoAndAuthorizationView from '../pages/public/nested_pages/VideoAndAuthorizationView.jsx';
+import OccupationalCompetentView from '../pages/public/nested_pages/OccupationalCompetentView.jsx';
+import OccupationalMedicalView from '../pages/public/nested_pages/OccupationalMedicalView.jsx';
+import OccupationalLaboratoryView from '../pages/public/nested_pages/OccupationalLaboratoryView.jsx';
+import CondominiumPropertyView from '../pages/public/nested_pages/CondominiumPropertyView.jsx';
+import TrainingOurPlatformView from '../pages/public/nested_pages/TrainingOurPlatformView.jsx';
+import TrainingCoursesSevView from '../pages/public/nested_pages/TrainingCoursesSevView.jsx';
+import TrainingCoursesRequiredView from '../pages/public/nested_pages/TrainingCoursesRequiredView.jsx';
+import TrainingCoursesCatalogView from '../pages/public/nested_pages/TrainingCoursesCatalogView.jsx';
 
 // Auth
 import LoginView from '../pages/auth/LoginView.jsx';
@@ -49,13 +66,6 @@ import DocsView from '../pages/students/DocsView.jsx';
 
 // ErrorView
 import ErrorView from '../pages/err/ErrorView.jsx';
-import SafetyEmergencyView from '../pages/public/nested_pages/SafetyEmergencyView.jsx';
-import SafetyLightningView from '../pages/public/nested_pages/SafetyLightningView.jsx';
-import SafetyLegionView from '../pages/public/nested_pages/SafetyLegionView.jsx';
-import SafetyDrinkingWater from '../pages/public/nested_pages/SafetyDrinkingWater.jsx';
-import SafetyRadonView from '../pages/public/nested_pages/SafetyRadonView.jsx';
-import SafetyLaboratoryView from '../pages/public/nested_pages/SafetyLaboratoryView.jsx';
-import SafetyBuildingView from '../pages/public/nested_pages/SafetyBuildingView.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -69,8 +79,11 @@ const router = createBrowserRouter(
         <Route path="work_with_us" element={<WorkWithUsView />} />
         <Route path="contact_us" element={<ContactUsView />} />
 
-        {/* Nested View */}
-        <Route path="services/sev/sev-courses" element={<SevCoursesView />} />
+        {/* Services Nested View */}
+        <Route
+          path="services/sev/sev-courses"
+          element={<SafetySevCoursesView />}
+        />
         <Route
           path="/services/security/asp-service"
           element={<SafetyServiceView />}
@@ -103,6 +116,48 @@ const router = createBrowserRouter(
         <Route
           path="/services/security/building-management"
           element={<SafetyBuildingView />}
+        />
+        <Route
+          path="/services/environment/rent"
+          element={<AmbientRentView />}
+        />
+        <Route
+          path="/services/video/authorization"
+          element={<VideoAndAuthorizationView />}
+        />
+        <Route
+          path="/services/medicine/assignments"
+          element={<OccupationalCompetentView />}
+        />
+        <Route
+          path="/services/medicine-del/assignments"
+          element={<OccupationalMedicalView />}
+        />
+        <Route
+          path="/services/medicine-del/analysis"
+          element={<OccupationalLaboratoryView />}
+        />
+        <Route
+          path="/services/condominium/management"
+          element={<CondominiumPropertyView />}
+        />
+
+        {/* Training Nested View */}
+        <Route
+          path="/training/courses/our"
+          element={<TrainingOurPlatformView />}
+        />
+        <Route
+          path="/training/courses/mandatory-courses"
+          element={<TrainingCoursesSevView />}
+        />
+        <Route
+          path="/training/courses/how-it-works"
+          element={<TrainingCoursesRequiredView />}
+        />
+        <Route
+          path="/training/courses/catalog"
+          element={<TrainingCoursesCatalogView />}
         />
       </Route>
 

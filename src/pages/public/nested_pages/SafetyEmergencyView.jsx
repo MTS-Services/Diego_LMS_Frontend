@@ -1,5 +1,7 @@
+import Container from '../../../components/common/Container';
+
 const SafetyEmergencyView = () => {
-  return <div>SafetyEmergencyView</div>;
+  return <Container>SafetyEmergencyView</Container>;
 };
 
 export default SafetyEmergencyView;
