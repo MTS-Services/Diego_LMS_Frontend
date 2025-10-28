@@ -7,7 +7,7 @@ const MainFooter = () => {
           <div className="mx-auto ml-32 max-h-[175px] max-w-[280px] md:mr-20 md:ml-0">
             <img
               className="h-full w-full bg-[#000000] bg-cover object-cover text-[#46BB9D]"
-              src="/image/icon/Group.png"
+              src="/image/icons/Group.png"
               alt=""
             />
           </div>
