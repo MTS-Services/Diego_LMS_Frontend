@@ -18,8 +18,12 @@ import RoleGuard from './guards/RoleGuard.jsx';
 
 // Public Views
 // Main Page
-import ContactView from '../pages/public/ContactView.jsx';
 import HomeView from '../pages/public/HomeView.jsx';
+import ServicesView from '../pages/public/ServicesView.jsx';
+import TrainingView from '../pages/public/TrainingView.jsx';
+import WhoWeAreView from '../pages/public/WhoWeAreView.jsx';
+import ContactUsView from '../pages/public/ContactUsView.jsx';
+import WorkWithUsView from '../pages/public/WorkWithUsView.jsx';
 
 // Nested Page
 
@@ -42,11 +46,17 @@ import ErrorView from '../pages/err/ErrorView.jsx';
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
+      {/* Public Views // Main Page */}
       <Route path="/" element={<MainLayout />}>
         <Route index element={<HomeView />} />
-        <Route path="contact" element={<ContactView />} />
+        <Route path="services" element={<ServicesView />} />
+        <Route path="training" element={<TrainingView />} />
+        <Route path="who_we_are" element={<WhoWeAreView />} />
+        <Route path="work_with_us" element={<WorkWithUsView />} />
+        <Route path="contact_us" element={<ContactUsView />} />
       </Route>
 
+      {/* Auth */}
       <Route path="/auth" element={<AuthLayout />}>
         <Route index element={<Navigate to="login" />} />
         <Route path="login" element={<LoginView />} />
