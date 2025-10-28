@@ -3,7 +3,7 @@ import { FaChevronDown } from 'react-icons/fa';
 import { GrClose } from 'react-icons/gr';
 import { IoMenu } from 'react-icons/io5';
 import { Link, useLocation } from 'react-router-dom';
-import Container from '../../components/ui/Container';
+import Container from '../../../components/common/Container';
 
 const MainNavbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
