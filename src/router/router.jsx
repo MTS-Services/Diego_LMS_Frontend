@@ -12,13 +12,11 @@ import MainLayout from './layout/public/MainLayout.jsx';
 import AuthLayout from './layout/auth/AuthLayout.jsx';
 
 // Guards
-import PublicGuard from './guards/PublicGuard.jsx';
-import AuthGuard from './guards/AuthGuard.jsx';
 import RoleGuard from './guards/RoleGuard.jsx';
 
 // Public Views
 // Main Page
-import HomeView from '../pages/public/HomeView.jsx';
+import HomeView from '../pages/public/home/HomeView.jsx';
 import ServicesView from '../pages/public/ServicesView.jsx';
 import TrainingView from '../pages/public/TrainingView.jsx';
 import WhoWeAreView from '../pages/public/WhoWeAreView.jsx';
@@ -79,7 +77,6 @@ const router = createBrowserRouter(
         <Route path="who_we_are" element={<WhoWeAreView />} />
         <Route path="work_with_us" element={<WorkWithUsView />} />
         <Route path="contact_us" element={<ContactUsView />} />
-
         {/* Services Nested View */}
         <Route
           path="services/sev/sev-courses"

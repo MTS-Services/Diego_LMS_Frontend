@@ -17,7 +17,6 @@ export default SubmitFormProps;
 // ========================================
 // DIFFERENT PAGE-E USE KORAR EXAMPLE
 // ========================================
-
 export function ContactPage() {
   const handleSubmit = (data) => {
     console.log('Contact form:', data);

@@ -154,7 +154,7 @@ const MainNavbar = () => {
 
   return (
     <nav className="sticky top-0 z-50 bg-white shadow-sm">
-      <div className="container mx-auto px-2 sm:px-2 md:px-0">
+      <div className="px-2 sm:px-2 md:px-0 lg:px-32">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex h-24 flex-1 items-center gap-10">

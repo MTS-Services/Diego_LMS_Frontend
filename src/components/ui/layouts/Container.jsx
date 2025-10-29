@@ -9,9 +9,8 @@ const Container = ({ children, size = 'default', className = '' }) => {
     full: 'max-w-full',
   };
 
-  const classes = `mx-auto px-4 sm:px-6 lg:px-8 ${sizes[size]} ${className}`;
-
-  return <div className={classes}>{children}</div>;
+  const classes = `mx-auto px-4 sm:px-6 lg:px-32 pt-[20px] md:pt-[50px] lg:pt-[80px] ${sizes[size]} ${className}`;
+  return <section className={classes}>{children}</section>;
 };
 
 export default Container;
