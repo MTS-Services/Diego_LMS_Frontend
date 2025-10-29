@@ -51,6 +51,8 @@ import LoginView from '../pages/auth/LoginView.jsx';
 // Admin View
 import SuperAdminView from '../pages/admin/superAdmin/SuperAdminView.jsx';
 import FreelancerAdminView from '../pages/admin/freelancerAdmin/FreelancerAdminView.jsx';
+import CompanyAdminView from '../pages/admin/companyAdmin/CompanyAdminView.jsx';
+import StudentAdminSidebar from '../pages/admin/studentAdmin/StudentAdminView.jsx';
 
 // Teacher
 import TeacherView from '../pages/teacher/TeacherView.jsx';
@@ -63,8 +65,6 @@ import DocsView from '../pages/students/DocsView.jsx';
 
 // ErrorView
 import ErrorView from '../pages/err/ErrorView.jsx';
-import CompanyAdminView from '../pages/admin/CompanyAdmin/CompanyAdminView.jsx';
-import StudentAdminSidebar from '../pages/admin/studentAdmin/components/StudentAdminSidebar.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
