@@ -24,26 +24,26 @@ import ContactUsView from '../pages/public/ContactUsView.jsx';
 import WorkWithUsView from '../pages/public/WorkWithUsView.jsx';
 
 // Nested Page
-import SafetySevCoursesView from '../pages/public/nested_pages/SafetySevCoursesView.jsx';
-import SafetyServiceView from '../pages/public/nested_pages/SafetyServiceView.jsx';
-import SafetyEditorial from '../pages/public/nested_pages/SafetyEditorial.jsx';
-import SafetyEmergencyView from '../pages/public/nested_pages/SafetyEmergencyView.jsx';
-import SafetyLightningView from '../pages/public/nested_pages/SafetyLightningView.jsx';
-import SafetyLegionView from '../pages/public/nested_pages/SafetyLegionView.jsx';
-import SafetyDrinkingWater from '../pages/public/nested_pages/SafetyDrinkingWater.jsx';
-import SafetyRadonView from '../pages/public/nested_pages/SafetyRadonView.jsx';
-import SafetyLaboratoryView from '../pages/public/nested_pages/SafetyLaboratoryView.jsx';
-import SafetyBuildingView from '../pages/public/nested_pages/SafetyBuildingView.jsx';
-import AmbientRentView from '../pages/public/nested_pages/AmbientRentView.jsx';
-import VideoAndAuthorizationView from '../pages/public/nested_pages/VideoAndAuthorizationView.jsx';
-import OccupationalCompetentView from '../pages/public/nested_pages/OccupationalCompetentView.jsx';
-import OccupationalMedicalView from '../pages/public/nested_pages/OccupationalMedicalView.jsx';
-import OccupationalLaboratoryView from '../pages/public/nested_pages/OccupationalLaboratoryView.jsx';
-import CondominiumPropertyView from '../pages/public/nested_pages/CondominiumPropertyView.jsx';
-import TrainingOurPlatformView from '../pages/public/nested_pages/TrainingOurPlatformView.jsx';
-import TrainingCoursesSevView from '../pages/public/nested_pages/TrainingCoursesSevView.jsx';
-import TrainingCoursesRequiredView from '../pages/public/nested_pages/TrainingCoursesRequiredView.jsx';
-import TrainingCoursesCatalogView from '../pages/public/nested_pages/TrainingCoursesCatalogView.jsx';
+import SafetySevCoursesView from '../pages/public/nested/SafetySevCoursesView.jsx';
+import SafetyServiceView from '../pages/public/nested/SafetyServiceView.jsx';
+import SafetyEditorial from '../pages/public/nested/SafetyEditorial.jsx';
+import SafetyEmergencyView from '../pages/public/nested/SafetyEmergencyView.jsx';
+import SafetyLightningView from '../pages/public/nested/SafetyLightningView.jsx';
+import SafetyLegionView from '../pages/public/nested/SafetyLegionView.jsx';
+import SafetyDrinkingWater from '../pages/public/nested/SafetyDrinkingWater.jsx';
+import SafetyRadonView from '../pages/public/nested/SafetyRadonView.jsx';
+import SafetyLaboratoryView from '../pages/public/nested/SafetyLaboratoryView.jsx';
+import SafetyBuildingView from '../pages/public/nested/SafetyBuildingView.jsx';
+import AmbientRentView from '../pages/public/nested/AmbientRentView.jsx';
+import VideoAndAuthorizationView from '../pages/public/nested/VideoAndAuthorizationView.jsx';
+import OccupationalCompetentView from '../pages/public/nested/OccupationalCompetentView.jsx';
+import OccupationalMedicalView from '../pages/public/nested/OccupationalMedicalView.jsx';
+import OccupationalLaboratoryView from '../pages/public/nested/OccupationalLaboratoryView.jsx';
+import CondominiumPropertyView from '../pages/public/nested/CondominiumPropertyView.jsx';
+import TrainingOurPlatformView from '../pages/public/nested/TrainingOurPlatformView.jsx';
+import TrainingCoursesSevView from '../pages/public/nested/TrainingCoursesSevView.jsx';
+import TrainingCoursesRequiredView from '../pages/public/nested/TrainingCoursesRequiredView.jsx';
+import TrainingCoursesCatalogView from '../pages/public/nested/TrainingCoursesCatalogView.jsx';
 
 // Auth
 import LoginView from '../pages/auth/LoginView.jsx';
