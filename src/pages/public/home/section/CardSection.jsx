@@ -1,4 +1,4 @@
-import CourseCatalog from '../../../../components/common/Card';
+import CourseCatalog from '../components/CourseCatalog';
 
 const CardSection = () => {
   return <CourseCatalog />;

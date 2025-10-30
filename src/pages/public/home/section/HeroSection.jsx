@@ -5,14 +5,14 @@ import Container from '../../../../components/ui/layouts/Container';
 
 const HeroSection = () => {
   return (
-    <Container size="full">
+    <Container size="full" className="bg-[#15966d07] pb-20">
       <div className="order-2 md:order-1">
         <Heading level={1}>UnoSicurezza</Heading>
-        <Heading level={3} className="mt-8 mb-2">
-          Ogni nuova competenza è un passo avanti verso il successo.
+        <Heading level={3} className="mt-2 mb-2 font-medium">
+          Ogni nuova competenza è un passo avanti verso il <br /> successo.
         </Heading>
         <Paragraph>Essere in regola è: proteggere chi lavora con te.</Paragraph>
-        <Paragraph className="my-8">Scegli la sicurezza, scegli noi.</Paragraph>
+        <Paragraph className="my-4">Scegli la sicurezza, scegli noi.</Paragraph>
         <Button label="Esplora i nostri servizi" variant="primary" size="lg" />
       </div>
     </Container>

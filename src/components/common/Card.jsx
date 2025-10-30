@@ -254,16 +254,12 @@ const CourseCatalog = () => {
   const showPagination = courses.length > itemsPerPage;
 
   const getClientX = (e) => (e.touches ? e.touches[0].clientX : e.clientX);
-
   const handleDragStart = (e) => {
     if (e.button !== 0 && !e.touches) return;
-
     setStartX(getClientX(e));
     setIsMoved(false);
-
     const snapTranslate = -((currentPage * 100) / itemsPerPage);
     setCurrentTranslate(snapTranslate);
-
     if (carouselRef.current) {
       carouselRef.current.style.transition = 'none';
     }
@@ -284,7 +280,6 @@ const CourseCatalog = () => {
     }
 
     const dragPercentage = (deltaX / carouselRef.current.offsetWidth) * 100;
-
     const newTranslate = -((currentPage * 100) / itemsPerPage) + dragPercentage;
     setCurrentTranslate(newTranslate);
   };
@@ -367,7 +362,7 @@ const CourseCatalog = () => {
             {courses.map((course) => (
               <div
                 key={course.id}
-                className="p-6"
+                className="p-0"
                 style={{
                   minWidth: `${100 / itemsPerPage}%`,
                 }}

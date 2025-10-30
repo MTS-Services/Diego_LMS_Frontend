@@ -1,9 +1,6 @@
-import Container from '../../../components/common/Container';
-import Heading from '../../../components/ui/typography/Heading';
-import Paragraph from '../../../components/ui/typography/Paragraph';
-import CardSection from './components/CardSection';
-import HeroSection from './components/HeroSection';
-import ReviewSection from './components/ReviewSection';
+import CardSection from './section/CardSection';
+import HeroSection from './section/HeroSection';
+import ReviewSection from './section/ReviewSection';
 
 const HomeView = () => {
   return (

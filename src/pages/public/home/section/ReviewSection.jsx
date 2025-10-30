@@ -9,7 +9,9 @@ const ReviewSection = () => {
   return (
     <div className="items-center overflow-hidden md:flex md:gap-8">
       <Container className="order-2 w-full space-y-8 md:order-1 md:w-1/2">
-        <Heading className="">Condividi la tua recensione con noi</Heading>
+        <Heading level={2} className="">
+          Condividi la tua recensione con noi
+        </Heading>
         <Paragraph className="">
           'Compila il modulo per condividere la tua esperienza. La tua
           recensione sarà visibile dopo l’approvazione.'

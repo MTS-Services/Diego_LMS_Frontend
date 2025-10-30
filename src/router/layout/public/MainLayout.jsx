@@ -5,7 +5,7 @@ import MainFooter from './MainFooter';
 const MainLayout = () => {
   return (
     <div>
-      <nav>
+      <nav className="sticky top-0 z-50 bg-white shadow">
         <MainNavbar />
       </nav>
       <main>

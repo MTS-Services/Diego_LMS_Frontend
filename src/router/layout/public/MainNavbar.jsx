@@ -153,7 +153,7 @@ const MainNavbar = () => {
   };
 
   return (
-    <nav className="sticky top-0 z-50 bg-white shadow-sm">
+    <div className="">
       <div className="px-2 sm:px-2 md:px-0 lg:px-32">
         <div className="flex items-center justify-between">
           {/* Logo */}
@@ -378,7 +378,7 @@ const MainNavbar = () => {
           </Container>
         </div>
       )}
-    </nav>
+    </div>
   );
 };
 
