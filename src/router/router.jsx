@@ -17,7 +17,6 @@ import RoleGuard from './guards/RoleGuard.jsx';
 // Public Views
 // Main Page
 import HomeView from '../pages/public/home/HomeView.jsx';
-import ServicesView from '../pages/public/ServicesView.jsx';
 import TrainingView from '../pages/public/TrainingView.jsx';
 import WhoWeAreView from '../pages/public/WhoWeAreView.jsx';
 import ContactUsView from '../pages/public/ContactUsView.jsx';
@@ -47,6 +46,7 @@ import TrainingCoursesCatalogView from '../pages/public/nested/TrainingCoursesCa
 
 // Auth
 import LoginView from '../pages/auth/LoginView.jsx';
+import ServicesView from '../pages/public/services/ServicesView.jsx';
 
 // Admin View
 import SuperAdminView from '../pages/admin/superAdmin/SuperAdminView.jsx';

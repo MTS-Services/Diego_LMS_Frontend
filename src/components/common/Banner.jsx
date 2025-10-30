@@ -1,3 +1,5 @@
+import { Heading, Paragraph } from '../ui';
+
 const Banner = ({ image, title, description }) => {
   return (
     <div
@@ -8,12 +10,12 @@ const Banner = ({ image, title, description }) => {
       <div className="absolute inset-0 bg-gradient-to-r from-[#004731] via-green-800/15 to-transparent"></div>
 
       <div className="absolute inset-0 flex flex-col justify-center px-10 text-white md:px-20">
-        <h1 className="mb-3 max-w-[687px] text-[48px] font-semibold text-white drop-shadow-lg">
+        <Heading className="mb-3 max-w-[687px] text-[48px] font-semibold text-white drop-shadow-lg">
           {title}
-        </h1>
-        <p className="max-w-[509px] text-base font-bold text-[#E9E9E9]">
+        </Heading>
+        <Paragraph className="max-w-[509px] text-base font-bold text-[#E9E9E9]">
           {description}
-        </p>
+        </Paragraph>
       </div>
     </div>
   );
