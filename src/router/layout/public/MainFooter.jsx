@@ -4,10 +4,10 @@ const MainFooter = () => {
       <div className="mx-auto max-w-7xl px-[32px]">
         <div className="mb-12 grid grid-cols-1 gap-8 md:grid-cols-5">
           {/* Logo Section */}
-          <div className="mx-auto ml-24 h-auto w-[200px] md:mr-20 md:ml-0">
+          <div className="">
             <img
               className="h-auto w-full bg-[#000000] bg-cover object-cover text-[#46BB9D]"
-              src="/image/icons/Group@2x.png"
+              src="/images/icons/Group@2x.png"
               alt=""
             />
           </div>

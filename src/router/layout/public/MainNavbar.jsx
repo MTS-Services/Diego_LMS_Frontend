@@ -159,14 +159,13 @@ const MainNavbar = () => {
           {/* Logo */}
           <div className="flex h-24 flex-1 items-center gap-10">
             <Link to="/">
-              <div className="flex items-center gap-2">
-                <div className="h-[50px] w-[40px]">
-                  <img
-                    className="h-full w-full bg-cover object-cover text-[#46BB9D]"
-                    src="/image/icons/singleIcon.jpg"
-                    alt="Home"
-                  />
-                </div>
+              <div className="flex items-center">
+                <img
+                  className="h-10 w-10 bg-cover object-contain text-[#46BB9D]"
+                  src="/images/icons/title.png"
+                  alt="Home"
+                />
+
                 <h1 className="text-3xl font-bold text-gray-900">
                   UnoSicurezza
                 </h1>
