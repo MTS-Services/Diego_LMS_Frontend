@@ -4,7 +4,7 @@ const Heading = ({ level = 1, children, className = '', ...props }) => {
   const Tag = `h${level}`;
 
   const sizes = {
-    1: 'text-[76px] font-bold',
+    1: 'text-7xl font-bold',
     2: 'text-4xl font-bold',
     3: 'text-2xl font-semibold',
     4: 'text-xl font-semibold',

@@ -15,7 +15,7 @@ const CourseCard = ({ course, isDragging = false, onButtonClick }) => {
   };
 
   const renderStars = (rating) => {
-    return [...Array(5)].map((_, index) => (
+    return [...Array(6)].map((_, index) => (
       <IoIosStar
         key={index}
         className={`h-4 w-4 ${
@@ -78,7 +78,7 @@ const CourseCard = ({ course, isDragging = false, onButtonClick }) => {
       </div>
 
       {/* Content Section */}
-      <div className="flex flex-grow flex-col p-5">
+      <div className="flex flex-col p-5">
         <Heading
           level={3}
           className="mb-2 line-clamp-1 text-lg font-semibold text-gray-800"

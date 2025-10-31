@@ -5,18 +5,29 @@ const Image = ({
   alt = '',
   className = '',
   rounded = 'lg',
-  objectFit = 'cover',
+  objectFit = 'contain',
   hoverZoom = true,
+  width = 'auto',
+  height = 'auto',
 }) => {
   const classes = `
-    w-full h-full 
-    object-${objectFit} 
+    object-${objectFit}
     ${hoverZoom ? 'transition-transform duration-300 hover:scale-105' : ''}
-    ${rounded ? `rounded-${rounded}` : ''} 
+    ${rounded ? `rounded-${rounded}` : ''}
     ${className}
   `;
 
-  return <img src={src} alt={alt} className={classes} />;
+  return (
+    <img
+      src={src}
+      alt={alt}
+      className={classes}
+      style={{
+        width: typeof width === 'number' ? `${width}px` : width,
+        height: typeof height === 'number' ? `${height}px` : height,
+      }}
+    />
+  );
 };
 
 export default Image;

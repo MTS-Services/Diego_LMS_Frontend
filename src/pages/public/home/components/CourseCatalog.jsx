@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import CourseCard from './CourseCard';
 
 import { useCarousel } from '../../../../config/hooks/useCarousel';
-import { Heading, Container } from '../../../../components/ui';
+import { Heading, Container, Button } from '../../../../components/ui';
 import { COURSE_DATA } from '../../../../config/courses';
 
 const CourseCatalog = () => {
@@ -80,7 +80,7 @@ const CourseCatalog = () => {
           {COURSE_DATA.map((course) => (
             <div
               key={course.id}
-              className="p-2"
+              className="p-4"
               style={{
                 minWidth: `${100 / state.itemsPerPage}%`,
               }}
@@ -99,7 +99,7 @@ const CourseCatalog = () => {
 
   return (
     <Container size="full">
-      <Heading level={2} className="mb-12">
+      <Heading level={2} className="mb-20">
         Esplora il nostro catalogo corsi
       </Heading>
 
@@ -108,9 +108,12 @@ const CourseCatalog = () => {
         {renderPagination()}
 
         <div className="flex justify-center">
-          <button className="rounded-full border-2 border-[#3FC89E] px-8 py-3 font-semibold text-[#3FC89E] transition-colors hover:bg-green-50">
-            Esplora tutti i nostri corsi
-          </button>
+          <Button
+            size="lg"
+            variant="outline"
+            label={`"Esplora tutti i nostri corsi"`}
+            className="font-semibold text-[#73BFA1]"
+          />
         </div>
       </div>
     </Container>
