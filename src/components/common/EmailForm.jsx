@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { H3 } from '../ui/Heading';
-import Input from '../ui/Input';
+import { Heading, InputField } from '../ui';
 
 const EmailForm = ({
   navigatePath,
@@ -31,10 +30,9 @@ const EmailForm = ({
         {/* Left Side */}
         <div className="my-auto rounded-xl border border-gray-50 px-[92px]">
           <div className="flex justify-center text-center">
-            <H3
-              className="max-w-[482px] text-center"
-              h3="Let's change the experience of learning something new."
-            />
+            <Heading className="max-w-[482px] text-center">
+              Let's change the experience of learning something new.
+            </Heading>
           </div>
           <div className="mx-auto max-w-md">
             <img
@@ -49,11 +47,11 @@ const EmailForm = ({
         <div className="mx-auto flex w-full flex-col justify-center rounded-xl border border-gray-50 bg-[#F1F9F6] px-[92px]">
           <form onSubmit={handleSubmit}>
             <div className="mb-6 flex justify-center text-center">
-              <H3 className="text-center" h3={heading} />
+              <Heading className="text-center">{heading}</Heading>
             </div>
 
             <div className="mb-6">
-              <Input
+              <InputField
                 name="email"
                 type="email"
                 placeholder="Type Your Email"
