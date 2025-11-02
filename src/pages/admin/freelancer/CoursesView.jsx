@@ -8,7 +8,7 @@ import {
   Image,
   Paragraph,
   Row,
-} from '../../components/ui';
+} from '../../../components/ui';
 // Demo data — you can replace this later with fetched data
 const courses = [
   {

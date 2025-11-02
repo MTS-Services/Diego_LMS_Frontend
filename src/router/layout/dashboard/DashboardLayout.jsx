@@ -13,7 +13,7 @@ const DashboardLayout = () => {
       {/* Main section */}
       <div className="flex flex-1 flex-col">
         <DashboardNavbar user={user} />
-        <main className="p-4">
+        <main className="p-8">
           <Outlet />
         </main>
       </div>

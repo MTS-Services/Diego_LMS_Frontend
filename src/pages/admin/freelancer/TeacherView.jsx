@@ -1,5 +1,5 @@
-import ProductCard from '../../components/common/ProductCard';
-import { Button, Container, Grid, Heading, Row } from '../../components/ui';
+import ProductCard from '../../../components/common/ProductCard';
+import { Button, Container, Grid, Heading, Row } from '../../../components/ui';
 const products = [
   {
     id: 1,

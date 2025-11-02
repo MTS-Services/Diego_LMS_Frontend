@@ -1,8 +1,14 @@
+// src/app/store.js
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from './counterSlice'; // example slice
+import rootReducer from './rootReducer';
 
 export const store = configureStore({
-  reducer: {
-    counter: counterReducer, // add your slices here
-  },
+  reducer: rootReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
+  devTools: import.meta.env.MODE !== 'production',
 });
+
+export default store;

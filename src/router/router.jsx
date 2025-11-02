@@ -49,19 +49,16 @@ import TrainingCoursesCatalogView from '../pages/public/nested/TrainingCoursesCa
 import LoginView from '../pages/auth/LoginView.jsx';
 
 // Admin View
-import SuperAdminView from '../pages/admin/superAdmin/SuperAdminView.jsx';
-import FreelancerAdminView from '../pages/admin/freelancerAdmin/FreelancerAdminView.jsx';
-import CompanyAdminView from '../pages/admin/companyAdmin/CompanyAdminView.jsx';
-import StudentAdminSidebar from '../pages/admin/studentAdmin/StudentAdminView.jsx';
+import SuperAdminView from '../pages/admin/super/SuperAdminView.jsx';
 
 // Teacher
-import TeacherView from '../pages/teacher/TeacherView.jsx';
-import CoursesView from '../pages/teacher/CoursesView.jsx';
-import VideosView from '../pages/teacher/VideosView.jsx';
+import TeacherView from '../pages/admin/freelancer/TeacherView.jsx';
+import CoursesView from '../pages/admin/freelancer/CoursesView.jsx';
+import VideosView from '../pages/admin/freelancer/VideosView.jsx';
 
 // Student
-import StudentView from '../pages/students/StudentView.jsx';
-import DocsView from '../pages/students/DocsView.jsx';
+import StudentView from '../pages/admin/students/StudentView.jsx';
+import DocsView from '../pages/admin/students/DocsView.jsx';
 
 // ErrorView
 import ErrorView from '../pages/err/ErrorView.jsx';
@@ -164,18 +161,25 @@ const router = createBrowserRouter(
         <Route index element={<Navigate to="login" />} />
         <Route path="login" element={<LoginView />} />
       </Route>
+
       <Route path="/dash" element={<DashboardLayout />}>
         {/* Admin */}
         <Route element={<RoleGuard allowedRoles={['admin']} />}>
           <Route path="super-admin" element={<SuperAdminView />} />
-          <Route path="freelancer-admin" element={<FreelancerAdminView />} />
-          <Route path="company-admin" element={<CompanyAdminView />} />
-          <Route path="student-admin" element={<StudentAdminSidebar />} />
+          {/* <Route path="te-settings" element={<SettingsView />} /> */}
         </Route>
 
         {/* Teacher */}
-        <Route element={<RoleGuard allowedRoles={['teacher']} />}>
+        <Route element={<RoleGuard allowedRoles={['freelancer']} />}>
           <Route path="teacher" element={<TeacherView />} />
+          <Route path="courses" element={<CoursesView />} />
+          <Route path="videos" element={<VideosView />} />
+          {/* <Route path="te-settings" element={<SettingsView />} /> */}
+        </Route>
+
+        {/* company */}
+        <Route element={<RoleGuard allowedRoles={['company']} />}>
+          <Route path="company" element={<TeacherView />} />
           <Route path="courses" element={<CoursesView />} />
           <Route path="videos" element={<VideosView />} />
           {/* <Route path="te-settings" element={<SettingsView />} /> */}

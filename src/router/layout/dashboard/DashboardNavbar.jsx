@@ -1,8 +1,19 @@
 import { Link } from 'react-router-dom';
 import { Heading } from '../../../components/ui';
+import { useUIStore } from '../../../features/zustand';
+import {
+  Fa500Px,
+  FaAlignJustify,
+  FaAlignLeft,
+  FaBars,
+  FaBell,
+  FaSearch,
+  FaUser,
+} from 'react-icons/fa';
 
 const DashboardNavbar = ({ user }) => {
-  const role = user?.role || 'student'; // default role if missing
+  const role = user?.role || 'student';
+  const { isOpen, isToggle } = useUIStore();
 
   const navItemsByRole = {
     admin: [
@@ -26,38 +37,35 @@ const DashboardNavbar = ({ user }) => {
   const navItems = navItemsByRole[role] || [];
 
   return (
-    <header className="sticky top-0 z-10 flex items-center justify-between border-b border-gray-200 bg-white px-6 py-6 shadow-sm">
-      {/* Left side: role title */}
-      <div className="flex items-center gap-3">
-        <Heading className="text-lg font-semibold text-gray-800 capitalize">
-          {role} Panel
-        </Heading>
-      </div>
-
-      {/* Center links */}
-      <nav className="hidden gap-4 md:flex">
-        {navItems.map(({ path, label }) => (
-          <Link
-            key={path}
-            to={path}
-            className="text-gray-700 transition-colors hover:text-blue-600"
-          >
-            {label}
-          </Link>
-        ))}
-      </nav>
-
-      {/* Right side: user info */}
-      <div className="flex items-center gap-4">
-        <span className="text-sm text-gray-600">{user?.name || 'Guest'}</span>
-        <button
-          className="rounded-md bg-blue-600 px-3 py-1 text-sm text-white transition-colors hover:bg-blue-700"
-          onClick={() => console.log('Logout clicked')}
-        >
-          Logout
+    <div className="inline-flex items-center justify-between bg-white px-4 py-4">
+      {/* Center Section: Banner Text */}
+      <div>
+        <button onClick={isToggle} className="rounded p-2 hover:bg-slate-100">
+          {isOpen ? <FaAlignJustify /> : <FaAlignLeft />}
         </button>
       </div>
-    </header>
+      <div className="w-96 text-center">
+        <span className="text-base leading-6 font-normal text-black">
+          Stai cercando nuovi corsi?{' '}
+        </span>
+        <span className="text-base leading-6 font-normal text-emerald-300">
+          Esplora ora
+        </span>
+      </div>
+
+      {/* Right Section: Icons / Buttons */}
+      <div className="flex items-center justify-center gap-4 px-12">
+        <span className="cursor-pointer rounded-full bg-slate-100 p-2">
+          <FaSearch size={25} />
+        </span>
+        <span className="cursor-pointer rounded-full bg-slate-100 p-2">
+          <FaBell size={25} />
+        </span>
+        <span className="cursor-pointer rounded-full bg-slate-100 p-2">
+          <FaUser size={25} />
+        </span>
+      </div>
+    </div>
   );
 };
 

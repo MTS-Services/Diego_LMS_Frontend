@@ -8,7 +8,7 @@ import {
   Image,
   Paragraph,
   Row,
-} from '../../components/ui';
+} from '../../../components/ui';
 const courses = [
   {
     id: 1,
