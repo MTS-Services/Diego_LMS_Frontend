@@ -98,7 +98,7 @@ const CourseCatalog = () => {
   };
 
   return (
-    <Container size="full">
+    <Container size="full" className="py-20">
       <Heading level={2} className="mb-20">
         Esplora il nostro catalogo corsi
       </Heading>

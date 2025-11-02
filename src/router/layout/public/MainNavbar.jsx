@@ -3,7 +3,7 @@ import { FaChevronDown } from 'react-icons/fa';
 import { GrClose } from 'react-icons/gr';
 import { IoMenu } from 'react-icons/io5';
 import { Link, useLocation } from 'react-router-dom';
-import Container from '../../../components/common/Container';
+import { Container } from '../../../components/ui';
 
 const navItems = [
   { label: 'Home', path: '/' },
@@ -153,131 +153,125 @@ const MainNavbar = () => {
   };
 
   return (
-    <div className="">
-      <div className="px-2 sm:px-2 md:px-0 lg:px-32">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <div className="flex h-24 flex-1 items-center gap-10">
-            <Link to="/">
-              <div className="flex items-center">
-                <img
-                  className="h-10 w-10 bg-cover object-contain text-[#46BB9D]"
-                  src="/images/icons/title.png"
-                  alt="Home"
-                />
+    <nav className="flex px-[120px] py-6">
+      {/* Logo */}
+      <div className="flex flex-1 items-center gap-10">
+        <Link to="/">
+          <div className="flex items-center">
+            <img
+              className="h-10 w-10 bg-cover object-contain text-[#46BB9D]"
+              src="/images/icons/title.png"
+              alt="Home"
+            />
 
-                <h1 className="text-3xl font-bold text-gray-900">
-                  UnoSicurezza
-                </h1>
-              </div>
-            </Link>
-
-            {/* --- DESKTOP MENU --- */}
-            <div className="hidden flex-1 justify-center lg:flex">
-              <div className="flex items-center gap-6">
-                {navItems.map((item, index) => (
-                  <div key={index} className="group relative">
-                    {!item.dropdown ? (
-                      <Link
-                        to={item.path}
-                        className={`border-b border-transparent pb-[2px] text-base font-semibold transition-all duration-300 ${
-                          isActive(item)
-                            ? 'border-[#73BFA1] text-[#73BFA1]'
-                            : 'text-[#252525] hover:border-[#63be9a]'
-                        }`}
-                      >
-                        {item.label}
-                      </Link>
-                    ) : (
-                      <>
-                        <Link
-                          to={item.path}
-                          className={`flex items-center gap-1 border-b border-transparent pb-[2px] text-[15px] font-medium transition-all duration-200 hover:border-[#73BFA1] ${
-                            isActive(item) ? 'text-[#73BFA1]' : 'text-gray-700'
-                          }`}
-                        >
-                          <span>{item.label}</span>
-                          <FaChevronDown
-                            size={14}
-                            className="transition-transform duration-200 group-hover:rotate-180"
-                          />
-                        </Link>
-
-                        {/* ✅ Desktop dropdown (wider) */}
-                        <div className="invisible absolute top-full z-50 mt-2 w-64 rounded-lg bg-white py-2 opacity-0 shadow-lg transition-all duration-200 group-hover:visible group-hover:opacity-100">
-                          {item.dropdown.map((sub, i) => (
-                            <div key={i} className="group/sub relative">
-                              {/* --- DESKTOP LINK/SPAN LOGIC --- */}
-                              {sub.dropdown ? (
-                                <span
-                                  className="flex cursor-default items-center justify-between px-4 py-2 text-base font-semibold text-gray-700 hover:bg-[#EAF5F1] hover:text-[#568F79]" // cursor-default added for visual cue
-                                >
-                                  {sub.label}
-                                  <FaChevronDown
-                                    size={12}
-                                    className="ml-2 rotate-[-90deg] transition-transform group-hover/sub:rotate-0"
-                                  />
-                                </span>
-                              ) : (
-                                <Link
-                                  to={sub.path}
-                                  className="flex items-center justify-between px-4 py-2 text-base font-semibold text-gray-700 hover:bg-[#EAF5F1] hover:text-[#568F79]"
-                                >
-                                  {sub.label}
-                                </Link>
-                              )}
-                              {/* --- END DESKTOP LINK/SPAN LOGIC --- */}
-
-                              {sub.dropdown && (
-                                <div className="invisible absolute top-0 left-full z-50 ml-1 w-64 rounded-lg bg-white py-2 opacity-0 shadow-lg transition-all duration-200 group-hover/sub:visible group-hover/sub:opacity-100">
-                                  {sub.dropdown.map((deep, j) => (
-                                    <Link
-                                      key={j}
-                                      to={deep.path}
-                                      className="block px-4 py-2 text-base font-semibold text-gray-700 hover:bg-[#EAF5F1] hover:text-[#568F79]"
-                                    >
-                                      {deep.label}
-                                    </Link>
-                                  ))}
-                                </div>
-                              )}
-                            </div>
-                          ))}
-                        </div>
-                      </>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* --- E-Learning Button (Desktop) --- */}
-            <div className="hidden lg:block">
-              <Link
-                to="/auth/UserLanguage"
-                className="inline-block rounded-full bg-[#73BFA1] px-8 py-3 font-semibold text-white"
-              >
-                E-Learning
-              </Link>
-            </div>
+            <h1 className="text-3xl font-bold text-gray-900">UnoSicurezza</h1>
           </div>
+        </Link>
 
-          {/* --- MOBILE MENU BUTTON --- */}
-          <div className="lg:hidden">
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="relative z-50 p-2 text-gray-700"
-            >
-              {isMenuOpen ? <GrClose size={28} /> : <IoMenu size={28} />}
-            </button>
+        {/* --- DESKTOP MENU --- */}
+        <div className="hidden flex-1 justify-center lg:flex">
+          <div className="flex items-center gap-6">
+            {navItems.map((item, index) => (
+              <div key={index} className="group relative">
+                {!item.dropdown ? (
+                  <Link
+                    to={item.path}
+                    className={`border-b border-transparent text-base font-semibold transition-all duration-300 ${
+                      isActive(item)
+                        ? 'border-[#73BFA1] text-[#73BFA1]'
+                        : 'text-[#252525] hover:border-[#63be9a]'
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                ) : (
+                  <>
+                    <Link
+                      to={item.path}
+                      className={`flex items-center gap-1 border-b border-transparent text-[15px] font-medium transition-all duration-200 hover:border-[#73BFA1] ${
+                        isActive(item) ? 'text-[#73BFA1]' : 'text-gray-700'
+                      }`}
+                    >
+                      <span>{item.label}</span>
+                      <FaChevronDown
+                        size={14}
+                        className="transition-transform duration-200 group-hover:rotate-180"
+                      />
+                    </Link>
+
+                    {/* ✅ Desktop dropdown (wider) */}
+                    <div className="invisible absolute top-full z-50 mt-2 w-64 rounded-lg bg-white py-2 opacity-0 shadow-lg transition-all duration-200 group-hover:visible group-hover:opacity-100">
+                      {item.dropdown.map((sub, i) => (
+                        <div key={i} className="group/sub relative">
+                          {/* --- DESKTOP LINK/SPAN LOGIC --- */}
+                          {sub.dropdown ? (
+                            <span
+                              className="flex cursor-default items-center justify-between px-4 py-2 text-base font-semibold text-gray-700 hover:bg-[#EAF5F1] hover:text-[#568F79]" // cursor-default added for visual cue
+                            >
+                              {sub.label}
+                              <FaChevronDown
+                                size={12}
+                                className="ml-2 rotate-[-90deg] transition-transform group-hover/sub:rotate-0"
+                              />
+                            </span>
+                          ) : (
+                            <Link
+                              to={sub.path}
+                              className="flex items-center justify-between px-4 py-2 text-base font-semibold text-gray-700 hover:bg-[#EAF5F1] hover:text-[#568F79]"
+                            >
+                              {sub.label}
+                            </Link>
+                          )}
+                          {/* --- END DESKTOP LINK/SPAN LOGIC --- */}
+
+                          {sub.dropdown && (
+                            <div className="invisible absolute top-0 left-full z-50 ml-1 w-64 rounded-lg bg-white py-2 opacity-0 shadow-lg transition-all duration-200 group-hover/sub:visible group-hover/sub:opacity-100">
+                              {sub.dropdown.map((deep, j) => (
+                                <Link
+                                  key={j}
+                                  to={deep.path}
+                                  className="block px-4 py-2 text-base font-semibold text-gray-700 hover:bg-[#EAF5F1] hover:text-[#568F79]"
+                                >
+                                  {deep.label}
+                                </Link>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  </>
+                )}
+              </div>
+            ))}
           </div>
         </div>
+
+        {/* --- E-Learning Button (Desktop) --- */}
+        <div className="hidden lg:block">
+          <Link
+            to="/auth/UserLanguage"
+            className="inline-block rounded-full bg-[#73BFA1] px-8 py-3 font-semibold text-white"
+          >
+            E-Learning
+          </Link>
+        </div>
+      </div>
+
+      {/* --- MOBILE MENU BUTTON --- */}
+      <div className="lg:hidden">
+        <button
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="relative z-50 p-2 text-gray-700"
+        >
+          {isMenuOpen ? <GrClose size={28} /> : <IoMenu size={28} />}
+        </button>
       </div>
 
       {/* --- MOBILE MENU --- */}
       {isMenuOpen && (
         <div className="absolute top-full right-0 left-0 z-50 bg-white shadow-md lg:hidden">
-          <Container>
+          <nav>
             <div className="flex flex-col space-y-3 pt-6 pb-6">
               {navItems.map((item, index) => (
                 <div key={index}>
@@ -374,10 +368,10 @@ const MainNavbar = () => {
                 E-Learning
               </Link>
             </div>
-          </Container>
+          </nav>
         </div>
       )}
-    </div>
+    </nav>
   );
 };
 

@@ -45,7 +45,7 @@ const ReviewSection = () => {
         <Button label="Invia" size="lg" className="w-full" />
       </Container>
 
-      <div className="">
+      <div className="border">
         <div className="relative">
           <div className="ml-[140px] h-[500px] w-[260px] bg-[#73BFA1] sm:ml-[150px] sm:h-[700px] sm:w-[380px] md:ml-[300px] md:h-[800px] md:w-[360px] lg:ml-[400px] lg:h-[900px] lg:w-[529px]" />
           <div className="absolute -mt-[460px] ml-0 sm:-mt-[600px] md:-mt-[600px] md:ml-20 lg:-mt-[820px] lg:ml-24">

@@ -1,15 +1,13 @@
-import React from 'react';
-
-const Container = ({ children, size = 'default', className = '' }) => {
+const Container = ({ children, size = 'full', className = '' }) => {
   const sizes = {
-    sm: 'max-w-2xl',
     default: 'max-w-4xl',
-    lg: 'max-w-6xl',
+    full: 'max-w-8xl',
     xl: 'max-w-7xl',
-    full: 'max-w-full',
+    lg: 'max-w-6xl',
+    sm: 'max-w-2xl',
   };
 
-  const classes = `mx-auto px-4 sm:px-6 lg:px-32 pt-[20px] md:pt-[50px] lg:pt-[80px] ${sizes[size]} ${className}`;
+  const classes = `mx-auto px-4 sm:px-6 md:px-8 border lg:px-[120px] ${sizes[size]} ${className}`;
   return <section className={classes}>{children}</section>;
 };
 
