@@ -15,145 +15,159 @@ import AuthLayout from './layout/auth/AuthLayout.jsx';
 import RoleGuard from './guards/RoleGuard.jsx';
 
 // Public Views
-// Main Page
 import HomeView from '../pages/public/home/HomeView.jsx';
 import ServicesView from '../pages/public/ServicesView.jsx';
 import TrainingView from '../pages/public/TrainingView.jsx';
 import WhoWeAreView from '../pages/public/WhoWeAreView.jsx';
 import ContactUsView from '../pages/public/ContactUsView.jsx';
 import WorkWithUsView from '../pages/public/WorkWithUsView.jsx';
-
-// Nested Page
-import SafetySevCoursesView from '../pages/public/nested/SafetySevCoursesView.jsx';
-import SafetyServiceView from '../pages/public/nested/SafetyServiceView.jsx';
-import SafetyEditorial from '../pages/public/nested/SafetyEditorial.jsx';
-import SafetyEmergencyView from '../pages/public/nested/SafetyEmergencyView.jsx';
-import SafetyLightningView from '../pages/public/nested/SafetyLightningView.jsx';
-import SafetyLegionView from '../pages/public/nested/SafetyLegionView.jsx';
-import SafetyDrinkingWater from '../pages/public/nested/SafetyDrinkingWater.jsx';
-import SafetyRadonView from '../pages/public/nested/SafetyRadonView.jsx';
-import SafetyLaboratoryView from '../pages/public/nested/SafetyLaboratoryView.jsx';
-import SafetyBuildingView from '../pages/public/nested/SafetyBuildingView.jsx';
-import AmbientRentView from '../pages/public/nested/AmbientRentView.jsx';
-import VideoAndAuthorizationView from '../pages/public/nested/VideoAndAuthorizationView.jsx';
-import OccupationalCompetentView from '../pages/public/nested/OccupationalCompetentView.jsx';
-import OccupationalMedicalView from '../pages/public/nested/OccupationalMedicalView.jsx';
-import OccupationalLaboratoryView from '../pages/public/nested/OccupationalLaboratoryView.jsx';
-import CondominiumPropertyView from '../pages/public/nested/CondominiumPropertyView.jsx';
-import TrainingOurPlatformView from '../pages/public/nested/TrainingOurPlatformView.jsx';
-import TrainingCoursesSevView from '../pages/public/nested/TrainingCoursesSevView.jsx';
-import TrainingCoursesRequiredView from '../pages/public/nested/TrainingCoursesRequiredView.jsx';
-import TrainingCoursesCatalogView from '../pages/public/nested/TrainingCoursesCatalogView.jsx';
+import {
+  SafetyEditorial,
+  SafetyRadonView,
+  SafetyLegionView,
+  SafetyServiceView,
+  SafetySevCoursesView,
+  SafetyLaboratoryView,
+  SafetyEmergencyView,
+  SafetyLightningView,
+  SafetyDrinkingWater,
+  SafetyBuildingView,
+  AmbientRentView,
+  VideoAndAuthorizationView,
+  OccupationalCompetentView,
+  OccupationalLaboratoryView,
+  TrainingCoursesRequiredView,
+  TrainingCoursesCatalogView,
+  OccupationalMedicalView,
+  CondominiumPropertyView,
+  TrainingOurPlatformView,
+  TrainingCoursesSevView,
+} from '../pages/public/nested'; // assuming you can export all nested views from index.js
 
 // Auth
 import LoginView from '../pages/auth/LoginView.jsx';
 
-// Admin View
+// Admin / Teacher / Student Views
 import SuperAdminView from '../pages/admin/super/SuperAdminView.jsx';
-
-// Teacher
 import TeacherView from '../pages/admin/freelancer/TeacherView.jsx';
 import CoursesView from '../pages/admin/freelancer/CoursesView.jsx';
 import VideosView from '../pages/admin/freelancer/VideosView.jsx';
-
-// Student
 import StudentView from '../pages/admin/students/StudentView.jsx';
 import DocsView from '../pages/admin/students/DocsView.jsx';
 
-// ErrorView
+// Error
 import ErrorView from '../pages/err/ErrorView.jsx';
+
+// Public Route Config
+const publicRoutes = [
+  { path: '', element: <HomeView /> },
+  { path: 'services', element: <ServicesView /> },
+  { path: 'training', element: <TrainingView /> },
+  { path: 'who_we_are', element: <WhoWeAreView /> },
+  { path: 'work_with_us', element: <WorkWithUsView /> },
+  { path: 'contact_us', element: <ContactUsView /> },
+];
+
+const nestedPublicRoutes = [
+  { path: 'services/sev/sev-courses', element: <SafetySevCoursesView /> },
+  { path: 'services/security/asp-service', element: <SafetyServiceView /> },
+  { path: 'services/security/dvr-editorial', element: <SafetyEditorial /> },
+  {
+    path: 'services/security/emergency-plans',
+    element: <SafetyEmergencyView />,
+  },
+  { path: 'services/security/legion', element: <SafetyLegionView /> },
+  { path: 'services/security/radon', element: <SafetyRadonView /> },
+  { path: 'services/security/lightning', element: <SafetyLightningView /> },
+  { path: 'services/safety/drinking-water', element: <SafetyDrinkingWater /> },
+  {
+    path: 'services/security/laboratory-analysis',
+    element: <SafetyLaboratoryView />,
+  },
+  {
+    path: 'services/security/building-management',
+    element: <SafetyBuildingView />,
+  },
+  { path: 'services/environment/rent', element: <AmbientRentView /> },
+  {
+    path: 'services/video/authorization',
+    element: <VideoAndAuthorizationView />,
+  },
+  {
+    path: 'services/medicine/assignments',
+    element: <OccupationalCompetentView />,
+  },
+  {
+    path: 'services/medicine-del/assignments',
+    element: <OccupationalMedicalView />,
+  },
+  {
+    path: 'services/medicine-del/analysis',
+    element: <OccupationalLaboratoryView />,
+  },
+  {
+    path: 'services/condominium/management',
+    element: <CondominiumPropertyView />,
+  },
+  { path: 'training/courses/our', element: <TrainingOurPlatformView /> },
+  {
+    path: 'training/courses/mandatory-courses',
+    element: <TrainingCoursesSevView />,
+  },
+  {
+    path: 'training/courses/how-it-works',
+    element: <TrainingCoursesRequiredView />,
+  },
+  { path: 'training/courses/catalog', element: <TrainingCoursesCatalogView /> },
+];
+
+// Dashboard Route Config
+const dashboardRoutes = [
+  {
+    roles: ['admin'],
+    routes: [{ path: 'super-admin', element: <SuperAdminView /> }],
+  },
+  {
+    roles: ['freelancer'],
+    routes: [
+      { path: 'teacher', element: <TeacherView /> },
+      { path: 'courses', element: <CoursesView /> },
+      { path: 'videos', element: <VideosView /> },
+    ],
+  },
+  {
+    roles: ['company'],
+    routes: [
+      { path: 'teacher', element: <TeacherView /> },
+      { path: 'courses', element: <CoursesView /> },
+      { path: 'videos', element: <VideosView /> },
+    ],
+  },
+  {
+    roles: ['student'],
+    routes: [
+      { path: 'student', element: <StudentView /> },
+      { path: 'docs', element: <DocsView /> },
+    ],
+  },
+];
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      {/* Public Views // Main Page */}
+      {/* Public */}
       <Route path="/" element={<MainLayout />}>
-        <Route index element={<HomeView />} />
-        <Route path="services" element={<ServicesView />} />
-        <Route path="training" element={<TrainingView />} />
-        <Route path="who_we_are" element={<WhoWeAreView />} />
-        <Route path="work_with_us" element={<WorkWithUsView />} />
-        <Route path="contact_us" element={<ContactUsView />} />
-        {/* Services Nested View */}
-        <Route
-          path="services/sev/sev-courses"
-          element={<SafetySevCoursesView />}
-        />
-        <Route
-          path="/services/security/asp-service"
-          element={<SafetyServiceView />}
-        />
-        <Route
-          path="/services/security/dvr-editorial"
-          element={<SafetyEditorial />}
-        />
-        <Route
-          path="/services/security/emergency-plans"
-          element={<SafetyEmergencyView />}
-        />
-        <Route
-          path="/services/security/lightning"
-          element={<SafetyLightningView />}
-        />
-        <Route
-          path="/services/security/legion"
-          element={<SafetyLegionView />}
-        />
-        <Route
-          path="/services/safety/drinking-water"
-          element={<SafetyDrinkingWater />}
-        />
-        <Route path="/services/security/radon" element={<SafetyRadonView />} />
-        <Route
-          path="/services/security/laboratory-analysis"
-          element={<SafetyLaboratoryView />}
-        />
-        <Route
-          path="/services/security/building-management"
-          element={<SafetyBuildingView />}
-        />
-        <Route
-          path="/services/environment/rent"
-          element={<AmbientRentView />}
-        />
-        <Route
-          path="/services/video/authorization"
-          element={<VideoAndAuthorizationView />}
-        />
-        <Route
-          path="/services/medicine/assignments"
-          element={<OccupationalCompetentView />}
-        />
-        <Route
-          path="/services/medicine-del/assignments"
-          element={<OccupationalMedicalView />}
-        />
-        <Route
-          path="/services/medicine-del/analysis"
-          element={<OccupationalLaboratoryView />}
-        />
-        <Route
-          path="/services/condominium/management"
-          element={<CondominiumPropertyView />}
-        />
-
-        {/* Training Nested View */}
-        <Route
-          path="/training/courses/our"
-          element={<TrainingOurPlatformView />}
-        />
-        <Route
-          path="/training/courses/mandatory-courses"
-          element={<TrainingCoursesSevView />}
-        />
-        <Route
-          path="/training/courses/how-it-works"
-          element={<TrainingCoursesRequiredView />}
-        />
-        <Route
-          path="/training/courses/catalog"
-          element={<TrainingCoursesCatalogView />}
-        />
+        {publicRoutes.map((r) => (
+          <Route
+            key={r.path}
+            path={r.path}
+            index={r.path === ''}
+            element={r.element}
+          />
+        ))}
+        {nestedPublicRoutes.map((r) => (
+          <Route key={r.path} path={r.path} element={r.element} />
+        ))}
       </Route>
 
       {/* Auth */}
@@ -162,36 +176,21 @@ const router = createBrowserRouter(
         <Route path="login" element={<LoginView />} />
       </Route>
 
+      {/* Dashboard */}
       <Route path="/dash" element={<DashboardLayout />}>
-        {/* Admin */}
-        <Route element={<RoleGuard allowedRoles={['admin']} />}>
-          <Route path="super-admin" element={<SuperAdminView />} />
-          {/* <Route path="te-settings" element={<SettingsView />} /> */}
-        </Route>
-
-        {/* Teacher */}
-        <Route element={<RoleGuard allowedRoles={['freelancer']} />}>
-          <Route path="teacher" element={<TeacherView />} />
-          <Route path="courses" element={<CoursesView />} />
-          <Route path="videos" element={<VideosView />} />
-          {/* <Route path="te-settings" element={<SettingsView />} /> */}
-        </Route>
-
-        {/* company */}
-        <Route element={<RoleGuard allowedRoles={['company']} />}>
-          <Route path="company" element={<TeacherView />} />
-          <Route path="courses" element={<CoursesView />} />
-          <Route path="videos" element={<VideosView />} />
-          {/* <Route path="te-settings" element={<SettingsView />} /> */}
-        </Route>
-
-        {/* Student */}
-        <Route element={<RoleGuard allowedRoles={['student']} />}>
-          <Route path="student" element={<StudentView />} />
-          <Route path="docs" element={<DocsView />} />
-          {/* <Route path="st-settings" element={<SettingsView />} /> */}
-        </Route>
+        {dashboardRoutes.map(({ roles, routes }) => (
+          <Route
+            key={roles.join('-')}
+            element={<RoleGuard allowedRoles={roles} />}
+          >
+            {routes.map((r) => (
+              <Route key={r.path} path={r.path} element={r.element} />
+            ))}
+          </Route>
+        ))}
       </Route>
+
+      {/* Fallback */}
       <Route path="*" element={<ErrorView />} />
     </>,
   ),
