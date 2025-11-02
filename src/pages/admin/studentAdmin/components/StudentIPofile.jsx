@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { FaPencilAlt, FaHome, FaUser, FaUserEdit, FaKey, FaShieldAlt, FaDownload, FaListAlt, FaEye, FaSignOutAlt, FaChevronRight, FaChevronLeft } from 'react-icons/fa'
 import { IoIosLogOut } from 'react-icons/io'
 import { IoSettingsSharp } from 'react-icons/io5'
 import { LuArrowLeftToLine } from 'react-icons/lu'
 import { FiEdit } from 'react-icons/fi'
+import StudentInfoModal from './modal/StudentInfoModal'
 
 const StudentIPofile = () => {
     const menu = [
@@ -18,6 +19,7 @@ const StudentIPofile = () => {
     ]
 
     const navigate = useNavigate()
+    const [showInfoModal, setShowInfoModal] = useState(false)
 
     const handleBack = () => {
         // navigate back to previous page in history
@@ -75,7 +77,16 @@ const StudentIPofile = () => {
                     {menu.map((item) => (
                         <button
                             key={item.id}
+                            onClick={() => {
+                                // open the user's StudentInfoModal when the second menu item is clicked
+                                if (item.id === 2) {
+                                    setShowInfoModal(true)
+                                    return
+                                }
+                                // fallback: for other items, we could navigate or perform actions
+                            }}
                             className="w-full flex items-center justify-between rounded-lg px-6 py-5 border border-gray-100 hover:shadow-sm transition"
+                            aria-label={item.label}
                         >
                             <div className="flex items-center gap-5 text-gray-700">
                                 <div className="w-10 h-10 flex items-center justify-center text-gray-600 text-2xl">{item.icon}</div>
@@ -94,6 +105,10 @@ const StudentIPofile = () => {
                     </div>
                 </div>
             </div>
+            {/* Render user's StudentInfoModal when requested */}
+            {showInfoModal && (
+                <StudentInfoModal onClose={() => setShowInfoModal(false)} />
+            )}
         </div>
     )
 }
