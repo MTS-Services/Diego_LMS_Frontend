@@ -52,7 +52,7 @@ import ServicesView from '../pages/public/services/ServicesView.jsx';
 import SuperAdminView from '../pages/admin/superAdmin/SuperAdminView.jsx';
 import FreelancerAdminView from '../pages/admin/freelancerAdmin/FreelancerAdminView.jsx';
 import CompanyAdminView from '../pages/admin/companyAdmin/CompanyAdminView.jsx';
-import StudentAdminSidebar from '../pages/admin/studentAdmin/StudentAdminView.jsx';
+import StudentAdminSidebar from '../pages/admin/studentAdmin/StudentHomeView.jsx';
 
 // Teacher
 import TeacherView from '../pages/teacher/TeacherView.jsx';
@@ -66,6 +66,7 @@ import DocsView from '../pages/students/DocsView.jsx';
 // ErrorView
 import ErrorView from '../pages/err/ErrorView.jsx';
 import Email from '../pages/auth/user_Auth/email/Email.jsx';
+import StudentHomeView from '../pages/admin/studentAdmin/StudentHomeView.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -186,7 +187,7 @@ const router = createBrowserRouter(
 
         {/* Student */}
         <Route element={<RoleGuard allowedRoles={['student']} />}>
-          <Route path="student" element={<StudentView />} />
+          <Route path="student" element={<StudentHomeView />} />
           <Route path="docs" element={<DocsView />} />
           {/* <Route path="st-settings" element={<SettingsView />} /> */}
         </Route>
