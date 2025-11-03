@@ -3,9 +3,9 @@ import { loginUser } from './authAPI';
 import { STORAGE } from '../../config/storage/storageKeys';
 
 const initialState = {
-  user: null,
-  token: null,
-  isAuthenticated: false,
+  user: STORAGE.getUser() || null,
+  token: STORAGE.getToken() || null,
+  isAuthenticated: !!STORAGE.getToken(),
   loading: false,
   error: null,
 };
