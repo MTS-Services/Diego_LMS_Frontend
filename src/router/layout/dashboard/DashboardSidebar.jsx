@@ -9,6 +9,10 @@ import {
 import { LiaThumbsUp } from 'react-icons/lia';
 import { BsUpload } from 'react-icons/bs';
 import { GoHome } from 'react-icons/go';
+import { FiHome } from 'react-icons/fi';
+import { MdQueryStats } from 'react-icons/md';
+import { FileUser } from 'lucide-react';
+import { ImStatsDots } from 'react-icons/im';
 
 const DashboardSidebar = ({ role }) => {
   const { isOpen, isToggle, setActiveLink } = useUIStore();
@@ -41,10 +45,9 @@ const DashboardSidebar = ({ role }) => {
       { path: '/dash/te-settings', label: 'Settings', icon: <FaHome /> },
     ],
     freelancer: [
-      { path: '/dash/teacher', label: 'Dashboard', icon: <FaHome /> },
-      { path: '/dash/courses', label: 'Courses', icon: <FaHome /> },
-      { path: '/dash/videos', label: 'Videos', icon: <FaHome /> },
-      { path: '/dash/te-settings', label: 'Settings', icon: <FaHome /> },
+      { path: '/dash/teacher', label: 'Dashboard', icon: <FiHome /> },
+      { path: '/dash/courses', label: 'Report', icon: <ImStatsDots /> },
+      { path: '/dash/videos', label: 'Licenze', icon: <FileUser /> },
     ],
     student: [
       { path: '/dash/student', label: 'Dashboard', icon: <FaHome /> },

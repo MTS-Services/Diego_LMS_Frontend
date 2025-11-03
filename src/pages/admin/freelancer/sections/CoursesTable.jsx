@@ -95,7 +95,7 @@ const CoursesTable = () => {
   return (
     <div className="w-full py-6 lg:py-10 bg-white rounded-xl">
       {/* Header */}
-      <div className="mb-6 flex items-center justify-between px-6 lg:px-10">
+      <div className="mb-6 flex items-center justify-between px-6">
         <h2 className="text-2xl font-bold text-gray-900">I miei corsi</h2>
         <div className="flex items-center gap-3">
           {/* Search */}
@@ -120,19 +120,19 @@ const CoursesTable = () => {
         <table className="w-full">
           <thead className="bg-[#f0f0f0] border-b border-gray-200">
             <tr>
-              <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700">
+              <th className="px-6 py-4 text-left text-base font-medium text-gray-700">
                 Corso
               </th>
-              <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700">
+              <th className="px-6 py-4 text-left text-base font-medium text-gray-700">
                 Corsisti iscritti
               </th>
-              <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700">
+              <th className="px-6 py-4 text-left text-base font-medium text-gray-700">
                 Avanzamento
               </th>
-              <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700">
+              <th className="px-6 py-4 text-left text-base font-medium text-gray-700">
                 Stato
               </th>
-              <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700">
+              <th className="px-6 py-4 text-left text-base font-medium text-gray-700">
                 Azioni
               </th>
             </tr>
@@ -143,7 +143,7 @@ const CoursesTable = () => {
                 <td className="px-6 py-4 text-base text-black font-medium">
                   {course.name}
                 </td>
-                <td className="px-6 py-4 text-sm text-black">
+                <td className="px-6 py-4 text-base font-normal text-black">
                   {course.enrolledStudents}
                 </td>
                 <td className="px-6 py-4">
