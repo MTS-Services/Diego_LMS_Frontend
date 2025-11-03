@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Card from '../../../../components/ui/layouts/Card'
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 
@@ -77,6 +78,7 @@ const LeftContent = () => {
     }
 
     const visibleCourses = courses.slice(startIndex, startIndex + visibleCount)
+    const navigate = useNavigate()
 
     return (
         <>
@@ -126,7 +128,13 @@ const LeftContent = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
                     {visibleCourses.map((course) => (
-                        <Card key={course.id} padding="none" shadow="sm" className="overflow-hidden hover:shadow-lg transition">
+                        <Card
+                            key={course.id}
+                            padding="none"
+                            shadow="sm"
+                            className="overflow-hidden hover:shadow-lg transition cursor-pointer"
+                            onClick={() => navigate(`/dash/student/course/${course.id}`)}
+                        >
                             <div className="relative h-48 bg-gray-200">
                                 <img
                                     src={course.image}
