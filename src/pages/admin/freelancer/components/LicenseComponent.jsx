@@ -14,11 +14,11 @@ const LicenseComponent = () => {
       setLoading(true);
       // Replace with your actual API endpoint
       const response = await fetch('/api/licenses');
-      
+
       if (!response.ok) {
         throw new Error('Failed to fetch licenses');
       }
-      
+
       const data = await response.json();
       setLicenses(data);
     } catch (err) {
@@ -30,22 +30,22 @@ const LicenseComponent = () => {
           name: 'Henry, Arthur',
           role: 'Freelancer',
           expiryDate: '2025-12-31',
-          status: 'active'
+          status: 'active',
         },
         {
           id: 2,
           name: 'Henry, Arthur',
           role: 'Freelancer',
           expiryDate: '2025-09-31',
-          status: 'expiring'
+          status: 'expiring',
         },
         {
           id: 3,
           name: 'Henry, Arthur',
           role: 'Freelancer',
           expiryDate: '2025-08-31',
-          status: 'expired'
-        }
+          status: 'expired',
+        },
       ]);
     } finally {
       setLoading(false);
@@ -72,27 +72,25 @@ const LicenseComponent = () => {
     return 'bg-[#73BFA1] hover:bg-[#5fa889]';
   };
 
-  const formatDate = (dateString) => {
-    const date = new Date(dateString);
-    const day = date.getDate();
-    const month = date.toLocaleString('en', { month: 'short' });
-    const year = date.getFullYear();
-    return `${month} ${day}, ${year}`;
+  const getExpiryText = (dateInput) => {
+    const d = new Date(dateInput);
+    if (Number.isNaN(d.getTime())) return 'Expiry date: —';
+
+    return `Expiry date: ${d.toLocaleDateString('en-US', {
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric',
+    })}`;
   };
 
-  const getExpiryText = (dateString) => {
-    return `Expiry date: ${formatDate(dateString)}`;
+  const getScadenzaText = (dateInput) => {
+    const d = new Date(dateInput);
+    if (Number.isNaN(d.getTime())) return 'Scadenza: —';
+
+    return `Scadenza: ${d.toLocaleDateString('it-IT')}`;
   };
 
-  const getScadenzaText = (dateString) => {
-    const date = new Date(dateString);
-    const day = String(date.getDate()).padStart(2, '0');
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const year = date.getFullYear();
-    return `Scadenza: ${day}/${month}/${year}`;
-  };
-
-  const filteredLicenses = licenses.filter(license => {
+  const filteredLicenses = licenses.filter((license) => {
     if (activeTab === 'active') return license.status === 'active';
     if (activeTab === 'expiring') return license.status === 'expiring';
     if (activeTab === 'expired') return license.status === 'expired';
@@ -103,15 +101,15 @@ const LicenseComponent = () => {
     return (
       <div className="w-full p-6">
         <div className="animate-pulse">
-          <div className="h-8 w-48 bg-gray-200 rounded mb-6"></div>
-          <div className="h-40 bg-gray-200 rounded"></div>
+          <div className="mb-6 h-8 w-48 rounded bg-gray-200"></div>
+          <div className="h-40 rounded bg-gray-200"></div>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="w-full p-6 bg-white mt-10 rounded-xl shadow-sm">
+    <div className="mt-10 w-full rounded-xl bg-white p-6 shadow-sm">
       {/* Header */}
       <h2 className="mb-6 text-2xl font-bold text-gray-900">Le tue licenze</h2>
 
@@ -164,15 +162,19 @@ const LicenseComponent = () => {
             </p>
             <div className="mb-4 flex items-center gap-2">
               <p className={`text-sm ${getStatusColor(license.status)}`}>
-                {license.status === 'active' && getScadenzaText(license.expiryDate)}
-                {license.status !== 'active' && getExpiryText(license.expiryDate)}
+                {license.status === 'active' &&
+                  getScadenzaText(license.expiryDate)}
+                {license.status !== 'active' &&
+                  getExpiryText(license.expiryDate)}
               </p>
-              <div className={`h-2 w-2 rounded-full ${getStatusDotColor(license.status)}`}></div>
+              <div
+                className={`h-2 w-2 rounded-full ${getStatusDotColor(license.status)}`}
+              ></div>
             </div>
             {license.status !== 'active' && (
               <button
                 className={`rounded-full px-6 py-3 text-sm font-medium text-white transition-colors ${getButtonColor(
-                  license.status
+                  license.status,
                 )}`}
               >
                 Renew the license
