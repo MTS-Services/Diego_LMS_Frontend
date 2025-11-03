@@ -75,6 +75,8 @@ import CredentialsReceived from '../pages/admin/studentAdmin/CredentialsReceived
 import NotificationsView from '../pages/admin/studentAdmin/NotificationsView.jsx';
 import QuizesView from '../pages/admin/studentAdmin/QuizesView.jsx';
 import QuizResult from '../pages/admin/studentAdmin/QuizResult.jsx';
+import SupportTicketView from '../pages/admin/studentAdmin/SupportTicketView.jsx';
+import SupportFeedbackView from '../pages/admin/studentAdmin/SupportFeedbackView.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -199,6 +201,8 @@ const router = createBrowserRouter(
           <Route path="student/course/:id" element={<CourseContentView />} />
           <Route path="student/profile" element={<StudentIPofile />}></Route>
           <Route path="student/credentials" element={<CredentialsReceived />} />
+          <Route path="student/support-ticket" element={<SupportTicketView />} />
+          <Route path="student/supportfeedback" element={<SupportFeedbackView />} />
           <Route path="notifications" element={<NotificationsView />} />
           <Route path="student/quizes" element={<QuizesView />} />
           <Route path="student/quiz-result" element={<QuizResult />} />
