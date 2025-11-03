@@ -2,7 +2,7 @@ import { Outlet } from 'react-router-dom';
 import DashboardNavbar from './DashboardNavbar';
 import DashboardSidebar from './DashboardSidebar';
 
-const role = 'admin';
+const role = 'freelancer';
 
 const DashboardLayout = () => {
   return (

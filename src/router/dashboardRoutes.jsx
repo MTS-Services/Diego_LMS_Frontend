@@ -1,5 +1,6 @@
 import CoursesView from '../pages/admin/freelancer/CoursesView';
-import TeacherView from '../pages/admin/freelancer/TeacherView';
+import FreelancerView from '../pages/admin/freelancer/FreelancerView';
+import Report from '../pages/admin/freelancer/sections/Report';
 import VideosView from '../pages/admin/freelancer/VideosView';
 import DocsView from '../pages/admin/students/DocsView';
 import StudentView from '../pages/admin/students/StudentView';
@@ -23,15 +24,15 @@ export const dashboardRoutes = [
   {
     roles: ['freelancer'],
     routes: [
-      { path: 'teacher', element: <TeacherView /> },
-      { path: 'courses', element: <CoursesView /> },
+      { path: 'teacher', element: <FreelancerView /> },
+      { path: 'courses', element: <Report/> },
       { path: 'videos', element: <VideosView /> },
     ],
   },
   {
     roles: ['company'],
     routes: [
-      { path: 'teacher', element: <TeacherView /> },
+      { path: 'teacher', element: <FreelancerView /> },
       { path: 'courses', element: <CoursesView /> },
       { path: 'videos', element: <VideosView /> },
     ],
