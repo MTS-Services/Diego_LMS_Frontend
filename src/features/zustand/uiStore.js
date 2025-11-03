@@ -4,7 +4,7 @@ import { persist } from 'zustand/middleware';
 export const useUIStore = create(
   persist(
     (set) => ({
-      isOpen: true, // default open
+      isOpen: true,
       activeLink: '',
       isToggle: () => set((state) => ({ isOpen: !state.isOpen })),
       setActiveLink: (path) => set({ activeLink: path }),

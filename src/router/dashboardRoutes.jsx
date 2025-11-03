@@ -8,7 +8,17 @@ import SuperAdminView from '../pages/admin/super/SuperAdminView';
 export const dashboardRoutes = [
   {
     roles: ['admin'],
-    routes: [{ path: 'super-admin', element: <SuperAdminView /> }],
+    routes: [
+      { path: 'super-admin', element: <SuperAdminView /> },
+      { path: 'gestione-licenze', element: <h1>Gestione Licenze</h1> },
+      { path: 'impostazioni', element: <h1>Impostazioni</h1> },
+      { path: 'ticket', element: <h1>Ticket</h1> },
+      { path: 'feedback', element: <h1>Feedback</h1> },
+      {
+        path: 'figura-previste',
+        element: <h1>Figura previste LMS CSR 59</h1>,
+      },
+    ],
   },
   {
     roles: ['freelancer'],

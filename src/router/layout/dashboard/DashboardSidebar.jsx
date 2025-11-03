@@ -1,61 +1,89 @@
+import { FaHome } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
 import { useUIStore } from '../../../features/zustand';
+import {
+  IoDocumentTextOutline,
+  IoSettingsOutline,
+  IoTicketOutline,
+} from 'react-icons/io5';
+import { LiaThumbsUp } from 'react-icons/lia';
+import { BsUpload } from 'react-icons/bs';
+import { GoHome } from 'react-icons/go';
 
 const DashboardSidebar = ({ role }) => {
   const { isOpen, isToggle, setActiveLink } = useUIStore();
 
   const linksByRole = {
     admin: [
-      { path: '/dash/super-admin', label: 'Dashboard' },
-      { path: '/dash/freelancer-admin', label: 'freelancer-admin' },
-      { path: '/dash/ad-settings', label: 'Settings' },
+      { path: '/dash/super-admin', label: 'Dashboard', icon: <GoHome /> },
+      {
+        path: '/dash/gestione-licenze',
+        label: 'Gestione licenze',
+        icon: <IoDocumentTextOutline />,
+      },
+      {
+        path: '/dash/impostazioni',
+        label: 'Impostazioni',
+        icon: <IoSettingsOutline />,
+      },
+      { path: '/dash/ticket', label: 'Ticket', icon: <IoTicketOutline /> },
+      { path: '/dash/feedback', label: 'Feedback', icon: <LiaThumbsUp /> },
+      {
+        path: '/dash/figura-previste',
+        label: 'Figura previste LMS CSR 59',
+        icon: <BsUpload />,
+      },
     ],
-    teacher: [
-      { path: '/dash/teacher', label: 'Dashboard' },
-      { path: '/dash/courses', label: 'Courses' },
-      { path: '/dash/videos', label: 'Videos' },
-      { path: '/dash/te-settings', label: 'Settings' },
+    company: [
+      { path: '/dash/teacher', label: 'Dashboard', icon: <FaHome /> },
+      { path: '/dash/courses', label: 'Courses', icon: <FaHome /> },
+      { path: '/dash/videos', label: 'Videos', icon: <FaHome /> },
+      { path: '/dash/te-settings', label: 'Settings', icon: <FaHome /> },
+    ],
+    freelancer: [
+      { path: '/dash/teacher', label: 'Dashboard', icon: <FaHome /> },
+      { path: '/dash/courses', label: 'Courses', icon: <FaHome /> },
+      { path: '/dash/videos', label: 'Videos', icon: <FaHome /> },
+      { path: '/dash/te-settings', label: 'Settings', icon: <FaHome /> },
     ],
     student: [
-      { path: '/dash/student', label: 'Dashboard' },
-      { path: '/dash/docs', label: 'Documents' },
-      { path: '/dash/st-settings', label: 'Settings' },
+      { path: '/dash/student', label: 'Dashboard', icon: <FaHome /> },
+      { path: '/dash/docs', label: 'Documents', icon: <FaHome /> },
+      { path: '/dash/st-settings', label: 'Settings', icon: <FaHome /> },
     ],
   };
 
   const links = linksByRole[role] || [];
 
   return (
-    <aside
-      className={`w-[300px] space-y-8 p-4 shadow-sm transition-all duration-300 ${
-        isOpen ? 'translate-x-0' : '-translate-x-64'
-      }`}
-    >
-      {/* Left Section: Logo + Title */}
-      <div className="flex h-12 w-56 items-center gap-3">
-        <img
-          className="h-10 w-10 object-contain"
-          src="/images/icons/title.png"
-          alt="Home"
-        />
-        <h1 className="text-3xl font-bold text-gray-900">UnoSicurezza</h1>
-      </div>
+    <aside className="fixed top-0 left-0 h-full w-[300px] bg-white shadow-md">
+      <div className="flex justify-center py-4">
+        <div className="flex items-center">
+          <img
+            className="h-10 w-10 bg-cover object-contain text-[#46BB9D]"
+            src="/images/icons/title.png"
+            alt="Home"
+          />
 
-      <nav className="flex flex-col gap-2">
-        {links.map(({ path, label }) => (
+          <h1 className="text-3xl font-bold text-gray-900">UnoSicurezza</h1>
+        </div>
+      </div>
+      <nav className="space-y-3 p-4">
+        {links.map(({ path, label, icon }) => (
           <NavLink
             key={path}
             to={path}
             onClick={() => setActiveLink(path)}
             className={({ isActive }) =>
-              `block rounded-lg px-3 py-2 ${
+              `flex items-center gap-2 rounded-lg px-3 py-2 font-['Poppins'] ${
                 isActive
                   ? 'bg-[#73BFA1] text-white'
                   : 'text-gray-700 hover:bg-gray-100'
               }`
             }
           >
-            {label}
+            <span className="">{icon}</span>
+            <span className="">{label}</span>
           </NavLink>
         ))}
       </nav>
