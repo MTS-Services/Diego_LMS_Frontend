@@ -50,7 +50,7 @@ const PassWordForm = ({
         <div className="mx-auto flex w-full flex-col justify-center rounded-xl border border-gray-50 bg-[#F1F9F6] px-[92px]">
           <form onSubmit={handleSubmit}>
             <div className="mb-6 flex justify-center text-center">
-              <H3 className="text-center" h3={heading} />
+              <h3 className="text-center">{heading}</h3>
             </div>
 
             <div className="mb-6">

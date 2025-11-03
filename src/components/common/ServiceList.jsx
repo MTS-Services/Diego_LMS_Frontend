@@ -1,5 +1,4 @@
 import { FaArrowRight } from 'react-icons/fa';
-import P from '../ui/P';
 
 const ServiceList = ({ items = [] }) => {
   return (
@@ -10,7 +9,7 @@ const ServiceList = ({ items = [] }) => {
           className={`flex items-center gap-3 ${index !== 0 ? 'my-4' : ''}`}
         >
           <FaArrowRight className="text-[#284338]" />
-          <P p={item} />
+          {/* <Paragraoh p={item} /> */}
         </div>
       ))}
     </div>
