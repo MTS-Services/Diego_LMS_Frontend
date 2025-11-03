@@ -69,6 +69,7 @@ import ErrorView from '../pages/err/ErrorView.jsx';
 import Email from '../pages/auth/user_Auth/email/Email.jsx';
 import StudentHomeView from '../pages/admin/studentAdmin/StudentHomeView.jsx';
 import StudentIPofile from '../pages/admin/studentAdmin/components/StudentIPofile.jsx';
+import CertificatePage from '../pages/admin/studentAdmin/components/CertificatePage.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -190,8 +191,12 @@ const router = createBrowserRouter(
         {/* Student */}
         <Route element={<RoleGuard allowedRoles={['student']} />}>
           <Route path="student" element={<StudentHomeView />} />
-          <Route path="student/profile" element={<StudentIPofile />} />
+          <Route path="student/profile" element={<StudentIPofile />} >
+          
+          </Route>
           <Route path="docs" element={<DocsView />} />
+          <Route path="level-four/attestati" element={<CertificatePage />} />
+
           {/* <Route path="st-settings" element={<SettingsView />} /> */}
         </Route>
       </Route>

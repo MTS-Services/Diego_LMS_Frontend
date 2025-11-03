@@ -83,6 +83,11 @@ const StudentIPofile = () => {
                                     setShowInfoModal(true)
                                     return
                                 }
+                                // navigate to certificate page
+                                if (item.id === 6) {
+                                    navigate('/dash/level-four/attestati')
+                                    return
+                                }
                                 // fallback: for other items, we could navigate or perform actions
                             }}
                             className="w-full flex items-center justify-between rounded-lg px-6 py-5 border border-gray-100 hover:shadow-sm transition"
