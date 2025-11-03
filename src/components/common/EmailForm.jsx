@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { H3 } from '../ui/Heading';
-import Input from '../ui/Input';
+import { Heading, InputField } from '../ui';
 
 const EmailForm = ({
   navigatePath,
@@ -13,13 +12,11 @@ const EmailForm = ({
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
     console.log('📩 Submitted Email:', email);
 
     if (onSubmit) {
       onSubmit(email);
     }
-
     if (navigatePath) {
       navigate(navigatePath);
     }
@@ -29,12 +26,11 @@ const EmailForm = ({
     <div className="mx-auto w-full">
       <div className="mx-auto grid h-screen grid-cols-1 md:grid-cols-2">
         {/* Left Side */}
-        <div className="my-auto rounded-xl border border-gray-50 px-[92px]">
+        <div className="my-auto rounded-xl border border-gray-50">
           <div className="flex justify-center text-center">
-            <H3
-              className="max-w-[482px] text-center"
-              h3="Let's change the experience of learning something new."
-            />
+            <Heading level={3}>
+              Let's change the experience of learning something new.
+            </Heading>
           </div>
           <div className="mx-auto max-w-md">
             <img
@@ -49,11 +45,11 @@ const EmailForm = ({
         <div className="mx-auto flex w-full flex-col justify-center rounded-xl border border-gray-50 bg-[#F1F9F6] px-[92px]">
           <form onSubmit={handleSubmit}>
             <div className="mb-6 flex justify-center text-center">
-              <H3 className="text-center" h3={heading} />
+              <Heading level={3} className="text-center" h3={heading} />
             </div>
 
             <div className="mb-6">
-              <Input
+              <InputField
                 name="email"
                 type="email"
                 placeholder="Type Your Email"
