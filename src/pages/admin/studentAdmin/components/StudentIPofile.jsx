@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { FaPencilAlt, FaHome, FaUser, FaUserEdit, FaKey, FaShieldAlt, FaDownload, FaListAlt, FaEye, FaSignOutAlt, FaChevronRight, FaChevronLeft } from 'react-icons/fa'
+import { FaPencilAlt, FaHome, FaUser, FaUserEdit, FaKey, FaShieldAlt, FaDownload, FaListAlt, FaEye, FaSignOutAlt, FaChevronRight, FaChevronLeft, FaBell } from 'react-icons/fa'
 import { IoIosLogOut } from 'react-icons/io'
 import { IoSettingsSharp } from 'react-icons/io5'
 import { LuArrowLeftToLine } from 'react-icons/lu'
@@ -16,6 +16,7 @@ const StudentIPofile = () => {
         { id: 5, icon: <FaDownload />, label: 'I tuoi attestati' },
         { id: 6, icon: <FaListAlt />, label: "Elenco dei certificati" },
         { id: 7, icon: <LuArrowLeftToLine />, label: 'Anteprima / Dettagli' },
+        { id: 8, icon: <FaBell />, label: 'Notifiche' },
     ]
 
     const navigate = useNavigate()
@@ -93,6 +94,12 @@ const StudentIPofile = () => {
                                 // navigate to certificate page
                                 if (item.id === 6) {
                                     navigate('/dash/level-four/attestati')
+                                    return
+                                }
+
+                                // navigate to notifications
+                                if (item.id === 8) {
+                                    navigate('/dash/notifications')
                                     return
                                 }
 

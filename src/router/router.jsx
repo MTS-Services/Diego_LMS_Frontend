@@ -72,6 +72,7 @@ import StudentIPofile from '../pages/admin/studentAdmin/components/StudentIPofil
 import CertificatePage from '../pages/admin/studentAdmin/components/CertificatePage.jsx';
 import CourseContentView from '../pages/admin/studentAdmin/CourseContentView.jsx';
 import CredentialsReceived from '../pages/admin/studentAdmin/CredentialsReceived.jsx';
+import NotificationsView from '../pages/admin/studentAdmin/NotificationsView.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -196,6 +197,7 @@ const router = createBrowserRouter(
           <Route path="student/course/:id" element={<CourseContentView />} />
           <Route path="student/profile" element={<StudentIPofile />}></Route>
           <Route path="student/credentials" element={<CredentialsReceived />} />
+          <Route path="notifications" element={<NotificationsView />} />
           <Route path="docs" element={<DocsView />} />
           <Route path="level-four/attestati" element={<CertificatePage />} />
 
