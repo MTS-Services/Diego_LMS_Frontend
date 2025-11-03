@@ -71,6 +71,7 @@ import StudentHomeView from '../pages/admin/studentAdmin/StudentHomeView.jsx';
 import StudentIPofile from '../pages/admin/studentAdmin/components/StudentIPofile.jsx';
 import CertificatePage from '../pages/admin/studentAdmin/components/CertificatePage.jsx';
 import CourseContentView from '../pages/admin/studentAdmin/CourseContentView.jsx';
+import CredentialsReceived from '../pages/admin/studentAdmin/CredentialsReceived.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -193,9 +194,8 @@ const router = createBrowserRouter(
         <Route element={<RoleGuard allowedRoles={['student']} />}>
           <Route path="student" element={<StudentHomeView />} />
           <Route path="student/course/:id" element={<CourseContentView />} />
-          <Route path="student/profile" element={<StudentIPofile />} >
-
-          </Route>
+          <Route path="student/profile" element={<StudentIPofile />}></Route>
+          <Route path="student/credentials" element={<CredentialsReceived />} />
           <Route path="docs" element={<DocsView />} />
           <Route path="level-four/attestati" element={<CertificatePage />} />
 
