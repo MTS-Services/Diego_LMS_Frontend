@@ -1,9 +1,10 @@
 import { useUIStore } from '../../../features/zustand';
+import SuperAdminHome from './sections/SuperAdminHome';
 
 const SuperAdminView = () => {
   return (
     <section className="">
-      <h1>Hello</h1>
+      <SuperAdminHome />
     </section>
   );
 };
