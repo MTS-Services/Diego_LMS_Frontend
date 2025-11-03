@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { H3 } from '../ui/Heading';
-import Input from '../ui/Input';
-import P from '../ui/P';
+import { Heading, InputField, Paragraph } from '../ui';
 
 const PassWordForm = ({
   navigatePath,
@@ -14,13 +12,11 @@ const PassWordForm = ({
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
     console.log('📩 Submitted Password:', password);
 
     if (onSubmit) {
       onSubmit(password);
     }
-
     if (navigatePath) {
       navigate(navigatePath);
     }
@@ -32,15 +28,21 @@ const PassWordForm = ({
         {/* Left Side */}
         <div className="my-auto rounded-xl border border-gray-50 px-[92px]">
           <div className="flex justify-center text-center">
-            <H3
-              className="max-w-[482px] text-center"
-              h3="Let's change the experience of learning something new."
-            />
+            <div className="flex items-center">
+              <img
+                className="h-10 w-10 bg-cover object-contain text-[#46BB9D]"
+                src="/images/icons/title.png"
+                alt="Home"
+              />
+
+              <h1 className="text-3xl font-bold text-gray-900">UnoSicurezza</h1>
+            </div>
           </div>
+
           <div className="mx-auto max-w-md">
             <img
               className="h-auto w-full bg-cover object-cover"
-              src="/image/icon/gmail.png"
+              src="/image/icon/password.jpg"
               alt="Gmail Icon"
             />
           </div>
@@ -54,7 +56,7 @@ const PassWordForm = ({
             </div>
 
             <div className="mb-6">
-              <Input
+              <InputField
                 name="password"
                 type="password"
                 placeholder="Type Your Email"
@@ -66,10 +68,7 @@ const PassWordForm = ({
             </div>
 
             <div className="flex items-center justify-between">
-              <P
-                className={'text-[#C43216]'}
-                p={'Hai dimenticato la password?'}
-              />
+              <Paragraph>Hai dimenticato la password?</Paragraph>
               <button
                 type="submit"
                 className="rounded-full border-2 border-[#73BFA1] bg-[#73BFA1] px-6 py-3 font-medium text-white transition-colors hover:bg-white hover:text-[#73BFA1] lg:w-[20%]"

@@ -10,19 +10,14 @@ export const loginUser = createAsyncThunk(
   async ({ email, password }, { rejectWithValue }) => {
     try {
       const res = await POST(endpoints.auth.LOGIN, { email, password });
-
-      // Expecting your JSON structure: { success, message, data: { user, tokens } }
       const { data } = res || {};
       const accessToken = data?.tokens?.accessToken;
       const refreshToken = data?.tokens?.refreshToken;
-
       if (accessToken) {
         // store tokens in localStorage
         STORAGE.setToken(accessToken);
-        STORAGE.refreshToken(refreshToken);
-        // localStorage.setItem('refreshToken', refreshToken);
+        STORAGE.setRefreshToken(refreshToken);
       }
-
       // return the clean payload to slice
       return {
         user: data?.user,
