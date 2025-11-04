@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Card from '../../../../components/ui/layouts/Card'
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
-
+import { FaChevronLeft, FaChevronRight, FaStar } from 'react-icons/fa'
+import { IoIosStarOutline, IoMdStar } from 'react-icons/io'
 
 const LeftContent = () => {
     const courses = [
@@ -84,8 +84,15 @@ const LeftContent = () => {
         <>
             {/* Hero Banner */}
             <div className="relative w-full bg-gradient-to-br from-[#73BFA1] to-[#5aa687] rounded-3xl p-8 md:p-12 shadow-lg overflow-hidden">
-                <div className="absolute top-8 right-16 text-6xl opacity-20">✨</div>
-                <div className="absolute bottom-6 right-32 text-5xl opacity-10">✨</div>
+                {/* Decorative stars cluster (keeps same look on large screens, scales/positions on smaller screens) */}
+                <div className="absolute inset-0 pointer-events-none gap-4">
+                    <IoMdStar className="hidden md:block absolute -top-18 right-16 opacity-20 text-white w-40 h-40" />
+                    <IoMdStar className="hidden md:block absolute top-20 right-6 opacity-10 text-white w-16 h-16" />
+                    <IoMdStar className="hidden md:block absolute top-28 right-36 opacity-10 text-white w-26 h-26" />
+                    <IoMdStar className="hidden md:block absolute top-38 -right-2 opacity-10 text-white w-26 h-26" />
+                    <IoMdStar className="hidden md:block absolute top-8 right-62 opacity-10 text-white w-26 h-26" />
+                    <IoMdStar className="block md:hidden absolute top-3 right-3 opacity-15 text-white w-28 h-28" />
+                </div>
 
                 <div className="relative z-10 max-w-2xl">
                     <h1 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
@@ -99,6 +106,7 @@ const LeftContent = () => {
                         Inizia ora
                     </button>
                 </div>
+                
             </div>
 
             {/* Course Cards Section */}
@@ -142,7 +150,7 @@ const LeftContent = () => {
                                     className="w-full h-full object-cover"
                                     onError={(e) => { e.target.src = 'https://via.placeholder.com/400x300?text=Course+Image' }}
                                 />
-                                <button type="button" className="absolute top-3 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-gray-100">
+                                <button type="button" className="absolute top-3 right-3 w-8 h-8 bg-white/50 opacity-60 rounded-full flex items-center justify-center shadow-md hover:bg-gray-100">
                                     <span className="text-gray-600">♡</span>
                                 </button>
                             </div>

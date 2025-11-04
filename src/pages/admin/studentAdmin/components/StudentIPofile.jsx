@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { FaPencilAlt, FaHome, FaUser, FaUserEdit, FaKey, FaShieldAlt, FaDownload, FaListAlt, FaEye, FaSignOutAlt, FaChevronRight, FaChevronLeft, FaBell } from 'react-icons/fa'
+import { FaHome, FaUser, FaKey, FaShieldAlt, FaDownload, FaListAlt, FaChevronRight, FaChevronLeft, FaBell } from 'react-icons/fa'
 import { IoIosLogOut } from 'react-icons/io'
 import { IoSettingsSharp } from 'react-icons/io5'
 import { LuArrowLeftToLine } from 'react-icons/lu'
 import { FiEdit } from 'react-icons/fi'
 import StudentInfoModal from './modal/StudentInfoModal'
+import rightDownSideBg from '/image/student/ciao.png'
 
 const StudentIPofile = () => {
     const menu = [
@@ -35,45 +36,55 @@ const StudentIPofile = () => {
                     onClick={handleBack}
                     aria-label="Go back"
                     title="Go back"
-                    className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-white shadow-sm hover:bg-gray-50"
+                    className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-[#F1F9F6] shadow-sm hover:bg-gray-50"
                 >
                     <FaChevronLeft className="text-gray-600" />
                 </button>
             </div>
-
             {/* Banner */}
-            <div className="bg-[#73BFA1] rounded-xl px-6 py-8 md:px-8 md:py-12 mb-6 relative overflow-hidden">
-                {/* edit icon top-right */}
-                <button className="absolute  right-20 top-12 p-2 ">
-                    <FiEdit className="text-white text-3xl" />
-                </button>
+            <div className="relative  mb-10 h-44 w-full overflow-hidden rounded-2xl bg-[#73BFA1] text-white md:h-48">
 
-                <div className="flex px-18 items-center gap-6">
-                    <div className="flex items-center gap-4">
-                        <div className="w-36 h-36 rounded-full bg-[#73BFA1] flex items-center justify-center border border-white/40 relative">
-                            {/* avatar circle matching screenshot */}
-                            <div className="w-24 h-24 rounded-full flex items-center justify-center">
+                {/* Content layer - tightened spacing to match design */}
+                <div className="flex items-center gap-6 px-6 md:px-10 h-full">
+                    <div className="flex items-center gap-6">
+                        <div className="w-28 h-28 md:w-36 md:h-36 rounded-full bg-[#73BFA1] flex items-center justify-center border border-white/30 relative">
+                            <div className="w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center">
                                 <span className="sr-only">User avatar</span>
-                                <FaUser className="text-[#17342e] h-16 w-16" aria-hidden="true" />
+                                <FaUser className="text-[#17342e] h-12 w-12 md:h-16 md:w-16" aria-hidden="true" />
                             </div>
 
-                            {/* small notification badge overlapping bottom-right */}
+                            {/* small notification badge overlapping bottom-right - scaled for tighter layout */}
                             <div className="absolute bottom-8 right-3">
-                                <div className="w-10 h-10 rounded-full  bg-[#73BFA1] flex items-center justify-center">
-                                    <div className="w-9 h-9 rounded-full bg-[#17342e] flex items-center justify-center text-xl  text-white font-semibold">1</div>
+                                <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-[#73BFA1] flex items-center justify-center">
+                                    <div className="w-7 h-7 md:w-9 md:h-9 rounded-full bg-[#17342e] flex items-center justify-center text-xs md:text-xl text-white font-semibold">1</div>
                                 </div>
                             </div>
                         </div>
-                        <div className='pl-10'>
-                            <h2 className="text-3xl md:text-4xl mb-0 font-semibold text-white">Starriz.Clo</h2>
-                            <p className="text-xl text-white">starriz.clo</p>
+
+                        <div className='ml-4'>
+                            <h2 className="text-2xl md:text-4xl mb-0 font-semibold text-white">Starriz.Clo</h2>
+                            <p className="text-sm md:text-xl text-white">starriz.clo</p>
                         </div>
                     </div>
+                </div>
+                {/* Edit icon (top-right) - green outlined square matching design; opens StudentInfoModal */}
+                <button
+                    onClick={() => setShowInfoModal(true)}
+                    aria-label="Edit profile"
+                    title="Edit profile"
+                    className="absolute top-4 right-8 md:top-6 md:right-38 z-10 w-8 h-8 md:w-9 md:h-9 flex items-center justify-center "
+                >
+                    <FiEdit className="text-white text-3xl" />
+                </button>
+
+                {/* Background layer */}
+                <div className='absolute z-0 -right-20 top-9'>
+                    <img src={rightDownSideBg} alt="circleBg" />
                 </div>
             </div>
 
             {/* Options list card */}
-            <div className="bg-white rounded-xl shadow p-4 md:p-6">
+            <div className="bg-white rounded-xl border border-[#E6E6E6] shadow p-4 md:p-6">
                 <div className="space-y-3">
                     {menu.map((item) => (
                         <button
@@ -105,20 +116,20 @@ const StudentIPofile = () => {
 
                                 // fallback: for other items, we could navigate or perform actions
                             }}
-                            className="w-full flex items-center justify-between rounded-lg px-6 py-5 border border-gray-100 hover:shadow-sm transition"
+                            className="w-full flex items-center justify-between rounded-lg px-4 py-3 border border-[#E6E6E6] hover:shadow-sm transition"
                             aria-label={item.label}
                         >
-                            <div className="flex items-center gap-5 text-gray-700">
-                                <div className="w-10 h-10 flex items-center justify-center text-gray-600 text-2xl">{item.icon}</div>
-                                <span className="text-lg md:text-xl font-medium text-[#252525]">{item.label}</span>
+                            <div className="flex items-center gap-3 text-gray-700">
+                                <div className="w-8 h-8 flex items-center justify-center text-gray-600 text-lg">{item.icon}</div>
+                                <span className="text-base md:text-lg font-medium text-[#252525]">{item.label}</span>
                             </div>
 
-                            <FaChevronRight className="text-[#1A1A1A] text-lg" />
+                            <FaChevronRight className="text-[#1A1A1A] text-sm" />
                         </button>
                     ))}
 
                     <div className="mt-4">
-                        <button className="w-full text-xl text-red-600 border border-red-50 rounded-lg px-4 py-3 text-left flex items-center">
+                        <button className="w-full text-lg text-red-600 border border-[#E6E6E6] rounded-lg px-5 py-2 text-left flex items-center">
                             <IoIosLogOut className='inline-block h-5 w-5 mr-3' />
                             Esci
                         </button>

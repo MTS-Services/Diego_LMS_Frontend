@@ -119,7 +119,6 @@ const SupportFeedbackView = () => {
                                     ))}
                                 </div>
                             </div>
-
                             {/* Reply Section */}
                             <div>
                                 <h2 className="text-lg font-semibold text-gray-900 mb-4">Rispondi</h2>
@@ -152,7 +151,7 @@ const SupportFeedbackView = () => {
                                     </div>
                                     <div>
                                         <p className="text-xl text-[#252525] font-semibold mb-1">Oggetto: <span  className="text-base text-gray-900">{ticket.details.subject}</span></p>
-                                        
+
                                     </div>
                                     <div>
                                         <p className="text-xl text-[#252525] font-semibold mb-1">Tipologia richiesta:</p>
