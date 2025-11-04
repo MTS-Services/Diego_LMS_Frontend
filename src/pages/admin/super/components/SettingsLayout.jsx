@@ -1,22 +1,31 @@
 import React from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import { Save, CreditCard, Mail, Wand2, Plug } from 'lucide-react';
 
 export default function SettingsLayout({ onSave = () => {} }) {
+  const location = useLocation();
+
+  // Get the base path (everything before the last segment)
+  const basePath = '/dash/impostazioni';
+
   const tabs = [
     {
-      to: 'finance',
+      to: `${basePath}/finance`,
       label: 'Impostazioni finanziarie',
       icon: <CreditCard className="h-4 w-4" />,
     },
     {
-      to: 'system',
+      to: `${basePath}/system`,
       label: 'Impostazioni di sistema',
       icon: <Mail className="h-4 w-4" />,
     },
-    { to: 'brand', label: 'Marchio', icon: <Wand2 className="h-4 w-4" /> },
     {
-      to: 'api',
+      to: `${basePath}/brand`,
+      label: 'Marchio',
+      icon: <Wand2 className="h-4 w-4" />,
+    },
+    {
+      to: `${basePath}/api`,
       label: 'API & Integrations',
       icon: <Plug className="h-4 w-4" />,
     },
@@ -26,7 +35,9 @@ export default function SettingsLayout({ onSave = () => {} }) {
     <div className="rounded-3xl bg-white shadow-sm ring-1 ring-black/5">
       {/* Header */}
       <div className="flex items-center justify-between gap-4 rounded-t-3xl bg-gray-50 px-5 py-4">
-        <h1 className="text-xl font-semibold text-gray-900">Impostazioni</h1>
+        <h1 className="text-xl font-semibold text-gray-900">
+          Gateway di pagamento
+        </h1>
         <button
           onClick={onSave}
           className="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-4 py-2 text-white hover:bg-emerald-600"
@@ -44,8 +55,6 @@ export default function SettingsLayout({ onSave = () => {} }) {
               <NavLink
                 key={t.to}
                 to={t.to}
-                relative="path"
-                end
                 className={({ isActive }) =>
                   [
                     'flex w-full items-center gap-3 rounded-xl px-4 py-3 text-left transition',
