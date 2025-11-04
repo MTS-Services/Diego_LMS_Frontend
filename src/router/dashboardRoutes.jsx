@@ -9,12 +9,12 @@ import License from '../pages/admin/freelancer/sections/License';
 import Report from '../pages/admin/freelancer/sections/Report';
 import ReportDetail from '../pages/admin/freelancer/sections/ReportDetail';
 import VideosView from '../pages/admin/freelancer/VideosView';
-
 import SuperAdminView from '../pages/admin/super/SuperAdminView';
 import { ROLES } from '../config/roles';
 
 export const dashboardRoutes = [
   {
+    //  ✅ Super Admins
     roles: [ROLES.ADMIN],
     routes: [
       { path: 'admin', element: <SuperAdminView /> },
@@ -32,6 +32,7 @@ export const dashboardRoutes = [
     ],
   },
   {
+    //  ✅ Freelancers
     roles: [ROLES.LICENSE_USER],
     routes: [
       { path: 'license-user', element: <FreelancerView /> },
@@ -42,6 +43,7 @@ export const dashboardRoutes = [
     ],
   },
   {
+    //  ✅ Company Admins
     roles: [ROLES.COMPANY_ADMIN],
     routes: [
       { path: 'company', element: <h1>COMPANY_HOME</h1> },
@@ -49,9 +51,11 @@ export const dashboardRoutes = [
       { path: 'company/teacher', element: <FreelancerView /> },
       { path: 'company/courses', element: <CoursesView /> },
       { path: 'company/videos', element: <VideosView /> },
+      { path: 'company/settings', element: <h1>Settings</h1> },
     ],
   },
   {
+    //   Private Users
     roles: [ROLES.PRIVATE_USER],
     routes: [
       { path: 'student', element: <h1>PRIVATE_USER</h1> },
