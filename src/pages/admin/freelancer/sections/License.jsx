@@ -8,7 +8,6 @@ const License = () => {
             <h1 className='text-xl font-medium text-center mb-10'>Utente licenza</h1>
 
             <Henrey/>
-
             <LicenseComponent/>
         </div>
     );

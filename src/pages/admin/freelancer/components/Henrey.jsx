@@ -19,7 +19,7 @@ const Henrey = () => {
 
       {/* Background layer */}
       <div className='absolute z-0 -right-20 top-9'>
-        <img src={rightDownSideBg} alt="" />
+        <img src={rightDownSideBg} alt="circleBg" />
       </div>
     </div>
   );
