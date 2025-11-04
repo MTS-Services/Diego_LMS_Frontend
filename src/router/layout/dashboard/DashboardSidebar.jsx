@@ -14,21 +14,21 @@ import { ROLES } from '../../../config/roles';
 
 const linksByRole = {
   [ROLES.ADMIN]: [
-    { path: '/dash/super-admin', label: 'Dashboard', icon: <GoHome /> },
+    { path: '/dash/admin', label: 'Dashboard', icon: <GoHome /> },
     {
-      path: '/dash/gestione-licenze',
+      path: '/dash/admin/gestione-licenze',
       label: 'Gestione licenze',
       icon: <IoDocumentTextOutline />,
     },
     {
-      path: '/dash/impostazioni',
+      path: '/dash/admin/impostazioni',
       label: 'Impostazioni',
       icon: <IoSettingsOutline />,
     },
-    { path: '/dash/ticket', label: 'Ticket', icon: <IoTicketOutline /> },
-    { path: '/dash/feedback', label: 'Feedback', icon: <LiaThumbsUp /> },
+    { path: '/dash/admin/ticket', label: 'Ticket', icon: <IoTicketOutline /> },
+    { path: '/dash/admin/feedback', label: 'Feedback', icon: <LiaThumbsUp /> },
     {
-      path: '/dash/figura-previste',
+      path: '/dash/admin/figura-previste',
       label: 'Figura previste LMS CSR 59',
       icon: <BsUpload />,
     },

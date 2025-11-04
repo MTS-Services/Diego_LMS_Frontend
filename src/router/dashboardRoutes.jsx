@@ -1,3 +1,7 @@
+import AdminSettingsDashboard from '../pages/admin/super/sections/AdminSettingsDashboard';
+import FeedbackAdminDashboard from '../pages/admin/super/sections/FeedbackAdminDashboard';
+import FigureAdminDashboard from '../pages/admin/super/sections/FigureAdminDashboard';
+
 import LicenseeSuperAdminDashboard from '../pages/admin/super/sections/LicenseManagementSuperAdmin';
 import CoursesView from '../pages/admin/freelancer/CoursesView';
 import FreelancerView from '../pages/admin/freelancer/FreelancerView';
@@ -5,8 +9,7 @@ import License from '../pages/admin/freelancer/sections/License';
 import Report from '../pages/admin/freelancer/sections/Report';
 import ReportDetail from '../pages/admin/freelancer/sections/ReportDetail';
 import VideosView from '../pages/admin/freelancer/VideosView';
-import DocsView from '../pages/admin/students/DocsView';
-import StudentView from '../pages/admin/students/StudentView';
+
 import SuperAdminView from '../pages/admin/super/SuperAdminView';
 import { ROLES } from '../config/roles';
 
@@ -19,12 +22,12 @@ export const dashboardRoutes = [
         path: 'admin/gestione-licenze',
         element: <LicenseeSuperAdminDashboard />,
       },
-      { path: 'admin/impostazioni', element: <h1>Impostazioni</h1> },
+      { path: 'admin/impostazioni', element: <AdminSettingsDashboard /> },
       { path: 'admin/ticket', element: <h1>Ticket</h1> },
-      { path: 'admin/feedback', element: <h1>Feedback</h1> },
+      { path: 'admin/feedback', element: <FeedbackAdminDashboard /> },
       {
         path: 'admin/figura-previste',
-        element: <h1>Figura previste LMS CSR 59</h1>,
+        element: <FigureAdminDashboard />,
       },
     ],
   },
