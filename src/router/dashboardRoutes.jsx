@@ -22,7 +22,7 @@ export const dashboardRoutes = [
         path: 'admin/gestione-licenze',
         element: <LicenseeSuperAdminDashboard />,
       },
-      { path: 'admin/impostazioni', element: <AdminSettingsDashboard /> },
+      { path: 'admin/impostazioni/*', element: <AdminSettingsDashboard /> },
       { path: 'admin/ticket', element: <h1>Ticket</h1> },
       { path: 'admin/feedback', element: <FeedbackAdminDashboard /> },
       {

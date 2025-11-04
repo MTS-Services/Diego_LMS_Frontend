@@ -6,7 +6,7 @@ export default function SettingsLayout({ onSave = () => {} }) {
   const location = useLocation();
 
   // Get the base path (everything before the last segment)
-  const basePath = '/dash/impostazioni';
+  const basePath = '/dash/admin/impostazioni';
 
   const tabs = [
     {
@@ -35,9 +35,7 @@ export default function SettingsLayout({ onSave = () => {} }) {
     <div className="rounded-3xl bg-white shadow-sm ring-1 ring-black/5">
       {/* Header */}
       <div className="flex items-center justify-between gap-4 rounded-t-3xl bg-gray-50 px-5 py-4">
-        <h1 className="text-xl font-semibold text-gray-900">
-          Gateway di pagamento
-        </h1>
+        <h1 className="text-xl font-semibold text-gray-900">Impostazioni</h1>
         <button
           onClick={onSave}
           className="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-4 py-2 text-white hover:bg-emerald-600"
