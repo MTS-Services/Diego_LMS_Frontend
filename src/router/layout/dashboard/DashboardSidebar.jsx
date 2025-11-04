@@ -35,8 +35,12 @@ const linksByRole = {
   ],
   [ROLES.LICENSE_USER]: [
     { path: '/dash/license-user', label: 'Dashboard', icon: <FaHome /> },
-    { path: '/dash/course', label: 'Courses', icon: <FaHome /> },
-    { path: '/dash/video', label: 'Videos', icon: <FaHome /> },
+    {
+      path: '/dash/license-user/courses',
+      label: 'Courses',
+      icon: <IoTicketOutline />,
+    },
+    { path: '/dash/license-user/videos', label: 'Videos', icon: <FaHome /> },
   ],
   [ROLES.COMPANY_ADMIN]: [
     { path: '/dash/teacher', label: 'Dashboard', icon: <FaHome /> },

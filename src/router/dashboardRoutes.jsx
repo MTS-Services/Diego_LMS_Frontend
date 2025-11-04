@@ -1,3 +1,4 @@
+import LicenseeSuperAdminDashboard from '../pages/admin/super/sections/LicenseManagementSuperAdmin';
 import CoursesView from '../pages/admin/freelancer/CoursesView';
 import FreelancerView from '../pages/admin/freelancer/FreelancerView';
 import License from '../pages/admin/freelancer/sections/License';
@@ -13,13 +14,16 @@ export const dashboardRoutes = [
   {
     roles: [ROLES.ADMIN],
     routes: [
-      { path: 'super-admin', element: <SuperAdminView /> },
-      { path: 'gestione-licenze', element: <h1>Gestione Licenze</h1> },
-      { path: 'impostazioni', element: <h1>Impostazioni</h1> },
-      { path: 'ticket', element: <h1>Ticket</h1> },
-      { path: 'feedback', element: <h1>Feedback</h1> },
+      { path: 'admin', element: <SuperAdminView /> },
       {
-        path: 'figura-previste',
+        path: 'admin/gestione-licenze',
+        element: <LicenseeSuperAdminDashboard />,
+      },
+      { path: 'admin/impostazioni', element: <h1>Impostazioni</h1> },
+      { path: 'admin/ticket', element: <h1>Ticket</h1> },
+      { path: 'admin/feedback', element: <h1>Feedback</h1> },
+      {
+        path: 'admin/figura-previste',
         element: <h1>Figura previste LMS CSR 59</h1>,
       },
     ],
@@ -27,18 +31,21 @@ export const dashboardRoutes = [
   {
     roles: [ROLES.LICENSE_USER],
     routes: [
-      { path: 'teacher', element: <FreelancerView /> },
-      { path: 'courses', element: <Report /> },
-      { path: 'courses/:courseId', element: <ReportDetail /> },
-      { path: 'videos', element: <License /> },
+      { path: 'license-user', element: <FreelancerView /> },
+      { path: 'license-user/teacher', element: <FreelancerView /> },
+      { path: 'license-user/courses', element: <Report /> },
+      { path: 'license-user/courses/:courseId', element: <ReportDetail /> },
+      { path: 'license-user/videos', element: <License /> },
     ],
   },
   {
     roles: [ROLES.COMPANY_ADMIN],
     routes: [
-      { path: 'teacher', element: <FreelancerView /> },
-      { path: 'courses', element: <CoursesView /> },
-      { path: 'videos', element: <VideosView /> },
+      { path: 'company', element: <h1>COMPANY_HOME</h1> },
+      { path: 'company/info', element: <h1>COMPANY_info</h1> },
+      { path: 'company/teacher', element: <FreelancerView /> },
+      { path: 'company/courses', element: <CoursesView /> },
+      { path: 'company/videos', element: <VideosView /> },
     ],
   },
   {
