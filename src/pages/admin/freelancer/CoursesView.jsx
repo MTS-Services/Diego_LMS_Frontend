@@ -47,7 +47,7 @@ const courses = [
 
 const CoursesView = () => {
   return (
-    <Container size="xl" className="py-10">
+    <Container size="full" className="py-10">
       <Row justify="between" className="mb-8">
         <Heading
           level={1}
