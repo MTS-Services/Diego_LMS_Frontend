@@ -44,9 +44,11 @@ const linksByRole = {
   ],
   [ROLES.PRIVATE_USER]: [
     { path: '/dash/student', label: 'Dashboard', icon: <FaHome /> },
-    { path: '/dash/student/courses', label: 'Courses', icon: <FaHome /> },
-    { path: '/dash/student/videos', label: 'Videos', icon: <FaHome /> },
-    { path: '/dash/student/settings', label: 'Settings', icon: <FaHome /> },
+    {
+      path: 'student/ticket',
+      label: 'Ticket',
+      icon: <IoTicketOutline />,
+    },
   ],
   [ROLES.COMPANY_ADMIN]: [
     { path: '/dash/company', label: 'Dashboard', icon: <FaHome /> },

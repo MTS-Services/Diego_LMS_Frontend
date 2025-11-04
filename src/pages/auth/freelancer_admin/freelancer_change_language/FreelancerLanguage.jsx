@@ -4,7 +4,11 @@ const FreelancerLanguage = () => {
   const handleLanguageSelect = (language) => {
     console.log('Language selected:', language);
   };
-  return <ChooseLanguage onSelectLanguage={handleLanguageSelect} />;
+  return (
+    <div>
+      <ChooseLanguage onSelectLanguage={handleLanguageSelect} />
+    </div>
+  );
 };
 
 export default FreelancerLanguage;

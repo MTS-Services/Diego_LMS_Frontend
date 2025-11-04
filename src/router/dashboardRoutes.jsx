@@ -10,6 +10,19 @@ import Report from '../pages/admin/freelancer/sections/Report';
 import ReportDetail from '../pages/admin/freelancer/sections/ReportDetail';
 import VideosView from '../pages/admin/freelancer/VideosView';
 import SuperAdminView from '../pages/admin/super/SuperAdminView';
+
+import StudentHomeView from '../pages/admin/studentAdmin/StudentHomeView.jsx';
+import StudentIPofile from '../pages/admin/studentAdmin/components/StudentIPofile.jsx';
+import CertificatePage from '../pages/admin/studentAdmin/components/CertificatePage.jsx';
+import CredentialsReceived from '../pages/admin/studentAdmin/CredentialsReceived.jsx';
+
+import SupportFeedbackView from '../pages/admin/studentAdmin/SupportFeedbackView.jsx';
+import CourseContentView from '../pages/admin/studentAdmin/CourseContentView.jsx';
+import NotificationsView from '../pages/admin/studentAdmin/NotificationsView.jsx';
+import SupportTicketView from '../pages/admin/studentAdmin/SupportTicketView.jsx';
+
+import QuizesView from '../pages/admin/studentAdmin/QuizesView.jsx';
+import QuizResult from '../pages/admin/studentAdmin/QuizResult.jsx';
 import { ROLES } from '../config/roles';
 
 export const dashboardRoutes = [
@@ -58,11 +71,12 @@ export const dashboardRoutes = [
     //   Private Users
     roles: [ROLES.PRIVATE_USER],
     routes: [
-      { path: 'student', element: <h1>PRIVATE_USER</h1> },
-      { path: 'student/docs', element: <h1>PRIVATE_docs</h1> },
-      { path: 'student/courses', element: <h1>PRIVATE_courses</h1> },
-      { path: 'student/videos', element: <h1>PRIVATE_videos</h1> },
-      { path: 'student/settings', element: <h1>PRIVATE_settings</h1> },
+      { path: 'student', element: <StudentHomeView /> },
+      { path: 'student/profile', element: <StudentIPofile /> },
+      { path: 'student/credentials', element: <CredentialsReceived /> },
+      { path: 'student/attestati', element: <CertificatePage /> },
+      { path: 'student/ticket', element: <SupportTicketView /> },
+      { path: 'student/course/:id', element: <CourseContentView /> },
     ],
   },
 ];

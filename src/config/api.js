@@ -1,6 +1,6 @@
 export const user = {
   id: '123',
-  role: 'freelancer', // 'admin' | 'company' | 'student' | freelancer
+  role: 'student', // 'admin' | 'teacher' | 'student'
   isAuthenticated: true,
 };
 
