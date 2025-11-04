@@ -1,9 +1,11 @@
-// import CoursesView from '../pages/admin/freelancer/CoursesView';
-// import TeacherView from '../pages/admin/freelancer/TeacherView';
-// import VideosView from '../pages/admin/freelancer/VideosView';
-// import DocsView from '../pages/admin/students/DocsView';
-// import StudentView from '../pages/admin/students/StudentView';
-import LicenseeSuperAdminDashboard from '../pages/admin/super/sections/LicenseManagementSuperAdmin';
+import CoursesView from '../pages/admin/freelancer/CoursesView';
+import FreelancerView from '../pages/admin/freelancer/FreelancerView';
+import License from '../pages/admin/freelancer/sections/License';
+import Report from '../pages/admin/freelancer/sections/Report';
+import ReportDetail from '../pages/admin/freelancer/sections/ReportDetail';
+import VideosView from '../pages/admin/freelancer/VideosView';
+import DocsView from '../pages/admin/students/DocsView';
+import StudentView from '../pages/admin/students/StudentView';
 import SuperAdminView from '../pages/admin/super/SuperAdminView';
 import { ROLES } from '../config/roles';
 
@@ -12,7 +14,7 @@ export const dashboardRoutes = [
     roles: [ROLES.ADMIN],
     routes: [
       { path: 'super-admin', element: <SuperAdminView /> },
-      { path: 'gestione-licenze', element: <LicenseeSuperAdminDashboard /> },
+      { path: 'gestione-licenze', element: <h1>Gestione Licenze</h1> },
       { path: 'impostazioni', element: <h1>Impostazioni</h1> },
       { path: 'ticket', element: <h1>Ticket</h1> },
       { path: 'feedback', element: <h1>Feedback</h1> },
@@ -25,17 +27,18 @@ export const dashboardRoutes = [
   {
     roles: [ROLES.LICENSE_USER],
     routes: [
-      { path: 'license-user', element: <h1>LICENSE_USER</h1> },
-      { path: 'courses', element: <h1>LICENSE_USER</h1> },
-      { path: 'videos', element: <h1>LICENSE_USER</h1> },
+      { path: 'teacher', element: <FreelancerView /> },
+      { path: 'courses', element: <Report /> },
+      { path: 'courses/:courseId', element: <ReportDetail /> },
+      { path: 'videos', element: <License /> },
     ],
   },
   {
     roles: [ROLES.COMPANY_ADMIN],
     routes: [
-      { path: 'company', element: <h1>COMPANY_ADMIN</h1> },
-      { path: 'info', element: <h1>COMPANY_ADMIN</h1> },
-      { path: 'video', element: <h1>COMPANY_ADMIN</h1> },
+      { path: 'teacher', element: <FreelancerView /> },
+      { path: 'courses', element: <CoursesView /> },
+      { path: 'videos', element: <VideosView /> },
     ],
   },
   {

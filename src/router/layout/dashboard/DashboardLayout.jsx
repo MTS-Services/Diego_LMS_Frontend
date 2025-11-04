@@ -4,7 +4,7 @@ import DashboardSidebar from './DashboardSidebar';
 
 const DashboardLayout = () => {
   return (
-    <div className="flex min-h-screen bg-gray-100">
+    <div className="flex min-h-screen bg-[#fcfcfb]">
       {/* Sidebar (fixed) */}
       <DashboardSidebar />
       {/* Main content area */}
