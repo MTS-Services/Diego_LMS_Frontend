@@ -31,7 +31,7 @@ export const STORAGE = {
   setToken: (token) => setItem(storageKeys.TOKEN, token),
 
   getRefreshToken: () => getItem(storageKeys.REFRESH_TOKEN),
-  refreshToken: (token) => setItem(storageKeys.REFRESH_TOKEN, token),
+  setRefreshToken: (token) => setItem(storageKeys.REFRESH_TOKEN, token),
 
   clearToken: () => removeItem(storageKeys.TOKEN),
 
