@@ -1,6 +1,6 @@
 import ContactUsView from '../pages/public/ContactUsView';
 import HomeView from '../pages/public/home/HomeView';
-import ServicesView from '../pages/public/ServicesView';
+import ServicesView from '../pages/public/services/ServicesView';
 import TrainingView from '../pages/public/TrainingView';
 import WhoWeAreView from '../pages/public/WhoWeAreView';
 import WorkWithUsView from '../pages/public/WorkWithUsView';

@@ -1,9 +1,11 @@
 import { Navigate, Outlet } from 'react-router-dom';
-import { user } from '../../config/api';
+import { useSelector } from 'react-redux';
 
 const AuthGuard = () => {
+  const { user, isAuthenticated } = useSelector((state) => state.auth);
+
   const result =
-    user && user.isAuthenticated ? (
+    user && isAuthenticated ? (
       <Navigate to="/auth/login" replace />
     ) : (
       <Outlet />

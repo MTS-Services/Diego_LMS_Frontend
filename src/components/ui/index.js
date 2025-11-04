@@ -40,3 +40,4 @@ export { default as InputField } from './forms/InputField';
 export { default as SelectField } from './forms/SelectField';
 
 export { default as Button } from './buttons/Buttons';
+export { default as Tabs } from './tabs/Tabs';

@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { Heading, InputField } from '../../components/ui';
 import { loginUser } from '../../features/auth/authAPI';
+import { ROLE_DASHBOARD_ROUTE } from '../../config/routes';
 
 const LoginView = () => {
   const [email, setEmail] = useState('');
@@ -15,37 +16,38 @@ const LoginView = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
     if (step === 1) {
       if (!email.trim()) {
         setError('Please enter your email.');
         return;
       }
-      // Move to password step
       setStep(2);
       console.log('📩 Email captured:', email);
-    } else {
-      // Step 2: submit password
-      if (!password.trim()) {
-        setError('Please enter your password.');
-        return;
-      }
-      setLoading(true);
-      dispatch(loginUser({ email, password }))
-        .unwrap()
-        .then(() => {
-          // Handle successful login
-          console.log('✅ Login successful:', { email, password });
-          navigate('/dash/super-admin');
-        })
-        .catch((err) => {
-          // Handle login error
-          setError(err);
-          console.log('❌ Login failed:', err);
-        })
-        .finally(() => {
-          setLoading(false);
-        });
+      return;
     }
+
+    // Step 2: password submission
+    if (!password.trim()) {
+      setError('Please enter your password.');
+      return;
+    }
+
+    setLoading(true);
+    dispatch(loginUser({ email, password }))
+      .unwrap()
+      .then((user) => {
+        console.log('✅ Login successful:', user);
+
+        // dynamic redirect
+        const redirectPath = ROLE_DASHBOARD_ROUTE[user.role] || '/dash';
+        navigate(redirectPath, { replace: true });
+      })
+      .catch((err) => {
+        setError(err.message || 'Login failed');
+        console.log('❌ Login failed:', err);
+      })
+      .finally(() => setLoading(false));
   };
 
   const handleBack = () => {

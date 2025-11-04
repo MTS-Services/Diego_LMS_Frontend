@@ -1,8 +1,7 @@
-import { RiRadioButtonFill } from 'react-icons/ri'
-import { PiRadioButtonDuotone } from 'react-icons/pi'
-import { Outlet, Link, useLocation } from 'react-router-dom'
-import { H3 } from '../../../../components/ui/Heading'
-import P from '../../../../components/ui/P'
+import { RiRadioButtonFill } from 'react-icons/ri';
+import { PiRadioButtonDuotone } from 'react-icons/pi';
+import { Outlet, Link, useLocation } from 'react-router-dom';
+import { Heading, Paragraph } from '../../../../components/ui';
 
 const categories = [
   {
@@ -23,12 +22,12 @@ const categories = [
     activeIcon: <PiRadioButtonDuotone className="h-5 w-5 text-[#30AD75]" />,
     path: 'password',
   },
-]
+];
 
 const SetupUserProfile = () => {
-  const location = useLocation()
+  const location = useLocation();
 
-  const basePath = '/auth/setUp-userProfile'
+  const basePath = '/auth/setUp-userProfile';
 
   return (
     <div className="mx-auto grid w-full grid-cols-7 overflow-hidden md:h-screen md:grid-cols-6">
@@ -38,17 +37,17 @@ const SetupUserProfile = () => {
           src="/image/icon/droplogo.png"
           alt=""
         />
-        <H3 className="my-4" h3="Set up your user profile" />
+        <Heading level={3}>Set up your user profile</Heading>
 
         <div className="flex flex-col gap-4">
           {categories.map((category, index) => {
-            const fullPath = `${basePath}/${category.path}`.toLowerCase()
-            const currentPath = location.pathname.toLowerCase()
+            const fullPath = `${basePath}/${category.path}`.toLowerCase();
+            const currentPath = location.pathname.toLowerCase();
 
             const isActive =
               currentPath === fullPath ||
               (category.path === 'role' &&
-                currentPath === basePath.toLowerCase())
+                currentPath === basePath.toLowerCase());
 
             return (
               <Link
@@ -61,14 +60,14 @@ const SetupUserProfile = () => {
                 <button>
                   {isActive ? category.activeIcon : category.icon}
                 </button>
-                <P
+                <Paragraph
                   className={`text-lg ${
                     isActive ? 'font-medium text-[#30AD75]' : 'text-gray-500'
                   }`}
                   p={category.label}
                 />
               </Link>
-            )
+            );
           })}
         </div>
       </div>
@@ -77,7 +76,7 @@ const SetupUserProfile = () => {
         <Outlet />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default SetupUserProfile
+export default SetupUserProfile;

@@ -1,33 +1,33 @@
-import { useState } from 'react'
-import { GrClose } from 'react-icons/gr'
-import { H2, H4 } from '../../../../../components/ui/Heading'
-import Input from '../../../../../components/ui/Input'
+import { useState } from 'react';
+import { GrClose } from 'react-icons/gr';
+import Input from '../../../../../components/ui/Input';
+import { Heading, Paragraph } from '../../../../../components/ui';
 
 const Information = () => {
-  const [selected, setSelected] = useState('')
+  const [selected, setSelected] = useState('');
 
   const handleChange = (value) => {
-    setSelected(selected === value ? '' : value)
-  }
+    setSelected(selected === value ? '' : value);
+  };
 
   const handleFormSubmit = (e) => {
-    e.preventDefault()
-    const formData = new FormData(e.target)
-    const data = Object.fromEntries(formData)
-    console.log(data)
-  }
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData);
+    console.log(data);
+  };
 
   return (
     <div className="flex h-auto flex-col bg-white md:h-screen">
       <div className="mx-auto w-full max-w-5xl px-6 py-8">
         <div className="mb-6 flex items-center justify-between">
-          <p className="text-sm text-gray-600">Steps 2/3</p>
+          <Paragraph className="text-sm text-gray-600">Steps 2/3</Paragraph>
           <button className="rounded-full p-2 hover:bg-gray-100">
             <GrClose className="h-5 w-5 text-gray-500" />
           </button>
         </div>
 
-        <H2 h2="Informazioni" />
+        <Heading level={4}>Informazioni</Heading>
 
         <form onSubmit={handleFormSubmit}>
           {/* Name */}
@@ -111,7 +111,7 @@ const Information = () => {
             type="number"
           />
 
-          <H4 h4="Cittadinanza" />
+          <Heading level={4}>Cittadinanza</Heading>
           <div className="my-5 flex items-center">
             <div className="flex items-center gap-8">
               <label className="flex cursor-pointer items-center gap-2">
@@ -151,7 +151,7 @@ const Information = () => {
         </form>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Information
+export default Information;

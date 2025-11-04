@@ -112,5 +112,9 @@ npm install -D prettier prettier-plugin-tailwindcss
 ├── rootReducer.js
 └── store.js
 
+<<<<<<< HEAD
 >>>>>>> d385be3b8a32149ed16dd89a107bbea28b2bf147
+=======
+>>>>>>> 68132fdfa8bd9bfd28e1fcf94af79dc2afd3e51f
+>>>>>>> feead98172628789d60f5dec821a7443628f7d7a
 ```

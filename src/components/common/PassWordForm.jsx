@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Heading, InputField, Paragraph } from '../ui';
+import { H3 } from '../ui/Heading';
+import Input from '../ui/Input';
+import P from '../ui/P';
+import { Heading, InputField } from '../ui';
 
 const PassWordForm = ({
   navigatePath,
@@ -28,15 +31,9 @@ const PassWordForm = ({
         {/* Left Side */}
         <div className="my-auto rounded-xl border border-gray-50 px-[92px]">
           <div className="flex justify-center text-center">
-            <div className="flex items-center">
-              <img
-                className="h-10 w-10 bg-cover object-contain text-[#46BB9D]"
-                src="/images/icons/title.png"
-                alt="Home"
-              />
-
-              <h1 className="text-3xl font-bold text-gray-900">UnoSicurezza</h1>
-            </div>
+            <Heading level={3} className="max-w-[482px] text-center">
+              Let's change the experience of learning something new.
+            </Heading>
           </div>
 
           <div className="mx-auto max-w-md">
@@ -52,7 +49,7 @@ const PassWordForm = ({
         <div className="mx-auto flex w-full flex-col justify-center rounded-xl border border-gray-50 bg-[#F1F9F6] px-[92px]">
           <form onSubmit={handleSubmit}>
             <div className="mb-6 flex justify-center text-center">
-              <h3 className="text-center">{heading}</h3>
+              <Heading className="text-center">{heading}</Heading>
             </div>
 
             <div className="mb-6">

@@ -38,14 +38,9 @@ const EmailForm = () => {
         {/* Left Side */}
         <div className="my-auto rounded-xl border border-gray-50">
           <div className="flex justify-center text-center">
-            <div className="flex items-center">
-              <img
-                className="h-10 w-10 bg-cover object-contain text-[#46BB9D]"
-                src="/images/icons/title.png"
-                alt="Home"
-              />
-              <h1 className="text-3xl font-bold text-gray-900">UnoSicurezza</h1>
-            </div>
+            <Heading className="max-w-[482px] text-center">
+              Let's change the experience of learning something new.
+            </Heading>
           </div>
 
           <div className="mx-auto max-w-md transition-all duration-300">
@@ -65,10 +60,18 @@ const EmailForm = () => {
         <div className="mx-auto flex w-full flex-col justify-center rounded-xl border border-gray-50 bg-[#F1F9F6] px-[92px] transition-all duration-300">
           <form onSubmit={handleSubmit}>
             <div className="mb-6 flex justify-center text-center">
-              <Heading
-                level={3}
-                className="text-center"
-                h3={step === 2 ? 'Enter your password' : 'Enter your email'}
+              <Heading className="text-center">{heading}</Heading>
+            </div>
+
+            <div className="mb-6">
+              <InputField
+                name="email"
+                type="email"
+                placeholder="Type Your Email"
+                title="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="bg-white"
               />
             </div>
 
