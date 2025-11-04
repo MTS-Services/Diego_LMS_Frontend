@@ -14,29 +14,33 @@ import { ROLES } from '../../../config/roles';
 
 const linksByRole = {
   [ROLES.ADMIN]: [
-    { path: '/dash/super-admin', label: 'Dashboard', icon: <GoHome /> },
+    { path: '/dash/admin', label: 'Dashboard', icon: <GoHome /> },
     {
-      path: '/dash/gestione-licenze',
+      path: '/dash/admin/gestione-licenze',
       label: 'Gestione licenze',
       icon: <IoDocumentTextOutline />,
     },
     {
-      path: '/dash/impostazioni',
+      path: '/dash/admin/impostazioni',
       label: 'Impostazioni',
       icon: <IoSettingsOutline />,
     },
-    { path: '/dash/ticket', label: 'Ticket', icon: <IoTicketOutline /> },
-    { path: '/dash/feedback', label: 'Feedback', icon: <LiaThumbsUp /> },
+    { path: '/dash/admin/ticket', label: 'Ticket', icon: <IoTicketOutline /> },
+    { path: '/dash/admin/feedback', label: 'Feedback', icon: <LiaThumbsUp /> },
     {
-      path: '/dash/figura-previste',
+      path: '/dash/admin/figura-previste',
       label: 'Figura previste LMS CSR 59',
       icon: <BsUpload />,
     },
   ],
   [ROLES.LICENSE_USER]: [
     { path: '/dash/license-user', label: 'Dashboard', icon: <FaHome /> },
-    { path: '/dash/course', label: 'Courses', icon: <FaHome /> },
-    { path: '/dash/video', label: 'Videos', icon: <FaHome /> },
+    {
+      path: '/dash/license-user/courses',
+      label: 'Courses',
+      icon: <IoTicketOutline />,
+    },
+    { path: '/dash/license-user/videos', label: 'Videos', icon: <FaHome /> },
   ],
   [ROLES.COMPANY_ADMIN]: [
     { path: '/dash/teacher', label: 'Dashboard', icon: <FaHome /> },

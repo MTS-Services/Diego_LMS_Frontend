@@ -11,11 +11,8 @@ export const ROUTES = {
 };
 
 export const ROLE_DASHBOARD_ROUTE = {
-  [ROLES.PLATFORM_ADMIN]: '/dash/super-admin',
-  [ROLES.ADMIN]: '/dash/super-admin',
+  [ROLES.ADMIN]: '/dash/admin',
   [ROLES.LICENSE_USER]: '/dash/license-user',
-  [ROLES.COMPANY_ADMIN]: '/dash/teacher',
-  [ROLES.STUDENT]: '/dash/student',
-  [ROLES.TEACHER]: '/dash/dashboard',
-  [ROLES.PRIVATE_USER]: '/dash/teacher',
+  [ROLES.COMPANY_ADMIN]: '/dash/company',
+  [ROLES.PRIVATE_USER]: '/dash/private-user',
 };
