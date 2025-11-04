@@ -12,3 +12,25 @@ export const useUIStore = create(
     { name: 'ui-storage' },
   ),
 );
+
+export const useValidationStore = create(
+  persist(
+    (set) => ({
+      validations: {},
+      setValidation: (field, message) =>
+        set((state) => ({
+          validations: {
+            ...state.validations,
+            [field]: message,
+          },
+        })),
+      clearValidation: (field) =>
+        set((state) => {
+          const newValidations = { ...state.validations };
+          delete newValidations[field];
+          return { validations: newValidations };
+        }),
+    }),
+    { name: 'validation-storage' },
+  ),
+);
