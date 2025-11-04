@@ -21,7 +21,6 @@ export default function AdminSettingsDashboard() {
         <Route path="system" element={<SystemSettings />} />
         <Route path="brand" element={<BrandSettings />} />
         <Route path="api" element={<ApiSettings />} />
-        {/* Fallback: redirect to finance if unknown */}
         <Route path="*" element={<Navigate to="finance" replace />} />
       </Routes>
     </SettingsLayout>
