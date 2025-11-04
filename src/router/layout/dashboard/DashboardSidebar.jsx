@@ -42,23 +42,18 @@ const linksByRole = {
     },
     { path: '/dash/license-user/videos', label: 'Videos', icon: <FaHome /> },
   ],
+  [ROLES.PRIVATE_USER]: [
+    { path: '/dash/student', label: 'Dashboard', icon: <FaHome /> },
+    { path: '/dash/student/courses', label: 'Courses', icon: <FaHome /> },
+    { path: '/dash/student/videos', label: 'Videos', icon: <FaHome /> },
+    { path: '/dash/student/settings', label: 'Settings', icon: <FaHome /> },
+  ],
   [ROLES.COMPANY_ADMIN]: [
     { path: '/dash/company', label: 'Dashboard', icon: <FaHome /> },
     { path: '/dash/company/info', label: 'Info', icon: <FaHome /> },
     { path: '/dash/company/courses', label: 'Courses', icon: <FaHome /> },
     { path: '/dash/company/videos', label: 'Videos', icon: <FaHome /> },
     { path: '/dash/company/settings', label: 'Settings', icon: <FaHome /> },
-  ],
-  [ROLES.PRIVATE_USER]: [
-    { path: '/dash/teacher', label: 'Dashboard', icon: <FaHome /> },
-    { path: '/dash/courses', label: 'Courses', icon: <FaHome /> },
-    { path: '/dash/videos', label: 'Videos', icon: <FaHome /> },
-    { path: '/dash/te-settings', label: 'Settings', icon: <FaHome /> },
-  ],
-  [ROLES.STUDENT]: [
-    { path: '/dash/student', label: 'Dashboard', icon: <FaHome /> },
-    { path: '/dash/docs', label: 'Documents', icon: <FaHome /> },
-    { path: '/dash/st-settings', label: 'Settings', icon: <FaHome /> },
   ],
 };
 

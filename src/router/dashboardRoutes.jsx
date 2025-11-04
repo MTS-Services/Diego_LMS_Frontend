@@ -59,7 +59,10 @@ export const dashboardRoutes = [
     roles: [ROLES.PRIVATE_USER],
     routes: [
       { path: 'student', element: <h1>PRIVATE_USER</h1> },
-      { path: 'docs', element: <h1>PRIVATE_USER</h1> },
+      { path: 'student/docs', element: <h1>PRIVATE_docs</h1> },
+      { path: 'student/courses', element: <h1>PRIVATE_courses</h1> },
+      { path: 'student/videos', element: <h1>PRIVATE_videos</h1> },
+      { path: 'student/settings', element: <h1>PRIVATE_settings</h1> },
     ],
   },
 ];
