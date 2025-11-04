@@ -43,10 +43,11 @@ const linksByRole = {
     { path: '/dash/license-user/videos', label: 'Videos', icon: <FaHome /> },
   ],
   [ROLES.COMPANY_ADMIN]: [
-    { path: '/dash/teacher', label: 'Dashboard', icon: <FaHome /> },
-    { path: '/dash/courses', label: 'Courses', icon: <FaHome /> },
-    { path: '/dash/videos', label: 'Videos', icon: <FaHome /> },
-    { path: '/dash/te-settings', label: 'Settings', icon: <FaHome /> },
+    { path: '/dash/company', label: 'Dashboard', icon: <FaHome /> },
+    { path: '/dash/company/info', label: 'Info', icon: <FaHome /> },
+    { path: '/dash/company/courses', label: 'Courses', icon: <FaHome /> },
+    { path: '/dash/company/videos', label: 'Videos', icon: <FaHome /> },
+    { path: '/dash/company/settings', label: 'Settings', icon: <FaHome /> },
   ],
   [ROLES.PRIVATE_USER]: [
     { path: '/dash/teacher', label: 'Dashboard', icon: <FaHome /> },
