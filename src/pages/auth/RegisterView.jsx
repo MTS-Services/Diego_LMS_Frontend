@@ -1,69 +1,91 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { Heading, InputField, Label } from '../../components/ui';
+import { loginUser } from '../../features/auth/authAPI';
+import { ROLE_DASHBOARD_ROUTE } from '../../config/routes';
 import { IoIosArrowBack } from 'react-icons/io';
 
-import { loginUser } from '../../features/auth/authAPI';
-import { Heading, InputField, Label } from '../../components/ui';
-import { ROLE_DASHBOARD_ROUTE } from '../../config/routes';
-
-const LoginView = () => {
+const RegisterView = () => {
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [otp, setOtp] = useState(new Array(6).fill(''));
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [step, setStep] = useState(1);
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const otpRefs = useRef([]);
 
+  //  Handle form submit
   const handleSubmit = (event) => {
     event.preventDefault();
+
     if (step === 1) {
       if (!email.trim()) {
         setError('Please enter your email.');
         return;
       }
+      setError(null);
       setStep(2);
       console.log('📩 Email captured:', email);
       return;
     }
 
-    // Step 2: password submission
-    if (!password.trim()) {
-      setError('Please enter your password.');
+    // Step 2: OTP verification
+    const otpValue = otp.join('');
+    if (otpValue.length !== 6) {
+      setError('Please enter the full 6-digit OTP.');
       return;
     }
 
     setLoading(true);
-    dispatch(loginUser({ email, password }))
+    dispatch(loginUser({ email, otp: otpValue }))
       .unwrap()
       .then((user) => {
         console.log('✅ Login successful:', user);
-        // dynamic redirect
         const redirectPath = ROLE_DASHBOARD_ROUTE[user.role] || '/dash';
         navigate(redirectPath, { replace: true });
       })
       .catch((err) => {
-        setError(err.message || 'Login failed');
+        setError(err.message || 'OTP verification failed');
         console.log('❌ Login failed:', err);
       })
       .finally(() => setLoading(false));
   };
+
+  // 🔙 Handle going back
   const handleBack = () => {
     setStep(1);
-    setPassword('');
+    setOtp(new Array(6).fill(''));
+  };
+
+  // ✍️ Handle OTP input
+  const handleOtpChange = (value, index) => {
+    if (!/^\d*$/.test(value)) return; // only digits
+    const newOtp = [...otp];
+    newOtp[index] = value;
+    setOtp(newOtp);
+
+    if (value && index < 5) {
+      otpRefs.current[index + 1].focus();
+    }
+  };
+
+  const handleKeyDown = (e, index) => {
+    if (e.key === 'Backspace' && !otp[index] && index > 0) {
+      otpRefs.current[index - 1].focus();
+    }
   };
 
   return (
     <div className="mx-auto w-full">
       <div className="mx-auto grid h-screen grid-cols-1 md:grid-cols-2">
         {/* Left Side */}
-        <div className="my-auto">
-          <div className="mb-20 flex justify-center text-center">
+        <div className="my-auto rounded-xl">
+          <div className="flex justify-center text-center">
             <div className="flex items-center">
               <img
-                className="h-10 w-10 bg-cover object-contain text-[#46BB9D]"
+                className="h-10 w-10 object-contain"
                 src="/images/icons/title.png"
                 alt="Home"
               />
@@ -73,13 +95,11 @@ const LoginView = () => {
 
           <div className="mx-auto max-w-md transition-all duration-300">
             <img
-              className="h-auto w-full bg-cover object-cover"
+              className="h-auto w-full object-cover"
               src={
-                step === 2
-                  ? '/image/icon/password.jpg'
-                  : '/image/icon/gmail.png'
+                step === 2 ? '/image/icon/otp.png' : '/image/icon/password.jpg'
               }
-              alt={step === 2 ? 'Password Icon' : 'Gmail Icon'}
+              alt={step === 2 ? 'OTP Icon' : 'Email Icon'}
             />
           </div>
         </div>
@@ -88,17 +108,23 @@ const LoginView = () => {
         <div className="mx-auto flex w-full flex-col justify-center rounded-xl border border-gray-50 bg-[#F1F9F6] px-[92px] transition-all duration-300">
           <form onSubmit={handleSubmit}>
             <div className="mb-6 flex justify-center text-center">
-              <Heading level={3} className="mb-6 text-center">
-                {step === 2 ? 'Scrivi la tua password' : 'Scrivi la tua e-mail'}
-              </Heading>
+              <Heading
+                level={3}
+                className="text-center"
+                h3={
+                  step === 2
+                    ? 'Enter the OTP sent to your email'
+                    : 'Enter your email'
+                }
+              />
             </div>
 
-            {/* Step 1: Email Field */}
+            {/* Step 1: Email */}
             {step === 1 && (
               <div className="mb-6 transition-all duration-300">
                 <Label
                   htmlFor="email"
-                  required={true}
+                  required
                   className="mb-2 block text-xl font-medium"
                 >
                   E-mail
@@ -118,55 +144,59 @@ const LoginView = () => {
               </div>
             )}
 
-            {/* Step 2: Password Field */}
+            {/* Step 2: OTP */}
             {step === 2 && (
               <div className="mb-6 transition-all duration-300">
-                <Label
-                  htmlFor="email"
-                  required={true}
-                  className="mb-2 block text-xl font-medium"
-                >
-                  Password
-                </Label>
-                <InputField
-                  name="password"
-                  type="password"
-                  title="Password"
-                  value={password}
-                  placeholder="Type Your Password"
-                  onChange={(e) => setPassword(e.target.value)}
-                  className="rounded-2xl border border-green-100 bg-white px-4 py-3"
-                />
+                <div>
+                  <p className="mb-4 text-center text-gray-600">
+                    An OTP has been sent to <strong>{email}</strong>
+                  </p>
+                </div>
+
+                <div className="flex justify-center gap-3">
+                  {otp.map((digit, index) => (
+                    <input
+                      key={index}
+                      ref={(el) => (otpRefs.current[index] = el)}
+                      type="text"
+                      maxLength="1"
+                      value={digit}
+                      onChange={(e) => handleOtpChange(e.target.value, index)}
+                      onKeyDown={(e) => handleKeyDown(e, index)}
+                      className="h-12 w-12 rounded-xl border border-green-100 bg-white text-center text-xl font-medium focus:border-green-400 focus:outline-none"
+                    />
+                  ))}
+                </div>
                 {error && (
-                  <div className="mt-2 text-sm text-red-600">{error}</div>
+                  <div className="mt-3 text-center text-sm text-red-600">
+                    {error}
+                  </div>
                 )}
               </div>
             )}
 
             {/* Buttons */}
-            <div className="flex items-center justify-end gap-2">
+            <div className="mt-6 flex items-center justify-center gap-2">
               {step === 2 && (
                 <button
                   type="button"
                   onClick={handleBack}
                   className="flex items-center gap-1 rounded-full border-2 border-gray-100 bg-white px-4 py-3 font-medium text-gray-600 transition-colors hover:bg-gray-100"
                 >
-                  <span>
-                    <IoIosArrowBack />
-                  </span>
-                  Back
+                  <IoIosArrowBack /> Back
                 </button>
               )}
 
               <button
                 type="submit"
-                className="rounded-full border-2 border-[#73BFA1] bg-[#73BFA1] px-4 py-3 font-medium text-white transition-colors hover:bg-white hover:text-[#73BFA1] lg:w-[30%]"
+                disabled={loading}
+                className="rounded-full border-2 border-[#73BFA1] bg-[#73BFA1] px-6 py-3 font-medium text-white transition-colors hover:bg-white hover:text-[#73BFA1] lg:w-[30%]"
               >
-                {step === 2 ? (
-                  <>{loading ? 'Loading...' : 'Accedi'}</>
-                ) : (
-                  'Procedi'
-                )}
+                {loading
+                  ? 'Loading...'
+                  : step === 2
+                    ? 'Verify OTP'
+                    : 'Go ahead'}
               </button>
             </div>
           </form>
@@ -176,4 +206,4 @@ const LoginView = () => {
   );
 };
 
-export default LoginView;
+export default RegisterView;
