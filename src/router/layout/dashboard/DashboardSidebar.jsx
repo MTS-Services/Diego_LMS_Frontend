@@ -87,6 +87,7 @@ const DashboardSidebar = () => {
             key={path}
             to={path}
             onClick={() => setActiveLink(path)}
+            end={path === '/dash/admin'}
             className={({ isActive }) =>
               `flex items-center gap-2 rounded-lg px-3 py-2 font-['Poppins'] ${
                 isActive

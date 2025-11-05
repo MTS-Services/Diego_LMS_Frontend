@@ -1,84 +1,107 @@
 import React, { useState } from 'react';
-import { Pencil } from 'lucide-react';
+import { Edit3 } from 'lucide-react';
 
-export default function SystemSettings({
-  initial = {
+export default function SystemSettings() {
+  const [settings, setSettings] = useState({
     smtpServer: 'smtp.gmail.com',
     smtpPort: '587',
-    from: 'noreply@platform.com',
-  },
-}) {
-  const [form, setForm] = useState(initial);
-  const set = (k, v) => setForm((s) => ({ ...s, [k]: v }));
+    fromEmail: 'noreply@platform.com',
+  });
 
-  const templates = [
-    'Email di benvenuto',
-    'Reimpostazione password',
-    'Completamento del corso',
-    'Conferma del pagamento',
-    'Avviso di scadenza della licenza',
+  const emailTemplates = [
+    { id: 'welcome', name: 'Email di benvenuto', editable: true },
+    { id: 'password_reset', name: 'Reimpostazione password', editable: true },
+    {
+      id: 'course_completion',
+      name: 'Completamento del corso',
+      editable: true,
+    },
+    {
+      id: 'payment_confirmation',
+      name: 'Conferma del pagamento',
+      editable: true,
+    },
+    {
+      id: 'license_expiry',
+      name: 'Avviso di scadenza della licenza',
+      editable: true,
+    },
   ];
 
+  const handleInputChange = (field, value) => {
+    setSettings((prev) => ({
+      ...prev,
+      [field]: value,
+    }));
+  };
+
   return (
-    <div className="rounded-2xl bg-gray-50 p-5 ring-1 ring-gray-200">
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-        <Field label="SMTP Server">
-          <Input
-            value={form.smtpServer}
-            onChange={(e) => set('smtpServer', e.target.value)}
+    <div className="space-y-6">
+      {/* SMTP Configuration */}
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+        <div>
+          <label className="mb-2 block text-sm font-medium text-gray-700">
+            SMTP Server
+          </label>
+          <input
+            type="text"
+            value={settings.smtpServer}
+            onChange={(e) => handleInputChange('smtpServer', e.target.value)}
+            className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 focus:outline-none"
+            placeholder="smtp.gmail.com"
           />
-        </Field>
-        <Field label="SMTP Port">
-          <Input
-            value={form.smtpPort}
-            onChange={(e) => set('smtpPort', e.target.value)}
+        </div>
+
+        <div>
+          <label className="mb-2 block text-sm font-medium text-gray-700">
+            SMTP Port
+          </label>
+          <input
+            type="text"
+            value={settings.smtpPort}
+            onChange={(e) => handleInputChange('smtpPort', e.target.value)}
+            className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 focus:outline-none"
+            placeholder="587"
           />
-        </Field>
+        </div>
       </div>
 
-      <div className="mt-5">
-        <Field label="Da indirizzo email">
-          <Input
-            value={form.from}
-            onChange={(e) => set('from', e.target.value)}
-          />
-        </Field>
+      <div>
+        <label className="mb-2 block text-sm font-medium text-gray-700">
+          Da indirizzo email
+        </label>
+        <input
+          type="email"
+          value={settings.fromEmail}
+          onChange={(e) => handleInputChange('fromEmail', e.target.value)}
+          className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 focus:outline-none"
+          placeholder="noreply@platform.com"
+        />
       </div>
 
-      <div className="mt-6 space-y-3">
-        <Label>Tipo di piano</Label>
-        {templates.map((t, i) => (
-          <div
-            key={i}
-            className="flex items-center justify-between rounded-lg border border-gray-200 bg-white px-3 py-3"
-          >
-            <span className="text-sm text-gray-800">{t}</span>
-            <button className="inline-flex items-center gap-1 text-gray-700 hover:text-gray-900">
-              Edit <Pencil className="h-4 w-4" />
-            </button>
-          </div>
-        ))}
+      {/* Email Templates */}
+      <div>
+        <h3 className="mb-4 text-lg font-medium text-gray-900">
+          Tipo di piano
+        </h3>
+
+        <div className="space-y-3">
+          {emailTemplates.map((template) => (
+            <div
+              key={template.id}
+              className="flex items-center justify-between rounded-lg border border-gray-200 bg-gray-50 p-4"
+            >
+              <span className="font-medium text-gray-900">{template.name}</span>
+              {template.editable && (
+                <button className="inline-flex items-center text-sm font-medium text-gray-600 hover:text-gray-800">
+                  Edit
+                  <Edit3 className="ml-1 h-4 w-4" />
+                </button>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
-  );
-}
-
-function Field({ label, children }) {
-  return (
-    <div className="space-y-2">
-      <Label>{label}</Label>
-      {children}
-    </div>
-  );
-}
-function Label({ children }) {
-  return <p className="text-sm font-medium text-gray-700">{children}</p>;
-}
-function Input(props) {
-  return (
-    <input
-      {...props}
-      className="w-full rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm text-gray-800"
-    />
   );
 }
