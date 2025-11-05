@@ -1,6 +1,7 @@
 import AdminSettingsDashboard from '../pages/admin/super/sections/AdminSettingsDashboard';
 import FeedbackAdminDashboard from '../pages/admin/super/sections/FeedbackAdminDashboard';
 import FigureAdminDashboard from '../pages/admin/super/sections/FigureAdminDashboard';
+import TicketAdminDashboard from '../pages/admin/super/sections/TicketAdminDashboard';
 
 import LicenseeSuperAdminDashboard from '../pages/admin/super/sections/LicenseManagementSuperAdmin';
 import CoursesView from '../pages/admin/freelancer/CoursesView';
@@ -35,8 +36,8 @@ export const dashboardRoutes = [
         path: 'admin/gestione-licenze',
         element: <LicenseeSuperAdminDashboard />,
       },
-      { path: 'admin/impostazioni', element: <AdminSettingsDashboard /> },
-      { path: 'admin/ticket', element: <h1>Ticket</h1> },
+      { path: 'admin/impostazioni/*', element: <AdminSettingsDashboard /> },
+      { path: 'admin/ticket', element: <TicketAdminDashboard /> },
       { path: 'admin/feedback', element: <FeedbackAdminDashboard /> },
       {
         path: 'admin/figura-previste',

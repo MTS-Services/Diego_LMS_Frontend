@@ -21,6 +21,9 @@ import { nestedPublicRoutes } from './nestedPublicRoutes.jsx';
 import { dashboardRoutes } from './dashboardRoutes.jsx';
 // Error
 import ErrorView from '../pages/err/ErrorView.jsx';
+import ChooseLanguageView from '../pages/auth/ChooseLanguageView.jsx';
+import RegisterView from '../pages/auth/RegisterView.jsx';
+import SetupView from '../pages/auth/SetupView.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -43,6 +46,10 @@ const router = createBrowserRouter(
       {/* Auth */}
       <Route path="/auth" element={<AuthLayout />}>
         <Route index element={<Navigate to="login" />} />
+        <Route path="choose-language" element={<ChooseLanguageView />} />
+        <Route path="register" element={<RegisterView />} />
+        <Route path="setup-profile" element={<SetupView />} />
+        <Route path="setup-profile/role" element={<SetupView />} />
         <Route path="login" element={<LoginView />} />
       </Route>
 

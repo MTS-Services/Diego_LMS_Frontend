@@ -10,7 +10,7 @@ const Label = ({
   return (
     <label
       htmlFor={htmlFor}
-      className={`mb-1 block text-sm font-medium text-gray-700 ${className}`}
+      className={`mb-1 block text-gray-700 ${className}`}
       {...props}
     >
       {children}
