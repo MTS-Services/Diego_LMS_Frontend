@@ -4,13 +4,13 @@ import FigureAdminDashboard from '../pages/admin/super/sections/FigureAdminDashb
 import TicketAdminDashboard from '../pages/admin/super/sections/TicketAdminDashboard';
 
 import LicenseeSuperAdminDashboard from '../pages/admin/super/sections/LicenseManagementSuperAdmin';
-import CoursesView from '../pages/admin/freelancer/CoursesView';
 import FreelancerView from '../pages/admin/freelancer/FreelancerView';
-import License from '../pages/admin/freelancer/sections/License';
-import Report from '../pages/admin/freelancer/sections/Report';
 import ReportDetail from '../pages/admin/freelancer/sections/ReportDetail';
-import VideosView from '../pages/admin/freelancer/VideosView';
+import CoursesView from '../pages/admin/freelancer/CoursesView';
+import License from '../pages/admin/freelancer/sections/License';
 import SuperAdminView from '../pages/admin/super/SuperAdminView';
+import Report from '../pages/admin/freelancer/sections/Report';
+import VideosView from '../pages/admin/freelancer/VideosView';
 
 import StudentHomeView from '../pages/admin/studentAdmin/StudentHomeView.jsx';
 import StudentIPofile from '../pages/admin/studentAdmin/components/StudentIPofile.jsx';
@@ -18,8 +18,8 @@ import CertificatePage from '../pages/admin/studentAdmin/components/CertificateP
 import CredentialsReceived from '../pages/admin/studentAdmin/CredentialsReceived.jsx';
 
 import SupportFeedbackView from '../pages/admin/studentAdmin/SupportFeedbackView.jsx';
-import CourseContentView from '../pages/admin/studentAdmin/CourseContentView.jsx';
 import NotificationsView from '../pages/admin/studentAdmin/NotificationsView.jsx';
+import CourseContentView from '../pages/admin/studentAdmin/CourseContentView.jsx';
 import SupportTicketView from '../pages/admin/studentAdmin/SupportTicketView.jsx';
 
 import QuizesView from '../pages/admin/studentAdmin/QuizesView.jsx';

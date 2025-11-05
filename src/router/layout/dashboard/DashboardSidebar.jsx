@@ -68,10 +68,10 @@ const DashboardSidebar = () => {
   return (
     <aside className="fixed top-0 left-0 h-full w-[300px] bg-white shadow-md">
       <div className="flex justify-center py-4">
-        <div className="flex items-center space-x-3">
+        <div className="flex items-center">
           <img
             className="h-10 w-10 bg-cover object-contain"
-            src="/image/icon/logo.jpg"
+            src="/images/icons/title.png"
             alt="UnoSicurezza Logo"
           />
           <h1 className="text-2xl font-bold text-gray-900">UnoSicurezza</h1>

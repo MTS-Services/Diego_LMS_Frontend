@@ -1,6 +1,6 @@
 import { GrClose } from 'react-icons/gr';
-import Input from '../ui/Input';
-import { Heading, Paragraph } from '../ui';
+
+import { Heading, Paragraph, InputField } from '../ui';
 
 const SignUpPassword = ({ onSubmitPassword }) => {
   const handlePassWordSubmit = (e) => {
@@ -28,7 +28,7 @@ const SignUpPassword = ({ onSubmitPassword }) => {
 
         <Heading level={2}>Crea la tua password</Heading>
         <form onSubmit={handlePassWordSubmit} action="">
-          <Input
+          <InputField
             TClassName={''}
             className={'w-full'}
             name={'pass'}
@@ -51,7 +51,7 @@ const SignUpPassword = ({ onSubmitPassword }) => {
             Non deve contenere nome utente, nome reale o altre informazioni
             facilmente intuibili
           </Heading>
-          <Input
+          <InputField
             TClassName={''}
             className={'w-full'}
             name={'confirmPass'}

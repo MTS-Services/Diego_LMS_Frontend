@@ -4,6 +4,10 @@ export const endpoints = {
   },
   admin: {
     GET_USER_QR_CODE: '/qr-cards/by-email',
+    licence: {
+      GET_ALL: '/licences',
+      CREATE: '/licences/create',
+    },
   },
   user: {
     SETTINGS: '/user/settings',

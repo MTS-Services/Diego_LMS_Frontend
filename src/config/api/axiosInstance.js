@@ -19,7 +19,6 @@ api.interceptors.request.use(
     if (import.meta.env.DEV) {
       console.log('📤 Request:', config.method?.toUpperCase(), config.url);
     }
-
     return config;
   },
   (error) => Promise.reject(error),

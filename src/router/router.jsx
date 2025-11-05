@@ -1,5 +1,4 @@
 import {
-  Navigate,
   Route,
   createBrowserRouter,
   createRoutesFromElements,
@@ -13,7 +12,7 @@ import AuthLayout from './layout/auth/AuthLayout.jsx';
 // Guards
 import RoleGuard from './guards/RoleGuard.jsx';
 // Auth
-import LoginView from '../pages/auth/LoginView.jsx';
+
 // Public Route Config
 import { publicRoutes } from './publicRoutes.jsx';
 import { nestedPublicRoutes } from './nestedPublicRoutes.jsx';
@@ -21,9 +20,8 @@ import { nestedPublicRoutes } from './nestedPublicRoutes.jsx';
 import { dashboardRoutes } from './dashboardRoutes.jsx';
 // Error
 import ErrorView from '../pages/err/ErrorView.jsx';
-import ChooseLanguageView from '../pages/auth/ChooseLanguageView.jsx';
-import RegisterView from '../pages/auth/RegisterView.jsx';
-import SetupView from '../pages/auth/SetupView.jsx';
+import { authRoutes, setupRoutes } from './authRoutes.jsx';
+import SetupLayout from './layout/auth/SetupLayout.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -44,13 +42,24 @@ const router = createBrowserRouter(
       </Route>
 
       {/* Auth */}
+      {/* Auth */}
       <Route path="/auth" element={<AuthLayout />}>
-        <Route index element={<Navigate to="login" />} />
-        <Route path="choose-language" element={<ChooseLanguageView />} />
-        <Route path="register" element={<RegisterView />} />
-        <Route path="setup-profile" element={<SetupView />} />
-        <Route path="setup-profile/role" element={<SetupView />} />
-        <Route path="login" element={<LoginView />} />
+        {/* Auth routes (no sidebar) */}
+        {authRoutes.map((r) => (
+          <Route
+            key={r.path}
+            path={r.path}
+            element={r.element}
+            index={r.path === 'register/choose-language'}
+          />
+        ))}
+
+        {/* Auth setup routes (with sidebar / custom layout) */}
+        <Route element={<SetupLayout />}>
+          {setupRoutes.map((r) => (
+            <Route key={r.path} path={r.path} element={r.element} />
+          ))}
+        </Route>
       </Route>
 
       {/* Dashboard */}
