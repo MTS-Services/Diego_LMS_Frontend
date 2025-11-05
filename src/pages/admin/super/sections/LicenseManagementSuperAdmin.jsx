@@ -1,6 +1,18 @@
 // src/components/admin/super/components/LicenseeSuperAdminDashboard.jsx
 import React, { useMemo, useState } from 'react';
-import { Search, Download, Plus, Pencil, Trash2 } from 'lucide-react';
+import {
+  Search,
+  Download,
+  Plus,
+  Pencil,
+  Trash2,
+  X,
+  ChevronDown,
+} from 'lucide-react';
+import EditLicenseModal from '../components/EditLicenseModal';
+import AddLicenseModal from '../components/AddLicenseModal';
+import LicenseDetailsModal from '../components/LicenseDetailsModal';
+import PersonalDetailsModal from '../components/PersonalDetailsModal';
 
 const euro = new Intl.NumberFormat('it-IT', {
   style: 'currency',
@@ -81,12 +93,28 @@ export default function LicenseeSuperAdminDashboard({
   ],
   pageSize = 5,
   onExport = () => alert('Esporta rapporto'),
-  onAdd = () => alert('Aggiungi licenza'),
-  onEdit = (row) => alert('Modifica: ' + row.azienda),
   onDelete = (row) => alert('Elimina: ' + row.azienda),
 }) {
   const [q, setQ] = useState('');
   const [page, setPage] = useState(1);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [editingLicense, setEditingLicense] = useState(null);
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+  const [isDetailsModalOpen, setIsDetailsModalOpen] = useState(false);
+  const [selectedLicense, setSelectedLicense] = useState(null);
+  const [isPersonalDetailsModalOpen, setIsPersonalDetailsModalOpen] =
+    useState(false);
+
+  const onAdd = () => setIsAddModalOpen(true);
+  const onEdit = (row) => {
+    setEditingLicense(row);
+    setIsEditModalOpen(true);
+  };
+
+  const onViewDetails = (row) => {
+    setSelectedLicense(row);
+    setIsPersonalDetailsModalOpen(true);
+  };
 
   const filtered = useMemo(() => {
     const needle = q.trim().toLowerCase();
@@ -166,8 +194,14 @@ export default function LicenseeSuperAdminDashboard({
           <tbody>
             {rows.map((r, i) => (
               <tr key={i} className="border-b border-gray-200">
-                <td className="max-w-[220px] truncate px-4 py-5 text-gray-900">
-                  {r.azienda}
+                <td className="max-w-[220px] truncate px-4 py-5">
+                  <button
+                    onClick={() => onViewDetails(r)}
+                    className="cursor-pointer text-left font-medium text-gray-900 transition-colors duration-200 hover:text-emerald-600"
+                    title="Visualizza dettagli licenza"
+                  >
+                    {r.azienda}
+                  </button>
                 </td>
                 <td className="px-4 py-5 whitespace-nowrap text-gray-900">
                   {euro.format(r.fatturato)}
@@ -258,6 +292,63 @@ export default function LicenseeSuperAdminDashboard({
           </button>
         </nav>
       </div>
+
+      {/* Edit License Modal */}
+      <EditLicenseModal
+        isOpen={isEditModalOpen}
+        onClose={() => setIsEditModalOpen(false)}
+        license={editingLicense}
+        onSave={(updatedLicense) => {
+          // Handle save logic here
+          console.log('Saving license:', updatedLicense);
+          setIsEditModalOpen(false);
+        }}
+      />
+
+      {/* Add License Modal */}
+      <AddLicenseModal
+        isOpen={isAddModalOpen}
+        onClose={() => setIsAddModalOpen(false)}
+        onSave={(newLicense) => {
+          // Handle add license logic here
+          console.log('Adding new license:', newLicense);
+          setIsAddModalOpen(false);
+        }}
+      />
+
+      {/* License Details Modal */}
+      <LicenseDetailsModal
+        isOpen={isDetailsModalOpen}
+        onClose={() => setIsDetailsModalOpen(false)}
+        license={selectedLicense}
+        onEdit={(license) => {
+          setSelectedLicense(license);
+          setEditingLicense(license);
+          setIsDetailsModalOpen(false);
+          setIsEditModalOpen(true);
+        }}
+        onDelete={(license) => {
+          if (
+            confirm(
+              `Sei sicuro di voler eliminare la licenza di ${license.azienda}?`,
+            )
+          ) {
+            console.log('Deleting license:', license);
+            setIsDetailsModalOpen(false);
+          }
+        }}
+      />
+
+      {/* Personal Details Modal */}
+      <PersonalDetailsModal
+        isOpen={isPersonalDetailsModalOpen}
+        onClose={() => setIsPersonalDetailsModalOpen(false)}
+        company={selectedLicense}
+        onBack={() => {
+          setIsPersonalDetailsModalOpen(false);
+          setIsDetailsModalOpen(true);
+        }}
+      />
     </div>
   );
 }
