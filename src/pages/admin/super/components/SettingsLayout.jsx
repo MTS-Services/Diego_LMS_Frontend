@@ -4,7 +4,7 @@ import { Save, CreditCard, Mail, Palette, Plug } from 'lucide-react';
 import FinancialSettings from './FinancialSettings';
 import SystemSettings from './SystemSettings';
 import BrandSettings from './BrandSettings';
-import APISettings from './APISettings';
+import APISettings from './ApiSettings';
 
 export default function SettingsLayout() {
   const location = useLocation();

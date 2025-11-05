@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Edit3 } from 'lucide-react';
 
-export default function APISettings() {
+function APISettings() {
   const [apiKeys, setApiKeys] = useState({
     mailchimp: '',
     zapier: '',
@@ -112,3 +112,5 @@ export default function APISettings() {
     </div>
   );
 }
+
+export default APISettings;
