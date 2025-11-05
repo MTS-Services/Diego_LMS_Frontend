@@ -13,6 +13,7 @@ import {
   Trash2,
 } from 'lucide-react';
 import TicketCard from './TicketCard';
+import TicketDetailModal from './TicketDetailModal';
 
 // Mock data for tickets
 const demoTickets = [
@@ -84,6 +85,42 @@ const demoTickets = [
 
 export default function TicketSection({ activeTab = 'panoramica' }) {
   const [tickets, setTickets] = useState(demoTickets);
+  const [selectedTicket, setSelectedTicket] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleTicketClick = (ticket) => {
+    setSelectedTicket(ticket);
+    setIsModalOpen(true);
+  };
+
+  const handleMarkInProgress = (ticketId) => {
+    setTickets((prev) =>
+      prev.map((ticket) =>
+        ticket.id === ticketId ? { ...ticket, status: 'in_corso' } : ticket,
+      ),
+    );
+    setIsModalOpen(false);
+  };
+
+  const handleSaveResponse = (ticketId, response) => {
+    setTickets((prev) =>
+      prev.map((ticket) =>
+        ticket.id === ticketId
+          ? {
+              ...ticket,
+              risposte: [
+                ...(ticket.risposte || []),
+                {
+                  testo: response,
+                  data: new Date().toLocaleDateString('it-IT'),
+                  autore: 'Admin',
+                },
+              ],
+            }
+          : ticket,
+      ),
+    );
+  };
 
   // Filter tickets based on active tab
   const filteredTickets = useMemo(() => {
@@ -508,6 +545,7 @@ export default function TicketSection({ activeTab = 'panoramica' }) {
                       <button
                         className="text-gray-400 hover:text-gray-600"
                         title="Visualizza"
+                        onClick={() => handleTicketClick(ticket)}
                       >
                         <Eye className="h-4 w-4" />
                       </button>
@@ -526,6 +564,15 @@ export default function TicketSection({ activeTab = 'panoramica' }) {
           </table>
         )}
       </div>
+
+      {/* Ticket Detail Modal */}
+      <TicketDetailModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        ticket={selectedTicket}
+        onMarkInProgress={handleMarkInProgress}
+        onSaveResponse={handleSaveResponse}
+      />
     </div>
   );
 }

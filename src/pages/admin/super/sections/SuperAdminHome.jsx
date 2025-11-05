@@ -1,12 +1,25 @@
 // src/components/admin/super/sections/SuperAdminHome.jsx
-import React from 'react';
+import React, { useState } from 'react';
 
 // Adjust paths if your folders differ
 import SuperAdminDashboard from '../components/SuperAdminDashboard';
 import EmergencySuperAdminDashboard from '../components/EmergencySuperAdminDashboard';
 import LicenseeSuperAdminDashboard from '../components/LicenseeSuperAdminDashboard';
+import AddCourseModal from '../components/AddCourseModal';
 
 export default function SuperAdminHome() {
+  const [isAddCourseModalOpen, setIsAddCourseModalOpen] = useState(false);
+
+  const handleAddCourse = () => {
+    setIsAddCourseModalOpen(true);
+  };
+
+  const handleSaveCourse = (courseData) => {
+    console.log('Saving new course:', courseData);
+    // Here you would typically send the data to your backend
+    setIsAddCourseModalOpen(false);
+  };
+
   return (
     <div className="min-h-screen w-full bg-white">
       <div className="mx-auto max-w-7xl space-y-8 px-4 py-6 md:space-y-10 md:px-6 md:py-8">
@@ -21,6 +34,7 @@ export default function SuperAdminHome() {
             health={99.97}
             uptime={0.02}
             totalCourses={10}
+            onAddCourse={handleAddCourse}
           />
         </section>
 
@@ -34,6 +48,13 @@ export default function SuperAdminHome() {
           <LicenseeSuperAdminDashboard />
         </section>
       </div>
+
+      {/* Add Course Modal */}
+      <AddCourseModal
+        isOpen={isAddCourseModalOpen}
+        onClose={() => setIsAddCourseModalOpen(false)}
+        onSave={handleSaveCourse}
+      />
     </div>
   );
 }
