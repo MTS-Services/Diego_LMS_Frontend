@@ -1,3 +1,4 @@
+import { use } from 'react';
 import {
   Button,
   Card,
@@ -9,6 +10,7 @@ import {
   Paragraph,
   Row,
 } from '../../../components/ui';
+import { useSelector } from 'react-redux';
 // Demo data — you can replace this later with fetched data
 const courses = [
   {

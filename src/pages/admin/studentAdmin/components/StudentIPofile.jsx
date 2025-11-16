@@ -118,19 +118,19 @@ const StudentIPofile = () => {
 
                 // open the 'Nuove credenziali ricevute' page
                 if (item.id === 3) {
-                  navigate('/dash/student/credentials');
+                  navigate('/private-user/credentials');
                   return;
                 }
 
                 // navigate to certificate page
                 if (item.id === 6) {
-                  navigate('/dash/student/attestati');
+                  navigate('/private-user/attestati');
                   return;
                 }
 
                 // navigate to notifications
                 if (item.id === 8) {
-                  navigate('/dash/student/notifications');
+                  navigate('/private-user/notifications');
                   return;
                 }
 

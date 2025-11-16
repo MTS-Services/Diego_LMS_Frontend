@@ -1,15 +1,15 @@
-import SetUpRole from '../../../../../components/common/SetUpRole'
+import SetUpRole from '../../../../../components/common/SetUpRole';
 
 const Role = () => {
   const handleRoleSelect = (role) => {
-    console.log('User Role selected:', role)
-  }
+    console.log('User Role selected:', role);
+  };
 
   return (
     <div className="">
       <SetUpRole onSelectRole={handleRoleSelect} />
     </div>
-  )
-}
+  );
+};
 
-export default Role
+export default Role;

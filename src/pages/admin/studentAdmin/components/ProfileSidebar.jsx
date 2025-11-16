@@ -6,8 +6,8 @@ const ProfileSidebar = () => {
   const navigate = useNavigate();
 
   const openProfilePage = () => {
-    // navigate to the student profile page registered at /dash/student/profile
-    navigate('/dash/student/profile');
+    // navigate to the student profile page registered at /private-user/profile
+    navigate('/private-user/profile');
   };
 
   return (

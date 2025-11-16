@@ -37,7 +37,7 @@ const StudentInfoModal = ({ onClose }) => {
     <div
       ref={overlayRef}
       onMouseDown={handleOverlayClick}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 p-6"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-6"
       aria-modal="true"
       role="dialog"
       aria-label="Informazioni personali"
