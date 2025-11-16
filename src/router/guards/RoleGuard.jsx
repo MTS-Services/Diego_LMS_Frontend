@@ -3,9 +3,6 @@ import { useSelector } from 'react-redux';
 
 const RoleGuard = ({ allowedRoles }) => {
   const { user, isAuthenticated } = useSelector((state) => state.auth);
-  console.log('RoleGuard - Allowed Roles:', allowedRoles);
-  console.log('RoleGuard - User:', user);
-  console.log('RoleGuard - isAuthenticated:', isAuthenticated);
 
   if (!user && !isAuthenticated) {
     return <Navigate to="/auth/login" replace />;

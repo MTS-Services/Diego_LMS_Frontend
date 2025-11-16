@@ -13,49 +13,66 @@ import { useSelector } from 'react-redux';
 import { ROLES } from '../../../config/roles';
 
 const linksByRole = {
-  [ROLES.ADMIN]: [
-    { path: '/dash/admin', label: 'Dashboard', icon: <GoHome /> },
+  // ✅ Super Admins
+  [ROLES.SUPER_ADMIN]: [
+    { path: '/super-admin', label: 'Dashboard', icon: <GoHome /> },
     {
-      path: '/dash/admin/gestione-licenze',
+      path: '/super-admin/gestione-licenze',
       label: 'Gestione licenze',
       icon: <IoDocumentTextOutline />,
     },
     {
-      path: '/dash/admin/impostazioni',
+      path: '/super-admin/impostazioni',
       label: 'Impostazioni',
       icon: <IoSettingsOutline />,
     },
-    { path: '/dash/admin/ticket', label: 'Ticket', icon: <IoTicketOutline /> },
-    { path: '/dash/admin/feedback', label: 'Feedback', icon: <LiaThumbsUp /> },
+    { path: '/super-admin/ticket', label: 'Ticket', icon: <IoTicketOutline /> },
+    { path: '/super-admin/feedback', label: 'Feedback', icon: <LiaThumbsUp /> },
     {
-      path: '/dash/admin/figura-previste',
+      path: '/super-admin/figura-previste',
       label: 'Figura previste LMS CSR 59',
       icon: <BsUpload />,
     },
   ],
-  [ROLES.LICENSE_USER]: [
-    { path: '/dash/license-user', label: 'Dashboard', icon: <FaHome /> },
+
+  // ✅ Company Admins
+  [ROLES.COMPANY_ADMIN]: [
+    { path: '/company-admin', label: 'Dashboard', icon: <FaHome /> },
+    { path: '/company-admin-info', label: 'Info', icon: <FaHome /> },
+    { path: '/company-admin-courses', label: 'Courses', icon: <FaHome /> },
+    { path: '/company-admin-videos', label: 'Videos', icon: <FaHome /> },
     {
-      path: '/dash/license-user/courses',
+      path: '/company-admin-settings',
+      label: 'Settings',
+      icon: <FaHome />,
+    },
+  ],
+
+  // ✅ Company Employees
+  [ROLES.COMPANY_EMPLOYEE]: [
+    { path: '/company-user', label: 'Dashboard', icon: <FaHome /> },
+    { path: '/company-user-courses', label: 'Courses', icon: <FaHome /> },
+  ],
+
+  // ✅ Freelancers
+  [ROLES.LICENSE_USER]: [
+    { path: '/license-user', label: 'Dashboard', icon: <FaHome /> },
+    {
+      path: '/license-user-courses',
       label: 'Courses',
       icon: <IoTicketOutline />,
     },
-    { path: '/dash/license-user/videos', label: 'Videos', icon: <FaHome /> },
+    { path: '/license-user-videos', label: 'Videos', icon: <FaHome /> },
   ],
+
+  // ✅ Private Users
   [ROLES.PRIVATE_USER]: [
-    { path: '/dash/student', label: 'Dashboard', icon: <FaHome /> },
+    { path: '/private-user', label: 'Dashboard', icon: <FaHome /> },
     {
-      path: 'student/ticket',
+      path: '/private-user-ticket',
       label: 'Ticket',
       icon: <IoTicketOutline />,
     },
-  ],
-  [ROLES.COMPANY_ADMIN]: [
-    { path: '/dash/company', label: 'Dashboard', icon: <FaHome /> },
-    { path: '/dash/company/info', label: 'Info', icon: <FaHome /> },
-    { path: '/dash/company/courses', label: 'Courses', icon: <FaHome /> },
-    { path: '/dash/company/videos', label: 'Videos', icon: <FaHome /> },
-    { path: '/dash/company/settings', label: 'Settings', icon: <FaHome /> },
   ],
 };
 

@@ -63,7 +63,7 @@ const router = createBrowserRouter(
       </Route>
 
       {/* Dashboard */}
-      <Route path="/dash" element={<DashboardLayout />}>
+      <Route path="/" element={<DashboardLayout />}>
         {dashboardRoutes.map(({ roles, routes }) => (
           <Route
             key={roles.join('-')}

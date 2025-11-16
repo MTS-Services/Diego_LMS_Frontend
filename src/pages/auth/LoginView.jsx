@@ -38,11 +38,11 @@ const LoginView = () => {
     setLoading(true);
     dispatch(loginUser({ email, password }))
       .unwrap()
-      .then((user) => {
-        console.log('✅ Login successful:', user);
-        // dynamic redirect
-        const redirectPath = ROLE_DASHBOARD_ROUTE[user.role] || '/dash';
-        navigate(redirectPath, { replace: true });
+      .then((res) => {
+        const roles = res.user.role;
+        const redirect = ROLE_DASHBOARD_ROUTE[roles] || '/';
+
+        navigate(redirect, { replace: true });
       })
       .catch((err) => {
         setError(err.message || 'Login failed');

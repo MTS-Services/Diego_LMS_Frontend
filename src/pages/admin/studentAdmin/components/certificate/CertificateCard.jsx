@@ -19,18 +19,16 @@ const CertificateCard = ({ certificate }) => {
   };
 
   return (
-    <div className="mb-6 rounded-xl border border-gray-200 bg-white p-10 shadow-sm">
+    <div className="mb-8 space-y-8 rounded-xl border border-gray-200 bg-white p-10 shadow-sm">
       {/* Course title */}
-      <Heading level={3} className="mb-4 text-2xl font-semibold text-[#252525]">
-        {certificate.courseTitle}
-      </Heading>
+      <Heading level={3}>{certificate.courseTitle}</Heading>
 
       {/* Certificate preview image - smaller */}
-      <div className="mx-auto mb-4 h-96 max-w-[610px] overflow-hidden rounded-lg bg-gray-100">
+      <div className="mx-auto max-w-2xl border border-amber-100 bg-gray-100">
         <img
           src={certificate.imageUrl || '/image/mandatory_courses/image1.jpg'}
           alt={`Certificate for ${certificate.courseTitle}`}
-          className="h-auto w-full"
+          className="object-contain"
           onError={(e) => {
             e.currentTarget.src =
               'https://via.placeholder.com/400x250?text=Certificate';
@@ -39,13 +37,10 @@ const CertificateCard = ({ certificate }) => {
       </div>
 
       {/* Message */}
-      <Paragraph variant="body" className="mb-4 text-base text-[#252525]">
-        {certificate.message ||
-          "Ce l'hai fatta! Il tuo attestato è pronto: clicca qui per scaricarlo."}
-      </Paragraph>
+      <Heading level={3}>{certificate.message}</Heading>
 
       {/* Action buttons */}
-      <div className="mr-24 flex items-center justify-end gap-2">
+      <div className="flex items-center justify-end gap-2">
         <Button
           onClick={handlePrint}
           icon={<LuPrinter className="text-base" />}

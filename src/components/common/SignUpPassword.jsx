@@ -1,14 +1,12 @@
 import { GrClose } from 'react-icons/gr';
 
-import { Heading, Paragraph, InputField } from '../ui';
+import { Heading, Paragraph, InputField, Label } from '../ui';
 
 const SignUpPassword = ({ onSubmitPassword }) => {
   const handlePassWordSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData);
-
-    console.log(data);
 
     if (onSubmitPassword) {
       onSubmitPassword(data);
@@ -26,38 +24,47 @@ const SignUpPassword = ({ onSubmitPassword }) => {
           </button>
         </div>
 
-        <Heading level={2}>Crea la tua password</Heading>
-        <form onSubmit={handlePassWordSubmit} action="">
-          <InputField
-            TClassName={''}
-            className={'w-full'}
-            name={'pass'}
-            placeholder={'842000@Sa'}
-            title={'Nuova password *'}
-            type={'text'}
-          />
+        <Heading level={3} className="mb-6">
+          Crea la tua password
+        </Heading>
 
-          <Heading level={3}>
+        <form onSubmit={handlePassWordSubmit} action="" className="space-y-2">
+          <div className="mb-6">
+            <Label
+              htmlFor="password"
+              required={true}
+              className="mb-2 block text-xl font-medium"
+            >
+              Password
+            </Label>
+            <InputField
+              type="password"
+              name="password"
+              placeholder="Inserisci la password"
+              className="rounded-2xl border border-green-100 bg-white px-4 py-3"
+            />
+          </div>
+
+          <Heading level={4}>
             Lunghezza minima: 8 caratteri (consigliati 12 o più)
           </Heading>
           <div className="my-6 flex flex-col gap-3">
-            <Heading>Deve includere almeno:</Heading>
+            <Heading level={4}>Deve includere almeno:</Heading>
             <Paragraph>1 lettera maiuscola (A–Z)</Paragraph>
             <Paragraph>1 lettera minuscola (a–z)</Paragraph>
             <Paragraph>1 numero (0–9)</Paragraph>
             <Paragraph>1 carattere speciale (!, ?, $, %, &)</Paragraph>
           </div>
-          <Heading level={3}>
+          <Heading level={4}>
             Non deve contenere nome utente, nome reale o altre informazioni
             facilmente intuibili
           </Heading>
           <InputField
-            TClassName={''}
-            className={'w-full'}
-            name={'confirmPass'}
-            placeholder={'842000@Sa'}
-            title={'Conferma password *'}
-            type={'text'}
+            className="w-full"
+            name="confirmPass"
+            placeholder="842000@Sa"
+            title="Conferma password *"
+            type="text"
           />
 
           {/* Footer with Procedi button */}

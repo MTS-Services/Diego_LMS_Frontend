@@ -7,7 +7,7 @@ const Paragraph = ({
   ...props
 }) => {
   const variants = {
-    body: 'text-base text-gray-700',
+    body: 'text-base ',
     small: 'text-sm text-gray-600',
     caption: 'text-xs text-gray-500',
     error: 'text-sm text-red-600',
