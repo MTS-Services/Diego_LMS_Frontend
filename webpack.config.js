@@ -1,8 +1,9 @@
 const path = require('path');
+// We need webpack to handle environment variables if you want them in Webpack
+const webpack = require('webpack');
 
 module.exports = {
-  mode:
-    process.env.VITE_APP_ENV === 'production' ? 'production' : 'development',
+  mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
 
   entry: './src/index.js',
 
@@ -12,19 +13,32 @@ module.exports = {
     clean: true,
   },
 
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
+
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: 'babel-loader',
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              // 1. Handle React JSX with the NEW automatic transform
+              ['@babel/preset-react', { runtime: 'automatic' }],
+              // 2. Handle modern JavaScript features
+              '@babel/preset-env'
+            ]
+          }
+        },
       },
     ],
   },
 
-  // ✅ CSP-safe devtool
   devtool:
-    process.env.VITE_APP_ENV === 'production'
+    process.env.NODE_ENV === 'production'
       ? 'source-map'
       : 'cheap-module-source-map',
 
@@ -32,4 +46,15 @@ module.exports = {
     static: './dist',
     hot: true,
   },
+
+  // OPTIONAL: Handle your VITE_ environment variables
+  // Webpack does not read .env files like Vite does automatically.
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': JSON.stringify(process.env),
+      // If your code uses import.meta.env.VITE_API_BASE_URL, 
+      // you need to define it manually like this:
+      'import.meta.env.VITE_API_BASE_URL': JSON.stringify(process.env.VITE_API_BASE_URL || 'http://localhost:3001/api/v1'),
+    }),
+  ],
 };

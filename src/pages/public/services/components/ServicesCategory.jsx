@@ -1,9 +1,10 @@
 import { Container, Heading, Paragraph } from '../../../../components/ui';
 
 const ServicesCategory = ({ categories, loading }) => {
-  console.log(categories);
+  console.log('Categories in component:', categories);
+
   return (
-    <Container className="">
+    <Container className="my-5 md:my-10 ">
       {loading ? (
         <Heading h2={'Loading'}></Heading>
       ) : (

@@ -1,7 +1,16 @@
 import React from 'react';
 
-const Heading = ({ level = 1, children, className = '', ...props }) => {
-  const Tag = `h${level}`;
+const Heading = ({ level = 1, children, className = '', h1, h2, h3, h4, h5, h6, ...props }) => {
+  // Determine level from props
+  let finalLevel = level;
+  if (h1) finalLevel = 1;
+  if (h2) finalLevel = 2;
+  if (h3) finalLevel = 3;
+  if (h4) finalLevel = 4;
+  if (h5) finalLevel = 5;
+  if (h6) finalLevel = 6;
+
+  const Tag = `h${finalLevel}`;
 
   const sizes = {
     1: 'text-7xl',
@@ -12,11 +21,11 @@ const Heading = ({ level = 1, children, className = '', ...props }) => {
     6: 'text-base',
   };
 
-  const classes = `${sizes[level]} ${className}`;
+  const classes = `${sizes[finalLevel]} ${className}`;
 
   return (
     <Tag className={classes} {...props}>
-      {children}
+      {h1 || h2 || h3 || h4 || h5 || h6 || children}
     </Tag>
   );
 };

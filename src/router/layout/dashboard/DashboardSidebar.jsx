@@ -103,10 +103,9 @@ const DashboardSidebar = () => {
             onClick={() => setActiveLink(path)}
             end={path === '/dash/admin'}
             className={({ isActive }) =>
-              `flex items-center gap-2 rounded-lg px-3 py-2 font-['Poppins'] ${
-                isActive
-                  ? 'bg-[#73BFA1] text-white'
-                  : 'text-gray-700 hover:bg-gray-100'
+              `flex items-center gap-2 rounded-lg px-3 py-2 font-['Poppins'] ${isActive
+                ? 'bg-[#73BFA1] text-white'
+                : 'text-gray-700 hover:bg-gray-100'
               }`
             }
           >

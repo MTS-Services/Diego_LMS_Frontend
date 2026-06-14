@@ -108,14 +108,14 @@ const navItems = [
     dropdown: [
       {
         label: 'La nostra piattaforma',
-        dropdown: [{ label: 'Come funziona', path: '/training/courses/our' }],
+        dropdown: [{ label: 'Come funziona', path: '/training/courses/how-it-works' }],
       },
       {
         label: 'Corsi',
         dropdown: [
           {
             label: 'Corsi SEVESO',
-            path: '/training/courses/how-it-works',
+            path: '/training/courses/our',
           },
           {
             label: 'Corsi obbligatori',
@@ -153,225 +153,222 @@ const MainNavbar = () => {
   };
 
   return (
-    <nav className="flex px-[120px] py-6">
-      {/* Logo */}
-      <div className="flex flex-1 items-center gap-10">
-        <Link to="/">
-          <div className="flex items-center">
-            <img
-              className="h-10 w-10 bg-cover object-contain text-[#46BB9D]"
-              src="/images/icons/title.png"
-              alt="Home"
-            />
+    <Container>
+      <nav className="flex  py-6">
+        {/* Logo */}
+        <div className="flex flex-1 items-center gap-10">
+          <Link to="/">
+            <div className="flex items-center">
+              <img
+                className="h-10 w-10 bg-cover object-contain text-[#46BB9D]"
+                src="/images/icons/title.png"
+                alt="Home"
+              />
 
-            <h1 className="text-3xl font-bold text-gray-900">UnoSicurezza</h1>
-          </div>
-        </Link>
-
-        {/* --- DESKTOP MENU --- */}
-        <div className="hidden flex-1 justify-center lg:flex">
-          <div className="flex items-center gap-6">
-            {navItems.map((item, index) => (
-              <div key={index} className="group relative">
-                {!item.dropdown ? (
-                  <Link
-                    to={item.path}
-                    className={`border-b border-transparent text-base font-semibold transition-all duration-300 ${
-                      isActive(item)
-                        ? 'border-[#73BFA1] text-[#73BFA1]'
-                        : 'text-[#252525] hover:border-[#63be9a]'
-                    }`}
-                  >
-                    {item.label}
-                  </Link>
-                ) : (
-                  <>
-                    <Link
-                      to={item.path}
-                      className={`flex items-center gap-1 border-b border-transparent text-[15px] font-medium transition-all duration-200 hover:border-[#73BFA1] ${
-                        isActive(item) ? 'text-[#73BFA1]' : 'text-gray-700'
-                      }`}
-                    >
-                      <span>{item.label}</span>
-                      <FaChevronDown
-                        size={14}
-                        className="transition-transform duration-200 group-hover:rotate-180"
-                      />
-                    </Link>
-
-                    {/* ✅ Desktop dropdown (wider) */}
-                    <div className="invisible absolute top-full z-50 mt-2 w-64 rounded-lg bg-white py-2 opacity-0 shadow-lg transition-all duration-200 group-hover:visible group-hover:opacity-100">
-                      {item.dropdown.map((sub, i) => (
-                        <div key={i} className="group/sub relative">
-                          {/* --- DESKTOP LINK/SPAN LOGIC --- */}
-                          {sub.dropdown ? (
-                            <span
-                              className="flex cursor-default items-center justify-between px-4 py-2 text-base font-semibold text-gray-700 hover:bg-[#EAF5F1] hover:text-[#568F79]" // cursor-default added for visual cue
-                            >
-                              {sub.label}
-                              <FaChevronDown
-                                size={12}
-                                className="ml-2 rotate-[-90deg] transition-transform group-hover/sub:rotate-0"
-                              />
-                            </span>
-                          ) : (
-                            <Link
-                              to={sub.path}
-                              className="flex items-center justify-between px-4 py-2 text-base font-semibold text-gray-700 hover:bg-[#EAF5F1] hover:text-[#568F79]"
-                            >
-                              {sub.label}
-                            </Link>
-                          )}
-                          {/* --- END DESKTOP LINK/SPAN LOGIC --- */}
-
-                          {sub.dropdown && (
-                            <div className="invisible absolute top-0 left-full z-50 ml-1 w-64 rounded-lg bg-white py-2 opacity-0 shadow-lg transition-all duration-200 group-hover/sub:visible group-hover/sub:opacity-100">
-                              {sub.dropdown.map((deep, j) => (
-                                <Link
-                                  key={j}
-                                  to={deep.path}
-                                  className="block px-4 py-2 text-base font-semibold text-gray-700 hover:bg-[#EAF5F1] hover:text-[#568F79]"
-                                >
-                                  {deep.label}
-                                </Link>
-                              ))}
-                            </div>
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                  </>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* --- E-Learning Button (Desktop) --- */}
-        <div className="hidden lg:block">
-          <Link
-            to="/auth/UserLanguage"
-            className="inline-block rounded-full bg-[#73BFA1] px-8 py-3 font-semibold text-white"
-          >
-            E-Learning
+              <h1 className="text-3xl font-bold text-gray-900">UnoSicurezza</h1>
+            </div>
           </Link>
-        </div>
-      </div>
 
-      {/* --- MOBILE MENU BUTTON --- */}
-      <div className="lg:hidden">
-        <button
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="relative z-50 p-2 text-gray-700"
-        >
-          {isMenuOpen ? <GrClose size={28} /> : <IoMenu size={28} />}
-        </button>
-      </div>
-
-      {/* --- MOBILE MENU --- */}
-      {isMenuOpen && (
-        <div className="absolute top-full right-0 left-0 z-50 bg-white shadow-md lg:hidden">
-          <nav>
-            <div className="flex flex-col space-y-3 pt-6 pb-6">
+          {/* --- DESKTOP MENU --- */}
+          <div className="hidden flex-1 justify-center lg:flex">
+            <div className="flex items-center gap-6">
               {navItems.map((item, index) => (
-                <div key={index}>
+                <div key={index} className="group relative">
                   {!item.dropdown ? (
                     <Link
                       to={item.path}
-                      className={`block py-2 text-[15px] font-medium ${
-                        isActive(item) ? 'text-[#73BFA1]' : 'text-gray-700'
-                      }`}
-                      onClick={() => setIsMenuOpen(false)}
+                      className={`border-b border-transparent text-base font-semibold transition-all duration-300 ${isActive(item)
+                        ? 'border-[#73BFA1] text-[#73BFA1]'
+                        : 'text-[#252525] hover:border-[#63be9a]'
+                        }`}
                     >
                       {item.label}
                     </Link>
                   ) : (
-                    <div>
-                      <div className="flex items-center justify-between">
-                        <Link
-                          to={item.path}
-                          className={`flex-1 py-2 text-left text-[15px] font-medium ${
-                            isActive(item) ? 'text-[#73BFA1]' : 'text-gray-700'
+                    <>
+                      <Link
+                        to={item.path}
+                        className={`flex items-center gap-1 border-b border-transparent text-[15px] font-medium transition-all duration-200 hover:border-[#73BFA1] ${isActive(item) ? 'text-[#73BFA1]' : 'text-gray-700'
                           }`}
-                          onClick={() => setIsMenuOpen(false)}
-                        >
-                          {item.label}
-                        </Link>
-                        <button
-                          onClick={() =>
-                            setOpenDropdown(
-                              openDropdown === item.label ? null : item.label,
-                            )
-                          }
-                        >
-                          <FaChevronDown
-                            size={16}
-                            className={`transition-transform duration-200 ${
-                              openDropdown === item.label ? 'rotate-180' : ''
-                            }`}
-                          />
-                        </button>
-                      </div>
+                      >
+                        <span>{item.label}</span>
+                        <FaChevronDown
+                          size={14}
+                          className="transition-transform duration-200 group-hover:rotate-180"
+                        />
+                      </Link>
 
-                      {openDropdown === item.label && (
-                        <div className="mt-1 space-y-2 pl-4">
-                          {item.dropdown.map((sub, i) => (
-                            <div key={i}>
-                              {/* --- MOBILE LINK/SPAN LOGIC --- */}
-                              {sub.dropdown ? (
-                                <div className="flex items-center justify-between">
-                                  <span
-                                    className="block cursor-default rounded-sm py-1 pl-4 text-base font-semibold duration-200 hover:bg-[#EAF5F1] hover:text-[#568F79]" // cursor-default added
+                      {/* ✅ Desktop dropdown (wider) */}
+                      <div className="invisible absolute top-full z-50 mt-2 w-64 rounded-lg bg-white py-2 opacity-0 shadow-lg transition-all duration-200 group-hover:visible group-hover:opacity-100">
+                        {item.dropdown.map((sub, i) => (
+                          <div key={i} className="group/sub relative">
+                            {/* --- DESKTOP LINK/SPAN LOGIC --- */}
+                            {sub.dropdown ? (
+                              <span
+                                className="flex cursor-default items-center justify-between px-4 py-2 text-base font-semibold text-gray-700 hover:bg-[#EAF5F1] hover:text-[#568F79]" // cursor-default added for visual cue
+                              >
+                                {sub.label}
+                                <FaChevronDown
+                                  size={12}
+                                  className="ml-2 rotate-[-90deg] transition-transform group-hover/sub:rotate-0"
+                                />
+                              </span>
+                            ) : (
+                              <Link
+                                to={sub.path}
+                                className="flex items-center justify-between px-4 py-2 text-base font-semibold text-gray-700 hover:bg-[#EAF5F1] hover:text-[#568F79]"
+                              >
+                                {sub.label}
+                              </Link>
+                            )}
+                            {/* --- END DESKTOP LINK/SPAN LOGIC --- */}
+
+                            {sub.dropdown && (
+                              <div className="invisible absolute top-0 left-full z-50 ml-1 w-64 rounded-lg bg-white py-2 opacity-0 shadow-lg transition-all duration-200 group-hover/sub:visible group-hover/sub:opacity-100">
+                                {sub.dropdown.map((deep, j) => (
+                                  <Link
+                                    key={j}
+                                    to={deep.path}
+                                    className="block px-4 py-2 text-base font-semibold text-gray-700 hover:bg-[#EAF5F1] hover:text-[#568F79]"
                                   >
-                                    {sub.label}
-                                  </span>
-                                </div>
-                              ) : (
-                                <Link
-                                  to={sub.path}
-                                  className="block rounded-sm py-1 pl-4 text-base font-semibold duration-200 hover:bg-[#EAF5F1] hover:text-[#568F79]"
-                                  onClick={() => setIsMenuOpen(false)}
-                                >
-                                  {sub.label}
-                                </Link>
-                              )}
-                              {/* --- END MOBILE LINK/SPAN LOGIC --- */}
-
-                              {sub.dropdown && (
-                                <div className="mt-1 space-y-2 pl-4">
-                                  {sub.dropdown.map((deep, j) => (
-                                    <Link
-                                      key={j}
-                                      to={deep.path}
-                                      className="block rounded-sm py-1 pl-4 text-base font-semibold duration-200 hover:bg-[#EAF5F1] hover:text-[#568F79]"
-                                      onClick={() => setIsMenuOpen(false)}
-                                    >
-                                      {deep.label}
-                                    </Link>
-                                  ))}
-                                </div>
-                              )}
-                            </div>
-                          ))}
-                        </div>
-                      )}
-                    </div>
+                                    {deep.label}
+                                  </Link>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    </>
                   )}
                 </div>
               ))}
-
-              <Link
-                to="/auth/UserLanguage"
-                className="mt-4 inline-block w-full rounded-full bg-[#5FD4C8] px-8 py-3 text-center font-medium text-white transition-colors duration-200 hover:bg-[#4fc4b8]"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                E-Learning
-              </Link>
             </div>
-          </nav>
+          </div>
+
+          {/* --- E-Learning Button (Desktop) --- */}
+          <div className="hidden lg:block">
+            <Link
+              to="/auth/UserLanguage"
+              className="inline-block rounded-full bg-[#73BFA1] px-8 py-3 font-semibold text-white"
+            >
+              E-Learning
+            </Link>
+          </div>
         </div>
-      )}
-    </nav>
+
+        {/* --- MOBILE MENU BUTTON --- */}
+        <div className="lg:hidden">
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="relative z-50 p-2 text-gray-700"
+          >
+            {isMenuOpen ? <GrClose size={28} /> : <IoMenu size={28} />}
+          </button>
+        </div>
+
+        {/* --- MOBILE MENU --- */}
+        {isMenuOpen && (
+          <div className="absolute top-full right-0 left-0 z-50 bg-white shadow-md lg:hidden">
+            <nav>
+              <div className="flex flex-col space-y-3 pt-6 pb-6">
+                {navItems.map((item, index) => (
+                  <div key={index}>
+                    {!item.dropdown ? (
+                      <Link
+                        to={item.path}
+                        className={`block py-2 text-[15px] font-medium ${isActive(item) ? 'text-[#73BFA1]' : 'text-gray-700'
+                          }`}
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <div>
+                        <div className="flex items-center justify-between">
+                          <Link
+                            to={item.path}
+                            className={`flex-1 py-2 text-left text-[15px] font-medium ${isActive(item) ? 'text-[#73BFA1]' : 'text-gray-700'
+                              }`}
+                            onClick={() => setIsMenuOpen(false)}
+                          >
+                            {item.label}
+                          </Link>
+                          <button
+                            onClick={() =>
+                              setOpenDropdown(
+                                openDropdown === item.label ? null : item.label,
+                              )
+                            }
+                          >
+                            <FaChevronDown
+                              size={16}
+                              className={`transition-transform duration-200 ${openDropdown === item.label ? 'rotate-180' : ''
+                                }`}
+                            />
+                          </button>
+                        </div>
+
+                        {openDropdown === item.label && (
+                          <div className="mt-1 space-y-2 pl-4">
+                            {item.dropdown.map((sub, i) => (
+                              <div key={i}>
+                                {/* --- MOBILE LINK/SPAN LOGIC --- */}
+                                {sub.dropdown ? (
+                                  <div className="flex items-center justify-between">
+                                    <span
+                                      className="block cursor-default rounded-sm py-1 pl-4 text-base font-semibold duration-200 hover:bg-[#EAF5F1] hover:text-[#568F79]" // cursor-default added
+                                    >
+                                      {sub.label}
+                                    </span>
+                                  </div>
+                                ) : (
+                                  <Link
+                                    to={sub.path}
+                                    className="block rounded-sm py-1 pl-4 text-base font-semibold duration-200 hover:bg-[#EAF5F1] hover:text-[#568F79]"
+                                    onClick={() => setIsMenuOpen(false)}
+                                  >
+                                    {sub.label}
+                                  </Link>
+                                )}
+                                {/* --- END MOBILE LINK/SPAN LOGIC --- */}
+
+                                {sub.dropdown && (
+                                  <div className="mt-1 space-y-2 pl-4">
+                                    {sub.dropdown.map((deep, j) => (
+                                      <Link
+                                        key={j}
+                                        to={deep.path}
+                                        className="block rounded-sm py-1 pl-4 text-base font-semibold duration-200 hover:bg-[#EAF5F1] hover:text-[#568F79]"
+                                        onClick={() => setIsMenuOpen(false)}
+                                      >
+                                        {deep.label}
+                                      </Link>
+                                    ))}
+                                  </div>
+                                )}
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                ))}
+
+                <Link
+                  to="/auth/UserLanguage"
+                  className="mt-4 inline-block w-full rounded-full bg-[#5FD4C8] px-8 py-3 text-center font-medium text-white transition-colors duration-200 hover:bg-[#4fc4b8]"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  E-Learning
+                </Link>
+              </div>
+            </nav>
+          </div>
+        )}
+      </nav>
+    </Container>
   );
 };
 

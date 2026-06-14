@@ -3,7 +3,7 @@ import { Heading, Paragraph } from '../ui';
 const Banner = ({ image, title, description }) => {
   return (
     <div
-      className="relative h-[600px] w-full overflow-hidden rounded-2xl bg-cover bg-center"
+      className="relative h-[600px] w-full overflow-hidden rounded-md bg-cover bg-center"
       style={{ backgroundImage: `url(${image})` }}
     >
       {/* Gradient Overlay */}

@@ -1,21 +1,22 @@
 import { useEffect, useState } from 'react';
 import ServicesCategory from './components/ServicesCategory';
 import BannerSection from './sections/BannerSection';
+import { getData } from '../../../utils/getData';
 
 const ServicesView = () => {
   const [categories, setCategory] = useState([]);
-  const [loading, setLoading] = useState(false);
-
-  console.log('category', categories);
+  const [loading, setLoading] = useState(true);
+  console.log('category check', categories);
 
   useEffect(() => {
     const categoryData = async () => {
       try {
-        setLoading(false);
-        const data = await getData('category.json');
+        setLoading(true);
+        const data = await getData('./fakeData/category.json');
         setCategory(data || []);
       } catch (err) {
-        console.log('', err);
+        console.error('Error loading categories:', err);
+        setCategory([]);
       } finally {
         setLoading(false);
       }
@@ -32,3 +33,4 @@ const ServicesView = () => {
 };
 
 export default ServicesView;
+
