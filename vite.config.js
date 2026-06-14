@@ -8,5 +8,6 @@ export default defineConfig({
         react({
             jsxRuntime: 'automatic',
         }),
+        require('@tailwindcss/line-clamp'),
     ],
 })
