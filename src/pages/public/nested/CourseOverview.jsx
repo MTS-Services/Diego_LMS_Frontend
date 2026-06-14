@@ -1,7 +1,4 @@
-import { Badge } from '@/components/ui/badge';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { CheckCircle2, Clock, FileText, Laptop, LayoutList, PhoneCall, UserCheck, Users } from 'lucide-react';
+import { Clock, FileText, LayoutList, PhoneCall, UserCheck, Users } from 'lucide-react';
 
 export default function CourseOverview() {
   return (
@@ -16,56 +13,54 @@ export default function CourseOverview() {
         </div>
 
         {/* Courses Table */}
-        <Card className="mb-12 shadow-lg border-0 overflow-hidden">
-          <CardContent className="p-0">
-            <Table>
-              <TableHeader className="bg-slate-800">
-                <TableRow className="hover:bg-slate-800">
-                  <TableHead className="text-white font-semibold text-lg py-4">Corso</TableHead>
-                  <TableHead className="text-white font-semibold text-lg py-4">Descrizione</TableHead>
-                  <TableHead className="text-white font-semibold text-lg py-4">Durata</TableHead>
-                  <TableHead className="text-white font-semibold text-lg py-4">Tipo</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                <TableRow className="border-b border-slate-200 hover:bg-slate-50">
-                  <TableCell className="font-medium text-slate-900 py-4">Corso singolo</TableCell>
-                  <TableCell className="text-slate-600">
-                    Il corso "Seveso III" si riferisce alla direttiva UE 2012/18/UE: si tratta di un corso singolo basato su una necessità urgente di rientrare nelle richieste della normativa
-                  </TableCell>
-                  <TableCell className="text-slate-600">
-                    <div className="flex items-center gap-1">
-                      <Clock className="h-4 w-4 text-blue-500" />
-                      30 min
-                    </div>
-                  </TableCell>
-                  <TableCell>
-                    <Badge variant="secondary" className="bg-blue-100 text-blue-700 hover:bg-blue-100">
-                      Singolo
-                    </Badge>
-                  </TableCell>
-                </TableRow>
-                <TableRow className="border-b border-slate-200 hover:bg-slate-50">
-                  <TableCell className="font-medium text-slate-900 py-4">Corso Avanzato Seveso</TableCell>
-                  <TableCell className="text-slate-600">
-                    Il corso "Seveso III" si riferisce alla direttiva UE 2012/18/UE: si tratta di un pacchetto contenente quattro corsi erogati con cadenza trimestrale sulla nostra piattaforma
-                  </TableCell>
-                  <TableCell className="text-slate-600">
-                    <div className="flex items-center gap-1">
-                      <Clock className="h-4 w-4 text-blue-500" />
-                      30 min/corso
-                    </div>
-                  </TableCell>
-                  <TableCell>
-                    <Badge variant="default" className="bg-slate-800 hover:bg-slate-700">
-                      Pacchetto
-                    </Badge>
-                  </TableCell>
-                </TableRow>
-              </TableBody>
-            </Table>
-          </CardContent>
-        </Card>
+        <div className="mb-12 shadow-lg rounded-xl overflow-hidden border border-slate-200 bg-white">
+          <table className="w-full">
+            <thead className="bg-slate-800">
+              <tr>
+                <th className="text-white font-semibold text-lg py-4 px-6 text-left">Corso</th>
+                <th className="text-white font-semibold text-lg py-4 px-6 text-left">Descrizione</th>
+                <th className="text-white font-semibold text-lg py-4 px-6 text-left">Durata</th>
+                <th className="text-white font-semibold text-lg py-4 px-6 text-left">Tipo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="border-b border-slate-200 hover:bg-slate-50">
+                <td className="font-medium text-slate-900 py-4 px-6">Corso singolo</td>
+                <td className="text-slate-600 py-4 px-6">
+                  Il corso "Seveso III" si riferisce alla direttiva UE 2012/18/UE: si tratta di un corso singolo basato su una necessità urgente di rientrare nelle richieste della normativa
+                </td>
+                <td className="text-slate-600 py-4 px-6">
+                  <div className="flex items-center gap-1">
+                    <Clock className="h-4 w-4 text-blue-500" />
+                    30 min
+                  </div>
+                </td>
+                <td className="py-4 px-6">
+                  <span className="inline-flex items-center rounded-full bg-blue-100 px-3 py-1 text-sm font-medium text-blue-700">
+                    Singolo
+                  </span>
+                </td>
+              </tr>
+              <tr className="border-b border-slate-200 hover:bg-slate-50">
+                <td className="font-medium text-slate-900 py-4 px-6">Corso Avanzato Seveso</td>
+                <td className="text-slate-600 py-4 px-6">
+                  Il corso "Seveso III" si riferisce alla direttiva UE 2012/18/UE: si tratta di un pacchetto contenente quattro corsi erogati con cadenza trimestrale sulla nostra piattaforma
+                </td>
+                <td className="text-slate-600 py-4 px-6">
+                  <div className="flex items-center gap-1">
+                    <Clock className="h-4 w-4 text-blue-500" />
+                    30 min/corso
+                  </div>
+                </td>
+                <td className="py-4 px-6">
+                  <span className="inline-flex items-center rounded-full bg-slate-800 px-3 py-1 text-sm font-medium text-white">
+                    Pacchetto
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
         {/* How it works section */}
         <div className="mb-8">
@@ -78,26 +73,24 @@ export default function CourseOverview() {
         {/* Steps grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {steps.map((step, index) => (
-            <Card key={index} className="border-0 shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden">
-              <CardHeader className="pb-3">
+            <div key={index} className="bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-slate-100">
+              <div className="p-6">
                 <div className="flex items-center justify-between">
                   <div className="h-12 w-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-700 font-bold text-xl">
                     {index + 1}
                   </div>
                   {step.icon}
                 </div>
-                <CardTitle className="text-lg font-semibold text-slate-800 mt-4">{step.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-slate-500 leading-relaxed">{step.description}</p>
-              </CardContent>
-            </Card>
+                <h3 className="text-lg font-semibold text-slate-800 mt-4">{step.title}</h3>
+                <p className="text-sm text-slate-500 leading-relaxed mt-2">{step.description}</p>
+              </div>
+            </div>
           ))}
         </div>
 
-        {/* Detailed steps with icons */}
-        <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm">
-          <CardContent className="p-6 md:p-8">
+        {/* Detailed steps */}
+        <div className="bg-white/80 backdrop-blur-sm rounded-xl shadow-lg border border-slate-100">
+          <div className="p-6 md:p-8">
             <div className="space-y-6">
               {detailedSteps.map((step, index) => (
                 <div key={index} className="flex items-start gap-4 group">
@@ -120,10 +113,10 @@ export default function CourseOverview() {
                 </div>
               ))}
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </div>
 
-        {/* Footer contact section */}
+        {/* Footer */}
         <div className="mt-12 text-center">
           <div className="inline-flex items-center gap-2 text-slate-400 text-sm">
             <PhoneCall className="h-4 w-4" />
