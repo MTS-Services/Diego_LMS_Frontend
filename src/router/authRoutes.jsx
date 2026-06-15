@@ -11,6 +11,7 @@ export const authRoutes = [
   { path: 'register/choose-language', element: <ChooseLanguageView /> },
 ];
 
+
 export const setupRoutes = [
   { path: 'register/setup-profile/role', element: <Role /> },
   { path: 'register/setup-profile/information', element: <Information /> },

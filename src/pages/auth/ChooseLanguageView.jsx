@@ -70,18 +70,16 @@ const ChooseLanguageView = () => {
                 key={lang.code}
                 type="button"
                 onClick={() => handleSelect(lang.code)}
-                className={`relative h-36 rounded-2xl border-2 bg-white p-5 transition-all sm:h-40 md:h-48 ${
-                  selected === lang.code
+                className={`relative h-36 rounded-2xl border-2 bg-white p-5 transition-all sm:h-40 md:h-48 ${selected === lang.code
                     ? 'border-emerald-400 '
                     : 'border-gray-200 hover:border-gray-300'
-                }`}
+                  }`}
               >
                 {/* Checkmark */}
                 <div className="absolute top-3 right-3">
                   <div
-                    className={`flex h-6 w-6 items-center justify-center rounded-full ${
-                      selected === lang.code ? 'bg-emerald-400' : 'bg-gray-200'
-                    }`}
+                    className={`flex h-6 w-6 items-center justify-center rounded-full ${selected === lang.code ? 'bg-emerald-400' : 'bg-gray-200'
+                      }`}
                   >
                     {selected === lang.code && (
                       <svg
