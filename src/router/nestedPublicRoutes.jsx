@@ -1,3 +1,6 @@
+
+import Checkout from '../pages/public/checkout';
+import CourseDetails from '../pages/public/CourseDetail';
 import {
   AmbientRentView,
   CondominiumPropertyView,
@@ -72,4 +75,6 @@ export const nestedPublicRoutes = [
     element: <TrainingCoursesRequiredView />,
   },
   { path: 'training/courses/catalog', element: <TrainingCoursesCatalogView /> },
+  { path: 'training/course/details', element: <CourseDetails /> },
+  { path: 'training/course/checkout', element: <Checkout /> },
 ];
