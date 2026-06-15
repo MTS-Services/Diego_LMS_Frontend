@@ -5,9 +5,9 @@ import ServiceForm from '../services/components/ServiceForm';
 const SafetyServiceView = () => {
   return <Container className=' '>
     <Banner
-      description={'Esplora i nostri servizi e contattaci'}
+      description={'Consulenza per la direttiva Seveso sulla prevenzione degli incidenti rilevanti'}
       image={banner}
-      title={'Servizi'}
+      title={'Corsi SEVESO'}
     />
     <div className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -18,25 +18,13 @@ const SafetyServiceView = () => {
             Dettagli del servizio
           </h1>
 
+
           <div className="prose prose-lg max-w-none">
             <p className="text-gray-600 leading-relaxed mb-6">
-              La sicurezza non è un semplicemente un argomento tedesco del quale farsi beffa durante
-              la quotidiana attività lavorativa. A volte può risultare macchiosa e complessa perché
-              non si hanno le conoscenze sufficienti a disposizione per portarla a termine. Altre
-              volte invece si pensa che è un adempimento il quale, una volta portato a termine, non
-              prevede più impegno, ma ci si sbaglia di grosso. La sicurezza è un adempimento che
-              prevede un mantenimento e miglioramento continuo seguendo dettami di legge. Motivo
-              per il quale, UnoSicurezza, aiuta le imprese a fornire il servizio di:
+              Corsi finalizzati a garantire alle aziende e gestori soggetti al D. lgs. 105/2015 l’affinare delle proprie capacità a livello capillare in merito alla gestione in sicurezza di tutti i processi che la rendono soggetta.Il gestore deve riportare nel Documento il proprio impegno a realizzare, adottare, nonché' a mantenere e ricercare il miglioramento continuo del proprio sistema di gestione   della sicurezza.Motivo per il quale, UnoSicurezza propone una vasta gamma di corsi che possano soddisfare le richieste del gestore e che rispettino l’ottica obbligatoria della formazione continua (D. lgs. 105/2015 art. 14 all’Appendice 1 dell’Allegato B). Corsi fatti su misura, grazie alla collaborazione con il vostro gruppo HS.
             </p>
 
-            <ul className="list-disc pl-6 mb-8 space-y-2 text-gray-600">
-              <li>
-                <span className="font-semibold">ASPP</span> (Addetto per il Servizio di Prevenzione e Protezione)
-              </li>
-              <li>
-                <span className="font-semibold">RSPP</span> (Responsabile per il Servizio di Prevenzione e Protezione)
-              </li>
-            </ul>
+
 
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
               Cosa include il servizio
