@@ -71,8 +71,8 @@ const ChooseLanguageView = () => {
                 type="button"
                 onClick={() => handleSelect(lang.code)}
                 className={`relative h-36 rounded-2xl border-2 bg-white p-5 transition-all sm:h-40 md:h-48 ${selected === lang.code
-                    ? 'border-emerald-400 '
-                    : 'border-gray-200 hover:border-gray-300'
+                  ? 'border-emerald-400 '
+                  : 'border-gray-200 hover:border-gray-300'
                   }`}
               >
                 {/* Checkmark */}

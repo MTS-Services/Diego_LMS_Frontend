@@ -31,6 +31,8 @@ const RegisterView = () => {
       return;
     }
 
+
+
     // Step 2: OTP verification
     const otpValue = otp.join('');
     if (otpValue.length !== 6) {
@@ -52,7 +54,9 @@ const RegisterView = () => {
       })
       .finally(() => setLoading(false));
   };
-
+  const handleSubmit2 = () => {
+    navigate('/auth/register/setup-profile/role')
+  }
   // 🔙 Handle going back
   const handleBack = () => {
     setStep(1);
@@ -187,7 +191,9 @@ const RegisterView = () => {
                 </button>
               )}
 
+
               <button
+                onClick={handleSubmit2}
                 type="submit"
                 disabled={loading}
                 className="rounded-full border-2 border-[#73BFA1] bg-[#73BFA1] px-6 py-3 font-medium text-white transition-colors hover:bg-white hover:text-[#73BFA1] lg:w-[30%]"
@@ -198,6 +204,7 @@ const RegisterView = () => {
                     ? 'Verify OTP'
                     : 'Go ahead'}
               </button>
+
             </div>
           </form>
         </div>
